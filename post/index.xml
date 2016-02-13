@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>localhost:1313</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2008 - 2014,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sun, 14 Feb 2016 21:30:28 CST</updated>
+    
+    <item>
+      <title>OpenStack中的设计模式-单例模式</title>
+      <link>localhost:1313</link>
+      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
+      
+      <guid>localhost:1313</guid>
+      <description>单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。” 对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。 如果程序中引入了多线程，那么需要对Singleton Pattern进行优化，一般 对线程敏感的资源(临界资源)进行加锁。 要点：单例模式确保程序中一个类最多只有一个实例；单例模式也提供这个实例的全局点；确定在性能和资源上的限制，然后小心地选择适当的方案来实现单例，以解决多线程的问题。 #Excerpted：oslo_service/service.py class Singleton(type): _instances = {} _semaphores = lockutils.Semaphores() def __call__(cls, *args, **kwargs):#&amp;lt;--cls:str&amp;quot;OneClass&amp;quot; with lockutils.lock(&#39;singleton_lock&#39;, semaphores=cls._semaphores): if cls not in cls._instances: cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs) return cls._instances[cls] 通过修饰(参考廖雪峰的官方网站)的方式，class Singleton作为修饰函数six.add_metaclass的参数传入，被修饰的class OneClass实例化的对象a、b是相同的。 @six.add_metaclass(Singleton) class OneClass(): pass a = OneClass() b = OneClass() print(a==b) #True #Excerpted：six.py def add_metaclass(metaclass):#&amp;lt;--metaclass:Singleton &amp;quot;&amp;quot;&amp;quot;Class decorator for creating a class with a metaclass.&amp;quot;&amp;quot;&amp;quot; def wrapper(cls):#&amp;lt;--cls:OneClass orig_vars = cls.__dict__.copy() slots = orig_vars.get(&#39;__slots__&#39;) if slots is not None: if isinstance(slots, str): slots = [slots] for slots_var in slots: orig_vars.pop(slots_var) orig_vars.pop(&#39;__dict__&#39;, None) orig_vars.pop(&#39;__weakref__&#39;, None) return metaclass(cls.__name__, cls.__bases__, orig_vars) #&amp;lt;--Singleton(OneClass,(),orig_vars) return wrapper Python 语法(参考官网)： 1.</description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>localhost:1313</link>
+      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
+      
+      <guid>localhost:1313</guid>
+      <description>陈圆，男，90后，属羊，陈沙克是我老乡。 电邮: dasheyuan@qq.com</description>
+    </item>
+    
+  </channel>
+</rss>
+
