@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Scikit Learn on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/scikit-learn/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 02 Dec 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Scikit-Learn机器学习介绍（中文翻译）</title>
+      <link>http://dasheyuan.com/post/2014-12-02</link>
+      <pubDate>Tue, 02 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2014-12-02</guid>
+      <description>&lt;p&gt;翻译自：&lt;a href=&#34;http://scikit-learn.org/stable/tutorial/basic/tutorial.html&#34;&gt;http://scikit-learn.org/stable/tutorial/basic/tutorial.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;以后可能会根据自己的学习慢慢翻译其他的章节，水平有限，不足之处请指正。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本章内容
+在本章中，我们会介绍在使用scikit-learn中遇到的[机器学习]&lt;a href=&#34;machine learning&#34;&gt;1&lt;/a&gt;术语，以及一个简单的机器学习例子。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;机器学习-问题设定:935e1a74f960fd04b26b502f6058f057&#34;&gt;机器学习：问题设定&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;一般来说，机器学习问题可以这样来理解：我们有n个[样本]&lt;a href=&#34;sample&#34;&gt;2&lt;/a&gt;的数据集，想要预测未知数据的属性。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

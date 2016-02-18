@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>有监督学习 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sun, 17 May 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>机器学习笔记7 高偏差/低偏差，学习曲线，模型选择</title>
+      <link>http://dasheyuan.com/post/2015-05-17</link>
+      <pubDate>Sun, 17 May 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-05-17</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&#34;https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning&#34;&gt;https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;面对一个机器学习问题，我们提取好特征，挑选好训练集，选择一种机器学习算法，然后学习预测得到了第一步结果。然而我们不幸地发现，在测试集上的准确率低得离谱，误差高得吓人，要提高准确率、减少误差的话，下一步该做些什么呢？&lt;/p&gt;
+
+&lt;p&gt;可以采用以下的方法来减少预测的误差：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;获得更多的训练样本&lt;/li&gt;
+&lt;li&gt;减少特征的数量&lt;/li&gt;
+&lt;li&gt;增加特征的数量&lt;/li&gt;
+&lt;li&gt;使用多项式特征&lt;/li&gt;
+&lt;li&gt;增大或减小正则化参数$\lambda$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但不要盲目在这些可行的方法里随便选一种来提升模型，需要用一些诊断模型的技术来帮助我们选择使用哪种策略。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记5 神经网络2 参数学习</title>
+      <link>http://dasheyuan.com/post/2015-03-26</link>
+      <pubDate>Thu, 26 Mar 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-03-26</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;成本函数-cost-function:8735cce9d7fd270391f5ec199a69102a&#34;&gt;成本函数(Cost Function)&lt;/h1&gt;
+
+&lt;p&gt;以下是我们会用到的一些变量：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$L$表示神经网络的层数&lt;/li&gt;
+&lt;li&gt;$s_l$表示第$l$层的神经单元数(不包括偏差(bias)单元)&lt;/li&gt;
+&lt;li&gt;$K$表示输出单元数(分类数)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当有多个输出类别时，采用$h_\Theta(x)_k$表示第$k$个输出的假设结果。&lt;/p&gt;
+
+&lt;p&gt;神经网络的成本函数是logistic回归中的成本函数更普遍的一种形式。&lt;/p&gt;
+
+&lt;p&gt;logistic回归中的成本函数为：&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记5 神经网络1 模型表达</title>
+      <link>http://dasheyuan.com/post/2015-03-03-2</link>
+      <pubDate>Tue, 03 Mar 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-03-03-2</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;神经网络:d35c8128725ed53542064246ed42d2c0&#34;&gt;神经网络&lt;/h1&gt;
+
+&lt;h2 id=&#34;非线性假设:d35c8128725ed53542064246ed42d2c0&#34;&gt;非线性假设&lt;/h2&gt;
+
+&lt;p&gt;在特征变量数较大的情况下，采用线性回归会很难处理，比如我的数据集有3个特征变量，想要在假设中引入所有特征变量的平方项：&lt;/p&gt;
+
+&lt;div&gt;
+$$g(\theta_0 + \theta_1x_1^2 + \theta_2x_1x_2 + \theta_3x_1x_3  + \theta_4x_2^2 + \theta_5x_2x_3  + \theta_6x_3^2 )$$
+&lt;/div&gt;
+
+&lt;p&gt;共有6个特征，假设我们想知道选取其中任意两个可重复的平方项有多少组合，采用允许重复的组合公式计算$\frac{(n+r-1)!}{r!(n-1)!}$，共有$\frac{(3 + 2 - 1)!}{(2!\cdot (3-1)!)} = 6$种特征变量的组合。对于100个特征变量，则共有$\frac{(100 + 2 - 1)!}{(2\cdot (100-1)!)} = 5050$个新的特征变量。&lt;/p&gt;
+
+&lt;p&gt;可以大致估计特征变量的平方项组合个数的增长速度为$\mathcal{O}(\frac{n^2}2)$，立方项的组合个数的增长为$\mathcal{O}(n^3)$。这些增长都十分陡峭，让实际问题变得很棘手。&lt;/p&gt;
+
+&lt;p&gt;在变量假设十分复杂的情况下，神经网络提供了另一种机器学习算法。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记4 正则化</title>
+      <link>http://dasheyuan.com/post/2015-02-17</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-17</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;正则化-regularization:e5cda6b6e7686a83e2d03b1aaf88c83b&#34;&gt;正则化 Regularization&lt;/h1&gt;
+
+&lt;p&gt;为了和正规方程(normal equation)里&amp;rdquo;正规&amp;rdquo;区分开来，这里Regularization都译作“正则化”，有些地方也用的是“正规化”。以下内容来自&lt;a href=&#34;http://en.wikipedia.org/w/index.php?title=Regularization_(mathematics&#34;&gt;wikipedia&lt;/a&gt;)：&lt;/p&gt;
+
+&lt;p&gt;正则化是指通过引入额外新信息来解决机器学习中过拟合问题的一种方法。这种额外信息通常的形式是模型复杂性带来的惩罚度。正则化的一种理论解释是它试图引入&lt;a href=&#34;http://en.wikipedia.org/wiki/Occam%27s_razor&#34;&gt;奥卡姆剃刀原则&lt;/a&gt;。而从贝叶斯的观点来看，正则化则是在模型参数上引入了某种先验的分布。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记3 有监督学习 分类 logistic回归</title>
+      <link>http://dasheyuan.com/post/2015-02-12</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-12</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;分类问题:662363920bb15b8d466d06a6774c21df&#34;&gt;分类问题&lt;/h1&gt;
+
+&lt;p&gt;分类问题和回归问题不同的是，分类问题的预测值$y$只能取离散值，而非连续值。首先来看一个二类分类问题，预测值$y$只能取0或1。0又被称作负例(negative class)，1被称作正例(positive class)。通常也用&amp;rdquo;-&amp;ldquo;,&amp;rdquo;+&amp;ldquo;符号来表示。对于一个样本集输入$x^{(i)}$，对应的目标值$y^{(i)}$也被为标注(lable)。&lt;/p&gt;
+
+&lt;h2 id=&#34;logistic回归:662363920bb15b8d466d06a6774c21df&#34;&gt;logistic回归&lt;/h2&gt;
+
+&lt;p&gt;也可以用线性回归的方法运用到分类问题上，但是这样做很容易得到不好的结果。稍微改变一下我们的假设函数$h_\theta(x)$，使其的取值在{0,1}范围内：&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记2 有监督学习 线性回归 局部加权回归 概率解释</title>
+      <link>http://dasheyuan.com/post/2015-02-11</link>
+      <pubDate>Wed, 11 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-11</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;有监督学习:a41c550b5852f048f913986db76cdf89&#34;&gt;有监督学习&lt;/h1&gt;
+
+&lt;h2 id=&#34;局部加权线性回归-locally-weighted-linear-regression:a41c550b5852f048f913986db76cdf89&#34;&gt;局部加权线性回归(Locally weighted linear regression)&lt;/h2&gt;
+
+&lt;p&gt;参数学习算法(parametric learning algorithm)：参数个数固定&lt;/p&gt;
+
+&lt;p&gt;非参数学习算法(non-parametric learning algorithm)：参数个数随样本增加&lt;/p&gt;
+
+&lt;p&gt;特征选择对参数学习算法非常重要，否则会出现下面的问题：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;欠拟合(underfitting)：特征过少，模型过于简单，高偏差(high bias)，不能很好拟合训练集&lt;/li&gt;
+&lt;li&gt;过拟合(overfitting)：特征过多，模型过于复杂，高方差(high variance)，过于拟合训练集，不能很好预测新样本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于非参数学习算法来说，并不需要进行精心的特征选择，局部加权线性回归就是这样。&lt;/p&gt;
+
+&lt;p&gt;局部加权回归又叫做Loess，其成本函数为：&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记1 有监督学习 线性回归 LMS算法 正规方程</title>
+      <link>http://dasheyuan.com/post/2015-02-10</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-10</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;有监督学习:b33d274e87081502d65882ed2d51cd57&#34;&gt;有监督学习&lt;/h1&gt;
+
+&lt;p&gt;先理清几个概念：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$x^{(i)}$表示&amp;rdquo;输入&amp;rdquo;变量(&amp;ldquo;input&amp;rdquo; variables)，也称为特征值(features)。&lt;/li&gt;
+&lt;li&gt;$y^{(i)}$表示&amp;rdquo;输出&amp;rdquo;变量(&amp;ldquo;output&amp;rdquo; variables)，也称为目标值(target)。&lt;/li&gt;
+&lt;li&gt;一对$(x^{(i)},y^{(i)})$称为一个训练样本(training example)，用作训练的数据集就是就是一组$m$个训练样本${(x^{(i)},y^{(i)});i=1,&amp;hellip;,m}$，被称为训练集(training set)。&lt;/li&gt;
+&lt;li&gt;$X$表示输入变量的取值空间，$Y$表示输出变量的取值空间。那么$h:X \rightarrow Y$是训练得到的映射函数，对于每个取值空间X的取值，都能给出取值空间Y上的一个预测值。函数$h$的含义为假设(hypothesis)。&lt;/li&gt;
+&lt;li&gt;图形化表示整个过程：&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

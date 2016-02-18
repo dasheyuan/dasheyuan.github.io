@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>python numpy 计算自相关系数 - Chen Yuan&#39;s Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/2015-03-15">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blogs</a>
+      <nav class="site-nav right">
+      <a href="/post">日志</a>
+<a href="/tags">标签</a>
+<a href="/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h3 class="py2">python numpy 计算自相关系数</h3>
+        <span class="post-meta">Mar 15, 2015 by </span><br>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/python">python</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/numpy">numpy</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/%e7%bb%9f%e8%ae%a1">统计</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/%e8%87%aa%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0">自相关系数</a>
+        
+      </p> 
+      <article class="post-content">
+      <p>在分析时间序列时，通常需要计算一个序列的自相关系数。自相关(<a href="http://en.wikipedia.org/wiki/Autocorrelation">Autocorrelation</a>)又叫做序列相关，通常采用自相关系数来发现序列的重复规律，周期等信息。</p>
+
+<p>我们有序列$X:x_1,x_2,x_3,&hellip;,x_n$，设$X_{s,t}$为$s$时刻开始，$t$时刻结束的序列：$x_s,x_{s+1}&hellip;,x_{t-1},x_t$。$\mu_{s,t}$为序列$X_{s,t}$的均值，$\sigma_{s,t}$为序列$X_{s,t}$的标准差。那么一阶自相关系数为：</p>
+
+<div>
+
+$$R(1) = \frac{E(X_{2,n}-\mu_{2,n})(X_{1,n-1}-\mu_{1,n-1})}{\sigma_{2,n}\sigma_{1,n-1}}$$
+
+</div>
+
+<p>同理$k$阶自相关系数为：</p>
+
+<div>
+
+$$R(k) = \frac{E(X_{k+1,n}-\mu_{k+1,n})(X_{1,n-k}-\mu_{1,n-k})}{\sigma_{k+1,n}\sigma_{1,n-k}}$$
+
+</div>
+
+<p>python的numpy库里没有直接计算序列自相关系数的函数，但有计算两个不同序列的相关系数函数： <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.correlate.html">correlate</a>。给定两个序列$X,Y$，correlation(X,Y) = $\sum XY$。可以利用correlate函数计算$X$的自相关性：</p>
+
+<pre><code class="language-python">def autocorrelation(x,lags):#计算lags阶以内的自相关系数，返回lags个值，分别计算序列均值，标准差
+	n = len(x)
+	x = numpy.array(x)
+	result = [numpy.correlate(x[i:]-x[i:].mean(),x[:n-i]-x[:n-i].mean())[0]\
+		/(x[i:].std()*x[:n-i].std()*(n-i)) \
+		for i in range(1,lags+1)]
+	return result
+</code></pre>
+
+<p>通常在实际中，很多时间序列的均值和标准受时间变化的影响较小，可以看作是恒定的，此时：</p>
+
+<div>
+
+$$R(k) = \frac{E(X_{k+1,n}-\mu)(X_{1,n-k}-\mu)}{\sigma^2}$$
+
+</div>
+
+<p>同样可以利用correlate函数实现：</p>
+
+<pre><code class="language-python">def autocorrelation(x,lags):#计算lags阶以内的自相关系数，返回lags个值，将序列均值、标准差视为不变
+	n = len(x)
+	x = numpy.array(x)
+	variance = x.var()
+	x = x-x.mean()
+	result = numpy.correlate(x, x, mode = 'full')[-n+1:-n+lags+1]/\
+		(variance*(numpy.arange(n-1,n-1-lags,-1)))
+	return result
+</code></pre>
+
+<p>参考：<a href="http://stackoverflow.com/questions/643699/how-can-i-use-numpy-correlate-to-do-autocorrelation">http://stackoverflow.com/questions/643699/how-can-i-use-numpy-correlate-to-do-autocorrelation</a></p>
+
+      </article>
+
+
+		
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "dasheyuan";
+     var disqus_identifier = "\/post\/2015-03-15";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    
+ 
+
+    
+    
+
+	
+</body>
+</html>
+

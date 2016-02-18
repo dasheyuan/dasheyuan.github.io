@@ -3,18 +3,18 @@
   <channel>
       <title>Pep8 on Chen Yuan&#39;s Blogs </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>localhost:1313</link>
+    <link>http://dasheyuan.com/tags/pep8/</link>
     <language>en-us</language>
     
-    <copyright>Copyright (c) 2008 - 2014,Chen Yuan; all rights reserved.</copyright>
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
     <updated>Sun, 30 Aug 2015 00:00:00 UTC</updated>
     
     <item>
       <title>Python代码风格指南（二）字符串引用、空格、注释和版本注记(PEP8中文翻译)</title>
-      <link>localhost:1313</link>
+      <link>http://dasheyuan.com/post/2015-08-30</link>
       <pubDate>Sun, 30 Aug 2015 00:00:00 UTC</pubDate>
       
-      <guid>localhost:1313</guid>
+      <guid>http://dasheyuan.com/post/2015-08-30</guid>
       <description>&lt;h1 id=&#34;字符串引用-string-quotes:4f740b0dc79b8c0d748c37b6117fb209&#34;&gt;字符串引用(String Quotes)&lt;/h1&gt;
 
 &lt;p&gt;在Python中表示字符串时，不管用单引号还是双引号都是一样的。但是不推荐将这两种方式看作一样并且混用。最好选择一种规则并坚持使用。当字符串中包含单引号时，采用双引号来表示字符串，反之也是一样，这样可以避免使用反斜杠，代码也更易读。&lt;/p&gt;
@@ -22,6 +22,26 @@
 &lt;p&gt;对于三引号表示的字符串，使用双引号字符来表示（译注：即用&lt;code&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;而不是&lt;code&gt;&#39;&#39;&#39;&lt;/code&gt;），这样可以和PEP 257的文档字符串（docstring）规则保持一致。&lt;/p&gt;
 
 &lt;h1 id=&#34;表达式和语句中的空格-whitespace-in-expressions-and-statements:4f740b0dc79b8c0d748c37b6117fb209&#34;&gt;表达式和语句中的空格(Whitespace in Expressions and Statements)&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python代码风格指南（一）代码设计(PEP8中文翻译)</title>
+      <link>http://dasheyuan.com/post/2015-07-04</link>
+      <pubDate>Sat, 04 Jul 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-07-04</guid>
+      <description>&lt;p&gt;翻译自：&lt;a href=&#34;https://www.python.org/dev/peps/pep-0008/&#34;&gt;PEP 8 - Style Guide for Python Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;介绍-introduction:0c8ec52d92a7c32bcce67dfaa3143f15&#34;&gt;介绍(Introduction)&lt;/h1&gt;
+
+&lt;p&gt;这篇文档说明了Python主要发行版中标准库代码所遵守的规范。请参考实现Python的C代码风格指南信息PEP。&lt;/p&gt;
+
+&lt;p&gt;这篇文档和PEP 257(Docstring Conventions)都改编自Guido(译注：Python之父)最早的Python风格指南文章，并加入了Barry风格指南里的内容。&lt;/p&gt;
+
+&lt;p&gt;语言自身在发生着改变，随着新的规范的出现和旧规范的过时，代码风格也会随着时间演变。&lt;/p&gt;
+
+&lt;p&gt;很多项目都有自己的一套风格指南。若和本指南有任何冲突，应该优先考虑其项目相关的那套指南。&lt;/p&gt;
 </description>
     </item>
     

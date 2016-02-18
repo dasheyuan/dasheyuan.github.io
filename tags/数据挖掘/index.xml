@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>数据挖掘 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Wed, 01 Jul 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>机器学习第一战——阿里天池移动推荐算法比赛经验总结攻略</title>
+      <link>http://dasheyuan.com/post/2015-07-01</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-07-01</guid>
+      <description>&lt;p&gt;历时98天的&lt;a href=&#34;http://tianchi.aliyun.com/competition/introduction.htm?spm=5176.100066.333.5.0n5wpl&amp;amp;raceId=1&#34;&gt;阿里移动推荐算法&lt;/a&gt;终于结束了，有种终于下了贼船的感觉。总的来说，整个比赛的体验并不好：时间太长，资源不够，运气成分大，学到的干货少。虽然学到的干货不多，但这毕竟是在Data Science道路上进军的第一场实战，还是有必要好好总结一下。&lt;/p&gt;
+
+&lt;h1 id=&#34;比赛统计:e22b26d8c6b3a4529619561860cf7538&#34;&gt;比赛统计&lt;/h1&gt;
+
+&lt;p&gt;初赛名次：21&lt;/p&gt;
+
+&lt;p&gt;复赛名次：22&lt;/p&gt;
+
+&lt;p&gt;Python代码行数：2320&lt;/p&gt;
+
+&lt;p&gt;SQL代码行数：6656&lt;/p&gt;
+
+&lt;p&gt;天池平台数据表数：1006&lt;/p&gt;
+
+&lt;p&gt;线下结果数：490&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

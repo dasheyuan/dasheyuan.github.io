@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>线性回归 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 17 Feb 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>机器学习笔记4 正则化</title>
+      <link>http://dasheyuan.com/post/2015-02-17</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-17</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;正则化-regularization:e5cda6b6e7686a83e2d03b1aaf88c83b&#34;&gt;正则化 Regularization&lt;/h1&gt;
+
+&lt;p&gt;为了和正规方程(normal equation)里&amp;rdquo;正规&amp;rdquo;区分开来，这里Regularization都译作“正则化”，有些地方也用的是“正规化”。以下内容来自&lt;a href=&#34;http://en.wikipedia.org/w/index.php?title=Regularization_(mathematics&#34;&gt;wikipedia&lt;/a&gt;)：&lt;/p&gt;
+
+&lt;p&gt;正则化是指通过引入额外新信息来解决机器学习中过拟合问题的一种方法。这种额外信息通常的形式是模型复杂性带来的惩罚度。正则化的一种理论解释是它试图引入&lt;a href=&#34;http://en.wikipedia.org/wiki/Occam%27s_razor&#34;&gt;奥卡姆剃刀原则&lt;/a&gt;。而从贝叶斯的观点来看，正则化则是在模型参数上引入了某种先验的分布。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记3 有监督学习 分类 logistic回归</title>
+      <link>http://dasheyuan.com/post/2015-02-12</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-12</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;分类问题:662363920bb15b8d466d06a6774c21df&#34;&gt;分类问题&lt;/h1&gt;
+
+&lt;p&gt;分类问题和回归问题不同的是，分类问题的预测值$y$只能取离散值，而非连续值。首先来看一个二类分类问题，预测值$y$只能取0或1。0又被称作负例(negative class)，1被称作正例(positive class)。通常也用&amp;rdquo;-&amp;ldquo;,&amp;rdquo;+&amp;ldquo;符号来表示。对于一个样本集输入$x^{(i)}$，对应的目标值$y^{(i)}$也被为标注(lable)。&lt;/p&gt;
+
+&lt;h2 id=&#34;logistic回归:662363920bb15b8d466d06a6774c21df&#34;&gt;logistic回归&lt;/h2&gt;
+
+&lt;p&gt;也可以用线性回归的方法运用到分类问题上，但是这样做很容易得到不好的结果。稍微改变一下我们的假设函数$h_\theta(x)$，使其的取值在{0,1}范围内：&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记2 有监督学习 线性回归 局部加权回归 概率解释</title>
+      <link>http://dasheyuan.com/post/2015-02-11</link>
+      <pubDate>Wed, 11 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-11</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;有监督学习:a41c550b5852f048f913986db76cdf89&#34;&gt;有监督学习&lt;/h1&gt;
+
+&lt;h2 id=&#34;局部加权线性回归-locally-weighted-linear-regression:a41c550b5852f048f913986db76cdf89&#34;&gt;局部加权线性回归(Locally weighted linear regression)&lt;/h2&gt;
+
+&lt;p&gt;参数学习算法(parametric learning algorithm)：参数个数固定&lt;/p&gt;
+
+&lt;p&gt;非参数学习算法(non-parametric learning algorithm)：参数个数随样本增加&lt;/p&gt;
+
+&lt;p&gt;特征选择对参数学习算法非常重要，否则会出现下面的问题：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;欠拟合(underfitting)：特征过少，模型过于简单，高偏差(high bias)，不能很好拟合训练集&lt;/li&gt;
+&lt;li&gt;过拟合(overfitting)：特征过多，模型过于复杂，高方差(high variance)，过于拟合训练集，不能很好预测新样本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;对于非参数学习算法来说，并不需要进行精心的特征选择，局部加权线性回归就是这样。&lt;/p&gt;
+
+&lt;p&gt;局部加权回归又叫做Loess，其成本函数为：&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记1 有监督学习 线性回归 LMS算法 正规方程</title>
+      <link>http://dasheyuan.com/post/2015-02-10</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-10</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;有监督学习:b33d274e87081502d65882ed2d51cd57&#34;&gt;有监督学习&lt;/h1&gt;
+
+&lt;p&gt;先理清几个概念：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$x^{(i)}$表示&amp;rdquo;输入&amp;rdquo;变量(&amp;ldquo;input&amp;rdquo; variables)，也称为特征值(features)。&lt;/li&gt;
+&lt;li&gt;$y^{(i)}$表示&amp;rdquo;输出&amp;rdquo;变量(&amp;ldquo;output&amp;rdquo; variables)，也称为目标值(target)。&lt;/li&gt;
+&lt;li&gt;一对$(x^{(i)},y^{(i)})$称为一个训练样本(training example)，用作训练的数据集就是就是一组$m$个训练样本${(x^{(i)},y^{(i)});i=1,&amp;hellip;,m}$，被称为训练集(training set)。&lt;/li&gt;
+&lt;li&gt;$X$表示输入变量的取值空间，$Y$表示输出变量的取值空间。那么$h:X \rightarrow Y$是训练得到的映射函数，对于每个取值空间X的取值，都能给出取值空间Y上的一个预测值。函数$h$的含义为假设(hypothesis)。&lt;/li&gt;
+&lt;li&gt;图形化表示整个过程：&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

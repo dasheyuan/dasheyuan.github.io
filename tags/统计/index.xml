@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>统计 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E7%BB%9F%E8%AE%A1/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sun, 15 Mar 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>python numpy 计算自相关系数</title>
+      <link>http://dasheyuan.com/post/2015-03-15</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-03-15</guid>
+      <description>&lt;p&gt;在分析时间序列时，通常需要计算一个序列的自相关系数。自相关(&lt;a href=&#34;http://en.wikipedia.org/wiki/Autocorrelation&#34;&gt;Autocorrelation&lt;/a&gt;)又叫做序列相关，通常采用自相关系数来发现序列的重复规律，周期等信息。&lt;/p&gt;
+
+&lt;p&gt;我们有序列$X:x_1,x_2,x_3,&amp;hellip;,x_n$，设$X_{s,t}$为$s$时刻开始，$t$时刻结束的序列：$x_s,x_{s+1}&amp;hellip;,x_{t-1},x_t$。$\mu_{s,t}$为序列$X_{s,t}$的均值，$\sigma_{s,t}$为序列$X_{s,t}$的标准差。那么一阶自相关系数为：&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

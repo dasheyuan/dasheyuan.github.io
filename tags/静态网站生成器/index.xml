@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>静态网站生成器 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sat, 31 Jan 2015 00:30:03 CST</updated>
+    
+    <item>
+      <title>Hugo静态网站生成器中文教程</title>
+      <link>http://dasheyuan.com/post/2015-01-31</link>
+      <pubDate>Sat, 31 Jan 2015 00:30:03 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-01-31</guid>
+      <description>&lt;h1 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;是什么？官方文档是这样介绍它的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。&lt;/p&gt;
+
+&lt;p&gt;静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

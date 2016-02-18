@@ -3,18 +3,18 @@
   <channel>
       <title>注释 on Chen Yuan&#39;s Blogs </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>localhost:1313</link>
+    <link>http://dasheyuan.com/tags/%E6%B3%A8%E9%87%8A/</link>
     <language>en-us</language>
     
-    <copyright>Copyright (c) 2008 - 2014,Chen Yuan; all rights reserved.</copyright>
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
     <updated>Sun, 30 Aug 2015 00:00:00 UTC</updated>
     
     <item>
       <title>Python代码风格指南（二）字符串引用、空格、注释和版本注记(PEP8中文翻译)</title>
-      <link>localhost:1313</link>
+      <link>http://dasheyuan.com/post/2015-08-30</link>
       <pubDate>Sun, 30 Aug 2015 00:00:00 UTC</pubDate>
       
-      <guid>localhost:1313</guid>
+      <guid>http://dasheyuan.com/post/2015-08-30</guid>
       <description>&lt;h1 id=&#34;字符串引用-string-quotes:4f740b0dc79b8c0d748c37b6117fb209&#34;&gt;字符串引用(String Quotes)&lt;/h1&gt;
 
 &lt;p&gt;在Python中表示字符串时，不管用单引号还是双引号都是一样的。但是不推荐将这两种方式看作一样并且混用。最好选择一种规则并坚持使用。当字符串中包含单引号时，采用双引号来表示字符串，反之也是一样，这样可以避免使用反斜杠，代码也更易读。&lt;/p&gt;

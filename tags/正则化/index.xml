@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>正则化 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E6%AD%A3%E5%88%99%E5%8C%96/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 17 Feb 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>机器学习笔记4 正则化</title>
+      <link>http://dasheyuan.com/post/2015-02-17</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-17</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;正则化-regularization:e5cda6b6e7686a83e2d03b1aaf88c83b&#34;&gt;正则化 Regularization&lt;/h1&gt;
+
+&lt;p&gt;为了和正规方程(normal equation)里&amp;rdquo;正规&amp;rdquo;区分开来，这里Regularization都译作“正则化”，有些地方也用的是“正规化”。以下内容来自&lt;a href=&#34;http://en.wikipedia.org/w/index.php?title=Regularization_(mathematics&#34;&gt;wikipedia&lt;/a&gt;)：&lt;/p&gt;
+
+&lt;p&gt;正则化是指通过引入额外新信息来解决机器学习中过拟合问题的一种方法。这种额外信息通常的形式是模型复杂性带来的惩罚度。正则化的一种理论解释是它试图引入&lt;a href=&#34;http://en.wikipedia.org/wiki/Occam%27s_razor&#34;&gt;奥卡姆剃刀原则&lt;/a&gt;。而从贝叶斯的观点来看，正则化则是在模型参数上引入了某种先验的分布。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

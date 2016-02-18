@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>梯度下降 on Chen Yuan&#39;s Blogs </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</link>
+    <language>en-us</language>
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 10 Feb 2015 00:00:00 UTC</updated>
+    
+    <item>
+      <title>机器学习笔记1 有监督学习 线性回归 LMS算法 正规方程</title>
+      <link>http://dasheyuan.com/post/2015-02-10</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2015-02-10</guid>
+      <description>&lt;p&gt;Andrew Ng cs229 Machine Learning 笔记&lt;/p&gt;
+
+&lt;h1 id=&#34;有监督学习:b33d274e87081502d65882ed2d51cd57&#34;&gt;有监督学习&lt;/h1&gt;
+
+&lt;p&gt;先理清几个概念：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$x^{(i)}$表示&amp;rdquo;输入&amp;rdquo;变量(&amp;ldquo;input&amp;rdquo; variables)，也称为特征值(features)。&lt;/li&gt;
+&lt;li&gt;$y^{(i)}$表示&amp;rdquo;输出&amp;rdquo;变量(&amp;ldquo;output&amp;rdquo; variables)，也称为目标值(target)。&lt;/li&gt;
+&lt;li&gt;一对$(x^{(i)},y^{(i)})$称为一个训练样本(training example)，用作训练的数据集就是就是一组$m$个训练样本${(x^{(i)},y^{(i)});i=1,&amp;hellip;,m}$，被称为训练集(training set)。&lt;/li&gt;
+&lt;li&gt;$X$表示输入变量的取值空间，$Y$表示输出变量的取值空间。那么$h:X \rightarrow Y$是训练得到的映射函数，对于每个取值空间X的取值，都能给出取值空间Y上的一个预测值。函数$h$的含义为假设(hypothesis)。&lt;/li&gt;
+&lt;li&gt;图形化表示整个过程：&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+
