@@ -53,103 +53,35 @@
                         
                             
                                 <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-09-14">
-  <p class="post-meta left"> Mon, Aug 31, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">Python代码风格指南（三）命名约定(PEP8中文翻译) </h3>
-  <p class="post-summary"><h1 id="命名约定-naming-conventions:26bc06cdd4e62ee943404b26c97620ec">命名约定（Naming Conventions）</h1>
-
-<p>Python标准库的命名约定有一些混乱，因此我们永远都无法保持一致。但如今仍然存在一些推荐的命名标准。新的模块和包（包括第三方框架）应该采用这些标准，但若是已经存在的包有另一套风格的话，还是应当与原有的风格保持内部一致。</p>
-
-<h2 id="重写原则-overriding-principle:26bc06cdd4e62ee943404b26c97620ec">重写原则（Overriding Principle）</h2>
-
-<p>对于用户可见的公共部分API，其命名应当表达出功能用途而不是其具体的实现细节。</p>
-
-<h2 id="描述性-命名风格-descriptive-naming-styles:26bc06cdd4e62ee943404b26c97620ec">描述性：命名风格（Descriptive: Naming Styles）</h2>
-
-<p>存在很多不同的命名风格，最好能够独立地从命名对象的用途认出采用了哪种命名风格。</p>
-
-<p>以下是常用于区分的命名风格：</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/Python">Python</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e4%bb%a3%e7%a0%81%e9%a3%8e%e6%a0%bc">代码风格</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bf%bb%e8%af%91">翻译</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e9%a3%8e%e6%a0%bc%e6%8c%87%e5%8d%97">风格指南</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e5%91%bd%e5%90%8d%e7%ba%a6%e5%ae%9a">命名约定</a>
-  </p>
+	<a class="post-link" href="http://dasheyuan.com/post/OpenStack%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+		<p class="post-meta left">2016年2月14日</p>
+		
+		<div class="clearfix"></div>
+		<h2 class="h2 post-title">OpenStack中的设计模式-单例模式 </h2>
+		<p class="post-summary">单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。” 对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。 如果程序中引入了多线程，那么需要对Singleton Pattern进行优化，一般 对线程敏感的资源(临界资源)进行加锁。 要点：单例模式确保程序中一个类最多只有一个实例；单例模式也提供这个实例的全局点；确定在性能和资源上的限制，然后小心地选择适当的方案来实现单例，以解决多线程的问题。 #Excerpted：oslo_service/service.py class Singleton(type): _instances = {} _semaphores = lockutils.Semaphores() def __call__(cls, *args, **kwargs):#&lt;--cls:str&quot;OneClass&quot; with lockutils.lock('singleton_lock', semaphores=cls._semaphores): if cls not in cls._instances: cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs) return cls._instances[cls] 通过修饰(参考廖雪峰的官方网站)的方式，class Singleton作为修饰函数six.add_metaclass的参数传入，被修饰的class OneClass实例化的对象a、b是相同的。 @six.add_metaclass(Singleton) class OneClass(): pass a = OneClass() b = OneClass() print(a==b) #True #Excerpted：six.py def add_metaclass(metaclass):#&lt;--metaclass:Singleton &quot;&quot;&quot;Class decorator for creating a class with a metaclass.&quot;&quot;&quot; def wrapper(cls):#&lt;--cls:OneClass orig_vars = cls.__dict__.copy() slots = orig_vars.get('__slots__') if slots is not None: if isinstance(slots, str): slots = [slots] for slots_var in slots: orig_vars.pop(slots_var) orig_vars.pop('__dict__', None) orig_vars.pop('__weakref__', None) return metaclass(cls.__name__, cls.__bases__, orig_vars) #&lt;--Singleton(OneClass,(),orig_vars) return wrapper Python 语法(参考官网)： 1.</p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/OpenStack">OpenStack</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f">设计模式</a>
+		
+	</p>
 </div>
 
                             
                         
                             
                                 <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-08-30">
-  <p class="post-meta left"> Sun, Aug 30, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">Python代码风格指南（二）字符串引用、空格、注释和版本注记(PEP8中文翻译) </h3>
-  <p class="post-summary"><h1 id="字符串引用-string-quotes:4f740b0dc79b8c0d748c37b6117fb209">字符串引用(String Quotes)</h1>
-
-<p>在Python中表示字符串时，不管用单引号还是双引号都是一样的。但是不推荐将这两种方式看作一样并且混用。最好选择一种规则并坚持使用。当字符串中包含单引号时，采用双引号来表示字符串，反之也是一样，这样可以避免使用反斜杠，代码也更易读。</p>
-
-<p>对于三引号表示的字符串，使用双引号字符来表示（译注：即用<code>&quot;&quot;&quot;</code>而不是<code>'''</code>），这样可以和PEP 257的文档字符串（docstring）规则保持一致。</p>
-
-<h1 id="表达式和语句中的空格-whitespace-in-expressions-and-statements:4f740b0dc79b8c0d748c37b6117fb209">表达式和语句中的空格(Whitespace in Expressions and Statements)</h1>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/Python">Python</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e4%bb%a3%e7%a0%81%e9%a3%8e%e6%a0%bc">代码风格</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bf%bb%e8%af%91">翻译</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e9%a3%8e%e6%a0%bc%e6%8c%87%e5%8d%97">风格指南</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%bc%95%e7%94%a8">字符串引用</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%b3%a8%e9%87%8a">注释</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/PEP8">PEP8</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-08-11">
-  <p class="post-meta left"> Tue, Aug 11, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">最长回文子串Longest palindromic substring的四种算法 </h3>
-  <p class="post-summary"><h2 id="题目描述:3c5494d961990eaf70786ecbf6c7dfc4">题目描述：</h2>
+	<a class="post-link" href="http://dasheyuan.com/post/2015-08-11">
+		<p class="post-meta left">2015年8月11日</p>
+		
+		<div class="clearfix"></div>
+		<h2 class="h2 post-title">最长回文子串Longest palindromic substring的四种算法 </h2>
+		<p class="post-summary"><h2 id="题目描述:3c5494d961990eaf70786ecbf6c7dfc4">题目描述：</h2>
 
 <p>给定字符串$S$，求其最长的回文子串。</p>
 
@@ -159,312 +91,66 @@
 
 <p>其中，Manacher算法复杂度为$O(n)$</p>
 </p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/%e7%ae%97%e6%b3%95">算法</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/Leetcode">Leetcode</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e5%ad%97%e7%ac%a6%e4%b8%b2">字符串</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%9c%80%e5%a4%a7%e5%9b%9e%e6%96%87%e5%ad%90%e4%b8%b2">最大回文子串</a>
-  </p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/%e7%ae%97%e6%b3%95">算法</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/Leetcode">Leetcode</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e5%ad%97%e7%ac%a6%e4%b8%b2">字符串</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e6%9c%80%e5%a4%a7%e5%9b%9e%e6%96%87%e5%ad%90%e4%b8%b2">最大回文子串</a>
+		
+	</p>
 </div>
 
                             
                         
                             
                                 <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-07-04">
-  <p class="post-meta left"> Sat, Jul 4, 2015</p>
-<p class="post-author right">Written by </p> 
+	<a class="post-link" href="http://dasheyuan.com/post/2015-01-31">
+		<p class="post-meta left">2015年1月31日</p>
+		
+		<div class="clearfix"></div>
+		<h2 class="h2 post-title">Hugo静态网站生成器中文教程 </h2>
+		<p class="post-summary"><h1 id="前言:d605f9890f3528aea462ac7515ece633">前言</h1>
 
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">Python代码风格指南（一）代码设计(PEP8中文翻译) </h3>
-  <p class="post-summary"><p>翻译自：<a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 - Style Guide for Python Code</a></p>
+<p><a href="http://gohugo.io">Hugo</a>是什么？官方文档是这样介绍它的：</p>
 
-<h1 id="介绍-introduction:0c8ec52d92a7c32bcce67dfaa3143f15">介绍(Introduction)</h1>
+<blockquote>
+<p>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator.</p>
+</blockquote>
 
-<p>这篇文档说明了Python主要发行版中标准库代码所遵守的规范。请参考实现Python的C代码风格指南信息PEP。</p>
+<p>Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。</p>
 
-<p>这篇文档和PEP 257(Docstring Conventions)都改编自Guido(译注：Python之父)最早的Python风格指南文章，并加入了Barry风格指南里的内容。</p>
-
-<p>语言自身在发生着改变，随着新的规范的出现和旧规范的过时，代码风格也会随着时间演变。</p>
-
-<p>很多项目都有自己的一套风格指南。若和本指南有任何冲突，应该优先考虑其项目相关的那套指南。</p>
+<p>静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。</p>
 </p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/Python">Python</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e4%bb%a3%e7%a0%81%e9%a3%8e%e6%a0%bc">代码风格</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bf%bb%e8%af%91">翻译</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e9%a3%8e%e6%a0%bc%e6%8c%87%e5%8d%97">风格指南</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bc%a9%e8%bf%9b">缩进</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/Tab">Tab</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%af%8f%e8%a1%8c%e6%9c%80%e5%a4%a7%e9%95%bf%e5%ba%a6">每行最大长度</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e4%bb%a3%e7%a0%81%e8%ae%be%e8%ae%a1">代码设计</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/imports">imports</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bc%96%e7%a0%81">编码</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%a9%ba%e8%a1%8c">空行</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/PEP8">PEP8</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-07-01">
-  <p class="post-meta left"> Wed, Jul 1, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">机器学习第一战——阿里天池移动推荐算法比赛经验总结攻略 </h3>
-  <p class="post-summary"><p>历时98天的<a href="http://tianchi.aliyun.com/competition/introduction.htm?spm=5176.100066.333.5.0n5wpl&amp;raceId=1">阿里移动推荐算法</a>终于结束了，有种终于下了贼船的感觉。总的来说，整个比赛的体验并不好：时间太长，资源不够，运气成分大，学到的干货少。虽然学到的干货不多，但这毕竟是在Data Science道路上进军的第一场实战，还是有必要好好总结一下。</p>
-
-<h1 id="比赛统计:e22b26d8c6b3a4529619561860cf7538">比赛统计</h1>
-
-<p>初赛名次：21</p>
-
-<p>复赛名次：22</p>
-
-<p>Python代码行数：2320</p>
-
-<p>SQL代码行数：6656</p>
-
-<p>天池平台数据表数：1006</p>
-
-<p>线下结果数：490</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/%e9%98%bf%e9%87%8c">阿里</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%af%94%e8%b5%9b">比赛</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0">机器学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%95%b0%e6%8d%ae%e6%8c%96%e6%8e%98">数据挖掘</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-05-17">
-  <p class="post-meta left"> Sun, May 17, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">机器学习笔记7 高偏差/低偏差，学习曲线，模型选择 </h3>
-  <p class="post-summary"><p>Andrew Ng cs229 Machine Learning 笔记</p>
-
-<p>原文：<a href="https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning">https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning</a></p>
-
-<p>面对一个机器学习问题，我们提取好特征，挑选好训练集，选择一种机器学习算法，然后学习预测得到了第一步结果。然而我们不幸地发现，在测试集上的准确率低得离谱，误差高得吓人，要提高准确率、减少误差的话，下一步该做些什么呢？</p>
-
-<p>可以采用以下的方法来减少预测的误差：</p>
-
-<ul>
-<li>获得更多的训练样本</li>
-<li>减少特征的数量</li>
-<li>增加特征的数量</li>
-<li>使用多项式特征</li>
-<li>增大或减小正则化参数$\lambda$</li>
-</ul>
-
-<p>但不要盲目在这些可行的方法里随便选一种来提升模型，需要用一些诊断模型的技术来帮助我们选择使用哪种策略。</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0">机器学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%9c%89%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0">有监督学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e9%ab%98%e5%81%8f%e5%b7%ae">高偏差</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e9%ab%98%e6%96%b9%e5%b7%ae">高方差</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e8%bf%87%e6%8b%9f%e5%90%88">过拟合</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%ac%a0%e6%8b%9f%e5%90%88">欠拟合</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e5%ad%a6%e4%b9%a0%e6%9b%b2%e7%ba%bf">学习曲线</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-03-26">
-  <p class="post-meta left"> Thu, Mar 26, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">机器学习笔记5 神经网络2 参数学习 </h3>
-  <p class="post-summary"><p>Andrew Ng cs229 Machine Learning 笔记</p>
-
-<h1 id="成本函数-cost-function:8735cce9d7fd270391f5ec199a69102a">成本函数(Cost Function)</h1>
-
-<p>以下是我们会用到的一些变量：</p>
-
-<ul>
-<li>$L$表示神经网络的层数</li>
-<li>$s_l$表示第$l$层的神经单元数(不包括偏差(bias)单元)</li>
-<li>$K$表示输出单元数(分类数)</li>
-</ul>
-
-<p>当有多个输出类别时，采用$h_\Theta(x)_k$表示第$k$个输出的假设结果。</p>
-
-<p>神经网络的成本函数是logistic回归中的成本函数更普遍的一种形式。</p>
-
-<p>logistic回归中的成本函数为：</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0">机器学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%9c%89%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0">有监督学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c">神经网络</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e5%88%86%e7%b1%bb%e9%97%ae%e9%a2%98">分类问题</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e2%80%9c%e6%88%90%e6%9c%ac%e5%87%bd%e6%95%b0%22">“成本函数&#34;</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%a2%af%e5%ba%a6%e6%a3%80%e6%9f%a5">梯度检查</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-03-15">
-  <p class="post-meta left"> Sun, Mar 15, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">python numpy 计算自相关系数 </h3>
-  <p class="post-summary"><p>在分析时间序列时，通常需要计算一个序列的自相关系数。自相关(<a href="http://en.wikipedia.org/wiki/Autocorrelation">Autocorrelation</a>)又叫做序列相关，通常采用自相关系数来发现序列的重复规律，周期等信息。</p>
-
-<p>我们有序列$X:x_1,x_2,x_3,&hellip;,x_n$，设$X_{s,t}$为$s$时刻开始，$t$时刻结束的序列：$x_s,x_{s+1}&hellip;,x_{t-1},x_t$。$\mu_{s,t}$为序列$X_{s,t}$的均值，$\sigma_{s,t}$为序列$X_{s,t}$的标准差。那么一阶自相关系数为：</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/python">python</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/numpy">numpy</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%bb%9f%e8%ae%a1">统计</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e8%87%aa%e7%9b%b8%e5%85%b3%e7%b3%bb%e6%95%b0">自相关系数</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://dasheyuan.com/post/2015-03-03-2">
-  <p class="post-meta left"> Tue, Mar 3, 2015</p>
-<p class="post-author right">Written by </p> 
-
-  <div class="clearfix"></div>
-  <h3 class="h3 post-title">机器学习笔记5 神经网络1 模型表达 </h3>
-  <p class="post-summary"><p>Andrew Ng cs229 Machine Learning 笔记</p>
-
-<h1 id="神经网络:d35c8128725ed53542064246ed42d2c0">神经网络</h1>
-
-<h2 id="非线性假设:d35c8128725ed53542064246ed42d2c0">非线性假设</h2>
-
-<p>在特征变量数较大的情况下，采用线性回归会很难处理，比如我的数据集有3个特征变量，想要在假设中引入所有特征变量的平方项：</p>
-
-<div>
-$$g(\theta_0 + \theta_1x_1^2 + \theta_2x_1x_2 + \theta_3x_1x_3  + \theta_4x_2^2 + \theta_5x_2x_3  + \theta_6x_3^2 )$$
-</div>
-
-<p>共有6个特征，假设我们想知道选取其中任意两个可重复的平方项有多少组合，采用允许重复的组合公式计算$\frac{(n+r-1)!}{r!(n-1)!}$，共有$\frac{(3 + 2 - 1)!}{(2!\cdot (3-1)!)} = 6$种特征变量的组合。对于100个特征变量，则共有$\frac{(100 + 2 - 1)!}{(2\cdot (100-1)!)} = 5050$个新的特征变量。</p>
-
-<p>可以大致估计特征变量的平方项组合个数的增长速度为$\mathcal{O}(\frac{n^2}2)$，立方项的组合个数的增长为$\mathcal{O}(n^3)$。这些增长都十分陡峭，让实际问题变得很棘手。</p>
-
-<p>在变量假设十分复杂的情况下，神经网络提供了另一种机器学习算法。</p>
-</p>
-  </a>
-  
-<p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://dasheyuan.com/tags/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0">机器学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e6%9c%89%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0">有监督学习</a>
-  
-      ,&nbsp;
-      <a href="http://dasheyuan.com/tags/%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c">神经网络</a>
-  </p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/Hugo">Hugo</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99%e7%94%9f%e6%88%90%e5%99%a8">静态网站生成器</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e5%8d%9a%e5%ae%a2">博客</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e6%95%99%e7%a8%8b">教程</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/%e7%bd%91%e7%ab%99">网站</a>
+		
+	</p>
 </div>
 
                             
@@ -511,8 +197,9 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
     
  

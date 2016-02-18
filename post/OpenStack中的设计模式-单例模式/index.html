@@ -45,8 +45,8 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h3 class="py2">OpenStack中的设计模式-单例模式</h3>
-        <span class="post-meta">Feb 14, 2016 by Chen Yuan</span><br>
+        <h2 class="h2 post-title">OpenStack中的设计模式-单例模式</h2>
+		<span class="post-meta">2016年2月14日</span>
         
       </div>
        <p class="post-meta">Tags:&nbsp;
@@ -59,8 +59,9 @@
         
       </p> 
       <article class="post-content">
-      <p>单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”
-对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。</p>
+      <p>单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”</p>
+
+<p>对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。</p>
 
 <p>如果程序中引入了多线程，那么需要对Singleton Pattern进行优化，一般 对线程敏感的资源(临界资源)进行加锁。</p>
 
@@ -136,23 +137,10 @@ The class to which a class instance belongs.
 <p>Singleton中定义的类属性_instance，类变量对所有对象唯一，即所有实例都有唯一的属性_instance</p>
 
       </article>
-
-
-		
-      
-<div id="disqus_thread">
-  <script type="text/javascript">
-     var disqus_shortname = "dasheyuan";
-     var disqus_identifier = "\/post\/OpenStack%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F\/";
-
-     (function() {
-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-  </script>
-</div>
-
+     
+ 
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2084413"></script>
 
     </div>
   </div>
@@ -193,8 +181,9 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
     
  
