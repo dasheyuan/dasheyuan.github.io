@@ -1,57 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blogs </title>
+      <title> on Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
     <link>http://dasheyuan.com/</link>
-    <language>en-us</language>
+    
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 18 Feb 2016 13:30:00 CST</updated>
+    <updated>Sun, 21 Feb 2016 19:27:28 CST</updated>
     
     <item>
-      <title>关于我</title>
-      <link>http://dasheyuan.com/about</link>
-      <pubDate>Thu, 18 Feb 2016 13:30:00 CST</pubDate>
+      <title>Blog与Markdown</title>
+      <link>http://dasheyuan.com/post/2016-02-21</link>
+      <pubDate>Sun, 21 Feb 2016 19:27:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/about</guid>
-      <description>2010 红岩网校@CQUPT 2016 BWA@TSINGHUA 陈圆， 男生！ 男生！男生！(重要事情说三遍) 属羊，与陈沙克老师是老乡。(沙克老师还不知道我是他老乡&amp;gt;_&amp;lt;) “大蛇圆”是初中同学起的昵称，当时火影忍者超火的，但我不怎么敏感。不过我挺喜欢这个昵称的，因为“dasheyuan”在网上重命名的很少，方便注册，所以现在一般使用这个昵称。另外，粤语喊“大蛇圆”还是挺有感觉的，普通话就怪怪了。 通信小硕，知道傅立叶和香农，当然还有奈奎斯特，可是对计算机一直“执迷不悟”。读研实习期间，机缘巧合，积累沉淀，拼凑模仿，逐步搭建完善自己的技术日志站点，旨在记录分享在北京求学的点滴积累，更重要的是督促自己不懂的总结所学的内容。 喜欢 瞎吐槽，深夜惊奇@知乎日报 糗事播报，段子来了，段子来了羞羞版，一黑到底@喜马拉雅FM 原创精选，轻松时刻，暴走大事件，罗辑思维，时间的朋友，麻辣隔壁，毛骗@优酷 黄子华棟笃笑 郑渊洁童话大王 今晚80后脱口秀 屌丝男士 糗事百科 跑男 仙剑奇侠传 打游戏 小智 小莫解说 七龙珠 跑步 吉他 卡农 天空之城 许巍 艾薇儿 煮饭 熬汤 糖醋排骨 化州糖水 水果 逛书店 奥卡姆剃刀 数学 模仿 Python Markdown Git 夜空中最亮的星 人月神话 九寨沟 不喜欢 雾霾 台风 北京冷 重庆热 睡不着 买东西 写周报 太冷清</description>
+      <guid>http://dasheyuan.com/post/2016-02-21</guid>
+      <description>参考 Nanshu Wang Hugo docs 《内核恐慌》静态网站生成器 Build Static Sites in Seconds with Hugo Setting up a custom domain with GitHub Pages</description>
     </item>
     
     <item>
-      <title>OpenStack中的设计模式-单例模式</title>
-      <link>http://dasheyuan.com/post/OpenStack%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/OpenStack%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
-      <description>单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。” 对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。 如果程序中引入了多线程，那么需要对Singleton Pattern进行优化，一般 对线程敏感的资源(临界资源)进行加锁。 要点：单例模式确保程序中一个类最多只有一个实例；单例模式也提供这个实例的全局点；确定在性能和资源上的限制，然后小心地选择适当的方案来实现单例，以解决多线程的问题。 #Excerpted：oslo_service/service.py class Singleton(type): _instances = {} _semaphores = lockutils.Semaphores() def __call__(cls, *args, **kwargs):#&amp;lt;--cls:str&amp;quot;OneClass&amp;quot; with lockutils.lock(&#39;singleton_lock&#39;, semaphores=cls._semaphores): if cls not in cls._instances: cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs) return cls._instances[cls] 通过修饰(参考廖雪峰的官方网站)的方式，class Singleton作为修饰函数six.add_metaclass的参数传入，被修饰的class OneClass实例化的对象a、b是相同的。 @six.add_metaclass(Singleton) class OneClass(): pass a = OneClass() b = OneClass() print(a==b) #True #Excerpted：six.py def add_metaclass(metaclass):#&amp;lt;--metaclass:Singleton &amp;quot;&amp;quot;&amp;quot;Class decorator for creating a class with a metaclass.&amp;quot;&amp;quot;&amp;quot; def wrapper(cls):#&amp;lt;--cls:OneClass orig_vars = cls.__dict__.copy() slots = orig_vars.get(&#39;__slots__&#39;) if slots is not None: if isinstance(slots, str): slots = [slots] for slots_var in slots: orig_vars.pop(slots_var) orig_vars.pop(&#39;__dict__&#39;, None) orig_vars.pop(&#39;__weakref__&#39;, None) return metaclass(cls.__name__, cls.__bases__, orig_vars) #&amp;lt;--Singleton(OneClass,(),orig_vars) return wrapper Python 语法(参考官网)： 1.</description>
-    </item>
-    
-    <item>
-      <title>最长回文子串Longest palindromic substring的四种算法</title>
-      <link>http://dasheyuan.com/post/2015-08-11</link>
-      <pubDate>Tue, 11 Aug 2015 00:00:00 UTC</pubDate>
-      
-      <guid>http://dasheyuan.com/post/2015-08-11</guid>
-      <description>&lt;h2 id=&#34;题目描述:3c5494d961990eaf70786ecbf6c7dfc4&#34;&gt;题目描述：&lt;/h2&gt;
-
-&lt;p&gt;给定字符串$S$，求其最长的回文子串。&lt;/p&gt;
-
-&lt;p&gt;Leetcode:&lt;a href=&#34;https://leetcode.com/problems/longest-palindromic-substring/&#34;&gt;https://leetcode.com/problems/longest-palindromic-substring/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;下面给出四种算法思路，分别是朴素枚举、动态规划、中心拓展和Manacher算法。&lt;/p&gt;
-
-&lt;p&gt;其中，Manacher算法复杂度为$O(n)$&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hugo静态网站生成器中文教程</title>
+      <title>Hugo静态网站生成器中文教程(转)</title>
       <link>http://dasheyuan.com/post/2015-01-31</link>
-      <pubDate>Sat, 31 Jan 2015 00:30:03 CST</pubDate>
+      <pubDate>Sat, 20 Feb 2016 19:00:03 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/2015-01-31</guid>
-      <description>&lt;h1 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h1&gt;
+      <description>&lt;p&gt;(转)&lt;a href=&#34;http://nanshu.wang/post/2015-01-31/&#34;&gt;Hugo静态网站生成器中文教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;是什么？官方文档是这样介绍它的：&lt;/p&gt;
 
@@ -63,6 +38,36 @@
 
 &lt;p&gt;静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>http://dasheyuan.com/about</link>
+      <pubDate>Thu, 18 Feb 2016 13:30:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/about</guid>
+      <description>2010 红岩网校@CQUPT 2015 BWA@TSINGHUA EMAIL：dasheyuan@qq.com 陈圆，男，属羊，与陈沙克老师是老乡。 大蛇圆是初中同学起的昵称，当时火影忍者还很火。我挺喜欢这个昵称的。 通信小硕。读研实习期间，机缘巧合，积累沉淀，拼凑模仿，逐步搭建完善自己的技术日志站点，旨在记录分享在北京求学的点滴积累，更重要的是督促自己不断地总结所学的内容。 钟意 瞎吐槽，深夜惊奇@知乎日报 糗事播报，段子来了，段子来了羞羞版，一黑到底@喜马拉雅FM 原创精选，轻松时刻，暴走大事件，罗辑思维，时间的朋友，麻辣隔壁，毛骗@优酷 黄子华棟笃笑 郑渊洁童话大王 今晚80后脱口秀 屌丝男士 糗事百科 奔跑吧兄弟 仙剑奇侠传 打游戏 小智 小莫解说 七龙珠 跑步 吉他 卡农 天空之城 许巍 艾薇儿 煮饭 熬汤 糖醋排骨 化州糖水 水果 逛书店 奥卡姆剃刀 数学 模仿 Python Markdown Git 夜空中最亮的星 人月神话 九寨沟 唔钟意 雾霾 台风 北京冷 重庆热 睡不着 买东西 写周报 太冷清 唔该 spf13 Nanshu Wang</description>
+    </item>
+    
+    <item>
+      <title>OpenStack中的设计模式-单例模式</title>
+      <link>http://dasheyuan.com/post/2016-02-14</link>
+      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2016-02-14</guid>
+      <description>&lt;p&gt;单例模式Singleton Pattern最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”&lt;/p&gt;
+
+&lt;p&gt;对于面向对象编程，有一些对象其实只需要一个，比如：线程池、缓存、处理偏好设置和注册表的对象、日志对象等。事实上，这些对象只能有一个实例。单例模式与全局变量一样方便，又没有全局变量的缺点。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>http://dasheyuan.com/search</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://dasheyuan.com/search</guid>
+      <description></description>
     </item>
     
   </channel>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>网站 on Chen Yuan&#39;s Blogs </title>
+      <title>网站 on Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
     <link>http://dasheyuan.com/tags/%E7%BD%91%E7%AB%99/</link>
-    <language>en-us</language>
+    
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 31 Jan 2015 00:30:03 CST</updated>
+    <updated>Sat, 20 Feb 2016 19:00:03 CST</updated>
     
     <item>
-      <title>Hugo静态网站生成器中文教程</title>
+      <title>Hugo静态网站生成器中文教程(转)</title>
       <link>http://dasheyuan.com/post/2015-01-31</link>
-      <pubDate>Sat, 31 Jan 2015 00:30:03 CST</pubDate>
+      <pubDate>Sat, 20 Feb 2016 19:00:03 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/2015-01-31</guid>
-      <description>&lt;h1 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h1&gt;
+      <description>&lt;p&gt;(转)&lt;a href=&#34;http://nanshu.wang/post/2015-01-31/&#34;&gt;Hugo静态网站生成器中文教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;是什么？官方文档是这样介绍它的：&lt;/p&gt;
 
