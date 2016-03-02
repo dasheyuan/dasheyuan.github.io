@@ -7,16 +7,7 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sun, 21 Feb 2016 19:27:28 CST</updated>
-    
-    <item>
-      <title>Blog与Markdown</title>
-      <link>http://dasheyuan.com/post/2016-02-21</link>
-      <pubDate>Sun, 21 Feb 2016 19:27:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/2016-02-21</guid>
-      <description>参考 Nanshu Wang Hugo docs 《内核恐慌》静态网站生成器 Build Static Sites in Seconds with Hugo Setting up a custom domain with GitHub Pages</description>
-    </item>
+    <updated>Sat, 20 Feb 2016 19:00:03 CST</updated>
     
     <item>
       <title>Hugo静态网站生成器中文教程(转)</title>
@@ -26,7 +17,7 @@
       <guid>http://dasheyuan.com/post/2015-01-31</guid>
       <description>&lt;p&gt;(转)&lt;a href=&#34;http://nanshu.wang/post/2015-01-31/&#34;&gt;Hugo静态网站生成器中文教程&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;前言:d605f9890f3528aea462ac7515ece633&#34;&gt;前言&lt;/h2&gt;
+&lt;h2 id=&#34;前言:3e7c7706b10fef646211d11c51f37f23&#34;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;是什么？官方文档是这样介绍它的：&lt;/p&gt;
 

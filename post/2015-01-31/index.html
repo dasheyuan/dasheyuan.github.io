@@ -76,7 +76,7 @@
 
 <p>(转)<a href="http://nanshu.wang/post/2015-01-31/">Hugo静态网站生成器中文教程</a></p>
 
-<h2 id="前言:d605f9890f3528aea462ac7515ece633">前言</h2>
+<h2 id="前言:3e7c7706b10fef646211d11c51f37f23">前言</h2>
 
 <p><a href="http://gohugo.io">Hugo</a>是什么？官方文档是这样介绍它的：</p>
 
@@ -111,7 +111,7 @@
 
 <p>我为啥用Hugo？除了以上提到的原因，很重要的一点是<a href="http://gohugo.io">Hugo主页</a>很漂亮，看了一圈静态网站生成器的主页，一眼就被Hugo的美到了，首页的照片里的那个格子小本子应该是<a href="http://www.paperthinks.com">Paperthinks</a>，我正好也在用，有种刚好看到自己桌面的感觉。</p>
 
-<h2 id="安装:d605f9890f3528aea462ac7515ece633">安装</h2>
+<h2 id="安装:3e7c7706b10fef646211d11c51f37f23">安装</h2>
 
 <p>如果说速度快是Hugo的第一大优点，那么安装简单应该就是Hugo的第二大优点。对于Mac用户，没有brew的话先安装brew，在命令行里敲：</p>
 
@@ -125,7 +125,7 @@
 
 <p>当然你也可以在<a href="https://github.com/spf13/hugo/releases">这里</a>直接下载对应系统的binary文件，解压就行了。</p>
 
-<h2 id="了解hugo:d605f9890f3528aea462ac7515ece633">了解Hugo</h2>
+<h2 id="了解hugo:3e7c7706b10fef646211d11c51f37f23">了解Hugo</h2>
 
 <p>首先建立自己的网站，mysite是网站的路径</p>
 
@@ -196,7 +196,7 @@ title = &quot;about&quot;
 
 <p>注意观察当前目录下多了一个文件夹<code>public/</code>，这里面是Hugo生成的整个静态网站，如果使用Github pages来作为博客的Host，你只需要将<code>public/</code>里的文件上传就可以，这相当于是Hugo的输出。</p>
 
-<h2 id="主题选择:d605f9890f3528aea462ac7515ece633">主题选择</h2>
+<h2 id="主题选择:3e7c7706b10fef646211d11c51f37f23">主题选择</h2>
 
 <p>进入<code>themes/hyde</code>文件夹，可以看到熟悉的文件夹名，和主题相关的文件主要是在<code>layouts/</code>和<code>static/</code>这两个文件内，选择好一个主题后，可以将<code>themes/</code>中的文件夹直接复制到<code>mysite/</code>目录下，覆盖原来的<code>layouts/</code>, <code>static/</code>文件夹，此时直接使用\$Hugo server就可以看到主题效果，修改主题也可以直接修改其中的css, js, html等文件。</p>
 
@@ -232,7 +232,7 @@ title = &quot;about&quot;
 
 
 
-<h2 id="评论功能:d605f9890f3528aea462ac7515ece633">评论功能</h2>
+<h2 id="评论功能:3e7c7706b10fef646211d11c51f37f23">评论功能</h2>
 
 <p>个人博客当然不能没有评论，Hugo默认支持<a href="https://disqus.com/">Disqus</a>的评论，需要在模版中添加以下代码：</p>
 
@@ -250,7 +250,7 @@ title = &quot;about&quot;
 
 
 
-<h2 id="代码高亮:d605f9890f3528aea462ac7515ece633">代码高亮</h2>
+<h2 id="代码高亮:3e7c7706b10fef646211d11c51f37f23">代码高亮</h2>
 
 <p>作为码农，代码高亮对于写博客来说当然必不可少。有两种方法：第一种是在生成页面时就生成好代码高亮过的页面；第二种是使用js，用户加载页面时浏览器再进行渲染。</p>
 
@@ -299,7 +299,7 @@ your code here.
 <li><a href="https://code.google.com/p/google-code-prettify/">Google Prettify</a></li>
 </ul>
 
-<h2 id="插入图片:d605f9890f3528aea462ac7515ece633">插入图片</h2>
+<h2 id="插入图片:3e7c7706b10fef646211d11c51f37f23">插入图片</h2>
 
 <p>图片文件放在<code>static/media</code>文件中，插入图片：</p>
 
@@ -308,7 +308,7 @@ your code here.
 
 <p>注意这里的<code>{{</code>和<code>%</code>之间也加上了空格，避免这行代码起作用，实际使用也需要把空格去掉。</p>
 
-<h2 id="使用mathjax:d605f9890f3528aea462ac7515ece633">使用Mathjax</h2>
+<h2 id="使用mathjax:3e7c7706b10fef646211d11c51f37f23">使用Mathjax</h2>
 
 <p>在需要渲染公式的页面加入以下代码，比如<code>layouts/_default/single.html</code>文件，这个文件是对于所有post进行页面生成的模版，如果你希望所有页面都对公式渲染的话，可以加入<code>layouts/partials/footer.html</code>文件里，保证所有生成的页面都有这几行代码。</p>
 
@@ -319,7 +319,7 @@ your code here.
 
 <p>Mathjax和Markdown会有冲突问题，<a href="http://doswa.com/2011/07/20/mathjax-in-markdown.html">这里</a>提供了解决方案。</p>
 
-<h2 id="用github-pages作为网站的host:d605f9890f3528aea462ac7515ece633">用github pages作为网站的Host</h2>
+<h2 id="用github-pages作为网站的host:3e7c7706b10fef646211d11c51f37f23">用github pages作为网站的Host</h2>
 
 <p>Github pages分为两种：一种是项目主页，每个项目都可以有一个；另一种是用户主页，一个用户只能有一个。</p>
 
@@ -399,7 +399,7 @@ $ ping username.github.io
 <li>在你的域名管理中加上两条A记录，分别是www和@，记录指向<a href="http://username.github.io/">http://username.github.io/</a> 的ip地址，也需要等一小会儿生效。</li>
 </ol>
 
-<h2 id="更改字体服务商:d605f9890f3528aea462ac7515ece633">更改字体服务商</h2>
+<h2 id="更改字体服务商:3e7c7706b10fef646211d11c51f37f23">更改字体服务商</h2>
 
 <p>我的博客模版里用的字体是从googleapis里获取的，国内访问会下载失败，把字体库改成360的。
 找到<code>layouts/partials/head_includes.html</code>文件：</p>
@@ -411,11 +411,11 @@ $ ping username.github.io
 
 <p>教程会根据我的博客遇到的问题继续更新。</p>
 
-<h2 id="增加网站分析:d605f9890f3528aea462ac7515ece633">增加网站分析</h2>
+<h2 id="增加网站分析:3e7c7706b10fef646211d11c51f37f23">增加网站分析</h2>
 
 <p>使用网站分析可以帮助我们更好地了解博客的读者和流量来源，我使用了<a href="http://tongji.baidu.com">百度统计</a>和<a href="http://www.google.cn/webmasters/">谷歌统计</a>，注册帐号后只需要按照提示在模板中加入相应的script代码就可以了。</p>
 
-<h2 id="参考:d605f9890f3528aea462ac7515ece633">参考</h2>
+<h2 id="参考:3e7c7706b10fef646211d11c51f37f23">参考</h2>
 
 <ol>
 <li><a href="http://gohugo.io/overview/introduction/">Hugo docs</a></li>
@@ -455,7 +455,6 @@ $ ping username.github.io
       </div>
     </footer>
 <script type="text/x-mathjax-config">
-
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -472,12 +471,11 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-    
- 
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
 
     
     
