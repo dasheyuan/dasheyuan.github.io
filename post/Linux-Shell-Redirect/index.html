@@ -65,11 +65,13 @@
       <article class="post-content">
       
 
-<h2 id="系统文件描述符:5c0c2f26753e8ca6bebfd1b0c288aae6">系统文件描述符</h2>
+<h2 id="系统文件描述符:690961c0631c450a5ba210a36e05dd89">系统文件描述符</h2>
 
 <p>0 标准输入
 1 标准输出
 2 标准错误输出</p>
+
+<p>测试用例</p>
 
 <pre><code>$ cat mytest.sh 
 echo &quot;my test&quot;
@@ -79,9 +81,9 @@ my test  #标准输出
 ./mytest.sh: line 2: mytest: command not found #标准错误输出
 </code></pre>
 
-<h2 id="重定向输出:5c0c2f26753e8ca6bebfd1b0c288aae6">重定向输出</h2>
+<h2 id="重定向输出:690961c0631c450a5ba210a36e05dd89">重定向输出</h2>
 
-<h3 id="操作符1-文件名:5c0c2f26753e8ca6bebfd1b0c288aae6">操作符1：<strong>&gt;文件名</strong></h3>
+<h3 id="操作符1-文件名:690961c0631c450a5ba210a36e05dd89">操作符1：<strong>&gt;文件名</strong></h3>
 
 <pre><code>$ ./mytest.sh &gt; out.txt
 ./mytest.sh: line 2: mytest: command not found
@@ -91,14 +93,14 @@ mytest
 
 <p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中,<strong>标准错误输出</strong>仍然打印出来。</p>
 
-<h3 id="操作符2-文件名:5c0c2f26753e8ca6bebfd1b0c288aae6">操作符2：<strong>&gt;&gt;文件名</strong></h3>
+<h3 id="操作符2-文件名:690961c0631c450a5ba210a36e05dd89">操作符2：<strong>&gt;&gt;文件名</strong></h3>
 
 <pre><code>$ ./mytest.sh &gt;&gt; out.txt
 </code></pre>
 
 <p><strong>标准输出</strong>的内容的内容<strong>增加</strong>到文件out.txt中。</p>
 
-<h3 id="操作符3-文件名:5c0c2f26753e8ca6bebfd1b0c288aae6">操作符3：<strong>&amp;&gt;文件名</strong></h3>
+<h3 id="操作符3-文件名:690961c0631c450a5ba210a36e05dd89">操作符3：<strong>&amp;&gt;文件名</strong></h3>
 
 <pre><code>$ ./mytest.sh &amp;&gt; out.txt
 $ cat out.txt
@@ -108,7 +110,7 @@ my test
 
 <p><strong>标准输出</strong>和<strong>标准错误输出</strong>的内容<strong>保存</strong>到文件out.txt中，同理*&amp;&gt;&gt;*为增加到文件中。</p>
 
-<h3 id="操作符4-文件描述符:5c0c2f26753e8ca6bebfd1b0c288aae6">操作符4：<strong>&gt;&amp;文件描述符</strong></h3>
+<h3 id="操作符4-文件描述符:690961c0631c450a5ba210a36e05dd89">操作符4：<strong>&gt;&amp;文件描述符</strong></h3>
 
 <pre><code>$ ./mytest.sh &gt; out.txt 2&gt;&amp;1
 $ cat out.txt
@@ -118,7 +120,7 @@ my test
 
 <p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中，然后将<strong>标准错误输出</strong>重定向到与<strong>标准输出</strong>相同的地方。</p>
 
-<h2 id="重定向输入:5c0c2f26753e8ca6bebfd1b0c288aae6">重定向输入</h2>
+<h2 id="重定向输入:690961c0631c450a5ba210a36e05dd89">重定向输入</h2>
 
 <pre><code>$ more &lt; lsout.txt
 </code></pre>
