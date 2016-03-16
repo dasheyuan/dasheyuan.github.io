@@ -61,16 +61,16 @@
 		<h3 class="h2 post-title">Shell重定向2&gt;&amp;1的理解 </h3>
 		<p class="post-summary"><h2 id="系统文件描述符:690961c0631c450a5ba210a36e05dd89">系统文件描述符</h2>
 
-<p>0 标准输入
-1 标准输出
-2 标准错误输出</p>
+<p>标准输入   0<br />
+ 标准输出   1<br />
+ 标准错误输出 2</p>
 
 <p>测试用例</p>
 
 <pre><code>$ cat mytest.sh 
 echo &quot;my test&quot;
 mytest
-~$ ./mytest.sh 
+$ ./mytest.sh 
 my test  #标准输出
 ./mytest.sh: line 2: mytest: command not found #标准错误输出
 </code></pre>

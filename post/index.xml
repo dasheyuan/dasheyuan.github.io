@@ -17,16 +17,16 @@
       <guid>http://dasheyuan.com/post/linux-shell-redirect</guid>
       <description>&lt;h2 id=&#34;系统文件描述符:690961c0631c450a5ba210a36e05dd89&#34;&gt;系统文件描述符&lt;/h2&gt;
 
-&lt;p&gt;0 标准输入
-1 标准输出
-2 标准错误输出&lt;/p&gt;
+&lt;p&gt;标准输入   0&lt;br /&gt;
+ 标准输出   1&lt;br /&gt;
+ 标准错误输出 2&lt;/p&gt;
 
 &lt;p&gt;测试用例&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cat mytest.sh 
 echo &amp;quot;my test&amp;quot;
 mytest
-~$ ./mytest.sh 
+$ ./mytest.sh 
 my test  #标准输出
 ./mytest.sh: line 2: mytest: command not found #标准错误输出
 &lt;/code&gt;&lt;/pre&gt;
