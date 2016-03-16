@@ -58,8 +58,21 @@
 		<p class="post-meta left">2016年3月16日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title"> </h3>
-		<p class="post-summary">##系统文件描述符 0 标准输入 1 标准输出 2 标准错误输出 $ cat mytest.sh echo &quot;my test&quot; mytest ~$ ./mytest.sh my test #标准输出 ./mytest.sh: line 2: mytest: command not found #标准错误输出 重定向输出 ###重定向1：&gt;文件名 $ ./mytest.sh &gt; out.txt ./mytest.sh: line 2: mytest: command not found $ cat out.txt mytest 标准输出的内容保存到文件out.txt中,标准错误输出仍然打印出来。 ###重定向2：&gt;&gt;文件名 $ ./mytest.sh &gt;&gt; out.txt 标准输出的内容的内容增加到文件out.txt中。 ###重定向3：&amp;&gt;文件名 $ ./mytest.sh &amp;&gt; out.txt $ cat out.txt my test ./mytest.sh: line 2: mytest: command not found 标准输出和标准错误输出的内容保存到文件out.txt中，同理*&amp;&gt;&gt;*为增加到文件中。 ###重定向4：&gt;&amp;文件描述符</p>
+		<h3 class="h2 post-title">Shell重定向2&gt;&amp;1的理解 </h3>
+		<p class="post-summary"><h2 id="系统文件描述符:5c0c2f26753e8ca6bebfd1b0c288aae6">系统文件描述符</h2>
+
+<p>0 标准输入
+1 标准输出
+2 标准错误输出</p>
+
+<pre><code>$ cat mytest.sh 
+echo &quot;my test&quot;
+mytest
+~$ ./mytest.sh 
+my test  #标准输出
+./mytest.sh: line 2: mytest: command not found #标准错误输出
+</code></pre>
+</p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
