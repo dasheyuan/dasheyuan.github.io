@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Posts - Yuan&#39;s Blog</title>
+  <title> - Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://dasheyuan.com/post/">
+  <link rel="canonical" href="http://dasheyuan.com/post/linux-shell-redirect">
   <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
   
   
@@ -28,7 +28,6 @@
 </head>
 <body class="">
 
-<body lang="en">
 <div class="site-wrap">
   <header class="site-header px2 px-responsive">
   <div class="mt2 wrap">
@@ -47,44 +46,94 @@
   </div>
 </header>
 
- <div class="post p2 p-responsive wrap" role="main">
-  <div class="measure">
-<section id="main">
-  <div>
-   
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2"></h1>
+		<span class="post-meta">2016年3月16日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
             
-            <h2>2016</h2>
-                <ul id="list">
-                    
-                            <li>
-    <a href="http://dasheyuan.com/post/linux-shell-redirect"> </a>
-     <div class="meta right" >3月16日</div>
-    </li>
+            <a href="http://dasheyuan.com/tags/linux">linux</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/shell">shell</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>##系统文件描述符
+0 标准输入
+1 标准输出
+2 标准错误输出</p>
+
+<pre><code>$ cat mytest.sh 
+echo &quot;my test&quot;
+mytest
+~$ ./mytest.sh 
+my test  #标准输出
+./mytest.sh: line 2: mytest: command not found #标准错误输出
+</code></pre>
+
+<h2 id="重定向输出:5c0c2f26753e8ca6bebfd1b0c288aae6">重定向输出</h2>
+
+<p>###重定向1：<strong>&gt;文件名</strong></p>
+
+<pre><code>$ ./mytest.sh &gt; out.txt
+./mytest.sh: line 2: mytest: command not found
+$ cat out.txt
+mytest
+</code></pre>
+
+<p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中,<strong>标准错误输出</strong>仍然打印出来。</p>
+
+<p>###重定向2：<strong>&gt;&gt;文件名</strong></p>
+
+<pre><code>$ ./mytest.sh &gt;&gt; out.txt
+</code></pre>
+
+<p><strong>标准输出</strong>的内容的内容<strong>增加</strong>到文件out.txt中。</p>
+
+<p>###重定向3：<strong>&amp;&gt;文件名</strong></p>
+
+<pre><code>$ ./mytest.sh &amp;&gt; out.txt
+$ cat out.txt
+my test
+./mytest.sh: line 2: mytest: command not found
+</code></pre>
+
+<p><strong>标准输出</strong>和<strong>标准错误输出</strong>的内容<strong>保存</strong>到文件out.txt中，同理*&amp;&gt;&gt;*为增加到文件中。</p>
+
+<p>###重定向4：<strong>&gt;&amp;文件描述符</strong></p>
+
+<pre><code>$ ./mytest.sh &gt; out.txt 2&gt;&amp;1
+$ cat out.txt
+my test
+./mytest.sh: line 2: mytest: command not found
+</code></pre>
+
+<p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中，然后将<strong>标准错误输出</strong>重定向到与<strong>标准输出</strong>相同的地方。</p>
+
+<h2 id="重定向输入:5c0c2f26753e8ca6bebfd1b0c288aae6">重定向输入</h2>
+
+<pre><code>$ more &lt; lsout.txt
+</code></pre>
+
+      </article>
+	  
 
 
-                    
-                            <li>
-    <a href="http://dasheyuan.com/post/programmer-how-to-write-a-good-article">程序员怎样才能写出一篇好的博客或者技术文章(转) </a>
-     <div class="meta right" >3月2日</div>
-    </li>
 
 
-                    
-                            <li>
-    <a href="http://dasheyuan.com/post/nanshu-hugo">Hugo静态网站生成器中文教程(转) </a>
-     <div class="meta right" >2月20日</div>
-    </li>
 
 
-                    
-                </ul>
-            
+
+    </div>
   </div>
-</section>
 </div>
-</div>
-</div>
-<aside id="meta"> </aside>
     <footer class="footer">
       <div class="p2 wrap">
         <div class="measure mt1 center">
