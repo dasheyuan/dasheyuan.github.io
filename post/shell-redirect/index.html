@@ -83,7 +83,7 @@ my test  #标准输出
 
 <h2 id="重定向输出:690961c0631c450a5ba210a36e05dd89">重定向输出</h2>
 
-<h3 id="操作符1-文件名:690961c0631c450a5ba210a36e05dd89">操作符1：<strong>&gt;文件名</strong></h3>
+<h3 id="操作符1-文件名:690961c0631c450a5ba210a36e05dd89">操作符1：&gt;文件名</h3>
 
 <pre><code>$ ./mytest.sh &gt; out.txt
 ./mytest.sh: line 2: mytest: command not found
@@ -91,16 +91,16 @@ $ cat out.txt
 mytest
 </code></pre>
 
-<p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中,<strong>标准错误输出</strong>仍然打印出来。</p>
+<p>标准输出的内容保存到文件out.txt中,标准错误输出仍然打印出来。</p>
 
-<h3 id="操作符2-文件名:690961c0631c450a5ba210a36e05dd89">操作符2：<strong>&gt;&gt;文件名</strong></h3>
+<h3 id="操作符2-文件名:690961c0631c450a5ba210a36e05dd89">操作符2：&gt;&gt;文件名</h3>
 
 <pre><code>$ ./mytest.sh &gt;&gt; out.txt
 </code></pre>
 
-<p><strong>标准输出</strong>的内容的内容<strong>增加</strong>到文件out.txt中。</p>
+<p>标准输出的内容增加到文件out.txt中。</p>
 
-<h3 id="操作符3-文件名:690961c0631c450a5ba210a36e05dd89">操作符3：<strong>&amp;&gt;文件名</strong></h3>
+<h3 id="操作符3-文件名:690961c0631c450a5ba210a36e05dd89">操作符3：&amp;&gt;文件名</h3>
 
 <pre><code>$ ./mytest.sh &amp;&gt; out.txt
 $ cat out.txt
@@ -108,9 +108,10 @@ my test
 ./mytest.sh: line 2: mytest: command not found
 </code></pre>
 
-<p><strong>标准输出</strong>和<strong>标准错误输出</strong>的内容<strong>保存</strong>到文件out.txt中，同理*&amp;&gt;&gt;*为增加到文件中。</p>
+<p>标准输出和标准错误输出的内容保存到文件out.txt中，同理
+<code>&amp;&gt;&gt;</code>为增加到文件中。</p>
 
-<h3 id="操作符4-文件描述符:690961c0631c450a5ba210a36e05dd89">操作符4：<strong>&gt;&amp;文件描述符</strong></h3>
+<h3 id="操作符4-文件描述符:690961c0631c450a5ba210a36e05dd89">操作符4：&gt;&amp;文件描述符</h3>
 
 <pre><code>$ ./mytest.sh &gt; out.txt 2&gt;&amp;1
 $ cat out.txt
@@ -118,7 +119,7 @@ my test
 ./mytest.sh: line 2: mytest: command not found
 </code></pre>
 
-<p><strong>标准输出</strong>的内容<strong>保存</strong>到文件out.txt中，然后将<strong>标准错误输出</strong>重定向到与<strong>标准输出</strong>相同的地方。</p>
+<p>标准输出的内容保存到文件out.txt中，然后将标准错误输出重定向到与标准输出相同的地方。</p>
 
 <h2 id="重定向输入:690961c0631c450a5ba210a36e05dd89">重定向输入</h2>
 
