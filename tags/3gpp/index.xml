@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>3gpp on Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/3gpp/</link>
+    
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Mon, 21 Mar 2016 23:00:01 CST</updated>
+    
+    <item>
+      <title>E-UTRAN网格架构参考模型</title>
+      <link>http://dasheyuan.com/post/evolved-utran-architecture-reference-model</link>
+      <pubDate>Mon, 21 Mar 2016 23:00:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/evolved-utran-architecture-reference-model</guid>
+      <description>&lt;p&gt;小组任务，安排整理一下3GPP R12网络架构的内容。今天查找的内容简单小结一下。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

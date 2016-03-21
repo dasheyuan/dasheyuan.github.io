@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>E-UTRAN网格架构参考模型 - Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/evolved-utran-architecture-reference-model">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">E-UTRAN网格架构参考模型</h1>
+		<span class="post-meta">2016年3月21日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/3gpp">3gpp</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/network">network</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/architecture">architecture</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/utran">utran</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>小组任务，安排整理一下3GPP R12网络架构的内容。今天查找的内容简单小结一下。</p>
+
+<h2 id="网络架构参考模型:febc3d0e5cef99208424fe25b405f23b">网络架构参考模型</h2>
+
+<h3 id="1-非漫游架构:febc3d0e5cef99208424fe25b405f23b">1、非漫游架构</h3>
+
+<p>非漫游架构有两种参考模型，这两种模型区别不大，主要是S-GW和P-GW是否是一个独立的网元。<br />
+<img src="http://dasheyuan.com/images/Non-roaming architecture for 3GPP accesse.png" alt="Non-roaming architecture for 3GPP accesse" />
+图1 Non-roaming architecture for 3GPP accesse<br />
+<img src="http://dasheyuan.com/images/Non-roaming architecture for 3GPP accesses. Single gateway configuration option.png" alt="Non-roaming architecture for 3GPP accesses. Single gateway configuration option" />
+图2 Non-roaming architecture for 3GPP accesses. Single gateway configuration option</p>
+
+<h3 id="2-漫游架构:febc3d0e5cef99208424fe25b405f23b">2、漫游架构</h3>
+
+<p>漫游架构有三种参考模型，其中第1种是本地路由业务，P-GW位于本地网络侧；第2和第3种是非本地路由业务，P-GW位于访问网络侧。第2与第3种的区别是AF（Application Function）在哪一侧。
+<img src="http://dasheyuan.com/images/Roaming architecture for 3GPP accesses. Home routed traffic.png" alt="Roaming architecture for 3GPP accesses. Home routed traffic" />
+图3 Roaming architecture for 3GPP accesses. Home routed traffic
+<img src="http://dasheyuan.com/images/Roaming architecture for local breakout, with home operator's application functions only.png" alt="Roaming architecture for local breakout, with home operator's application functions only" />
+图4 Roaming architecture for local breakout, with home operator&rsquo;s application functions only
+<img src="http://dasheyuan.com/images/Roaming architecture for local breakout, with visited operator's application functions only.png" alt="Roaming architecture for local breakout, with visited operator's application functions only" />
+图5 Roaming architecture for local breakout, with visited operator&rsquo;s application functions only</p>
+
+<h2 id="参考:febc3d0e5cef99208424fe25b405f23b">参考</h2>
+
+<ol>
+<li><a href="http://www.3gpp.org/DynaReport/23401.htm">3GPP TS 23.401</a>:&ldquo;General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access&rdquo;.</li>
+</ol>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257808735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257808735%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+
