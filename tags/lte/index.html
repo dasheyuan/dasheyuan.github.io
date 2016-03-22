@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Shell重定向2&gt;&amp;1的理解 - Chen Yuan&#39;s Blog</title>
+  <title>Lte - Chen Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://dasheyuan.com/post/shell-redirect">
+  <link rel="canonical" href="http://dasheyuan.com/tags/lte/">
   <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
   
   
@@ -48,93 +48,12 @@
 
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
-      <div class="post-header mb2">
-        <h1 class="py2">Shell重定向2&gt;&amp;1的理解</h1>
-		<span class="post-meta">2016年3月16日</span>
+    <p>Tag: lte</p>
+    <ul>
         
-      </div>
-       <p class="post-meta">Tags:&nbsp;
+            <li><a href="http://dasheyuan.com/post/evolved-utran-network-architecture"> E-UTRAN(LTE)网格架构 </a></li>
         
-            
-            <a href="http://dasheyuan.com/tags/linux">linux</a>
-        
-            ,&nbsp;
-            <a href="http://dasheyuan.com/tags/shell">shell</a>
-        
-      </p> 
-      <article class="post-content">
-      
-
-<h2 id="一-系统文件描述符:690961c0631c450a5ba210a36e05dd89">一、系统文件描述符</h2>
-
-<p>标准输入   0<br />
- 标准输出   1<br />
- 标准错误输出 2</p>
-
-<p>测试用例</p>
-
-<pre><code>$ cat mytest.sh 
-echo &quot;my test&quot;
-mytest
-$ ./mytest.sh 
-my test  #标准输出
-./mytest.sh: line 2: mytest: command not found #标准错误输出
-</code></pre>
-
-<h2 id="二-重定向输出:690961c0631c450a5ba210a36e05dd89">二、重定向输出</h2>
-
-<h3 id="1-文件名:690961c0631c450a5ba210a36e05dd89">1.&gt;文件名</h3>
-
-<pre><code>$ ./mytest.sh &gt; out.txt
-./mytest.sh: line 2: mytest: command not found
-$ cat out.txt
-mytest
-</code></pre>
-
-<p>标准输出的内容保存到文件out.txt中,标准错误输出仍然打印出来。</p>
-
-<h3 id="2-文件名:690961c0631c450a5ba210a36e05dd89">2.&gt;&gt;文件名</h3>
-
-<pre><code>$ ./mytest.sh &gt;&gt; out.txt
-</code></pre>
-
-<p>标准输出的内容增加到文件out.txt中。</p>
-
-<h3 id="3-文件名:690961c0631c450a5ba210a36e05dd89">3.&amp;&gt;文件名</h3>
-
-<pre><code>$ ./mytest.sh &amp;&gt; out.txt
-$ cat out.txt
-my test
-./mytest.sh: line 2: mytest: command not found
-</code></pre>
-
-<p>标准输出和标准错误输出的内容保存到文件out.txt中，同理
-<code>&amp;&gt;&gt;</code>为增加到文件中。</p>
-
-<h3 id="4-文件描述符:690961c0631c450a5ba210a36e05dd89">4.&gt;&amp;文件描述符</h3>
-
-<pre><code>$ ./mytest.sh &gt; out.txt 2&gt;&amp;1
-$ cat out.txt
-my test
-./mytest.sh: line 2: mytest: command not found
-</code></pre>
-
-<p>标准输出的内容保存到文件out.txt中，然后将标准错误输出重定向到与标准输出相同的地方。</p>
-
-<h2 id="三-重定向输入:690961c0631c450a5ba210a36e05dd89">三、重定向输入</h2>
-
-<pre><code>$ more &lt; lsout.txt
-</code></pre>
-
-      </article>
-	  
-
-
-
-
-
-
-
+    </ul>
     </div>
   </div>
 </div>

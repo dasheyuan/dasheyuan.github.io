@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Linux on Yuan&#39;s Blog </title>
+      <title>Linux on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
     <link>http://dasheyuan.com/tags/linux/</link>
     
@@ -15,7 +15,7 @@
       <pubDate>Wed, 16 Mar 2016 22:11:03 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/shell-redirect</guid>
-      <description>&lt;h2 id=&#34;系统文件描述符:690961c0631c450a5ba210a36e05dd89&#34;&gt;系统文件描述符&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;一-系统文件描述符:690961c0631c450a5ba210a36e05dd89&#34;&gt;一、系统文件描述符&lt;/h2&gt;
 
 &lt;p&gt;标准输入   0&lt;br /&gt;
  标准输出   1&lt;br /&gt;
