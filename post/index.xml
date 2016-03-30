@@ -7,17 +7,34 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Tue, 29 Mar 2016 14:00:01 CST</updated>
+    <updated>Wed, 30 Mar 2016 15:22:01 CST</updated>
+    
+    <item>
+      <title>PyCharm远程调试</title>
+      <link>http://dasheyuan.com/post/pycharm-remote-debugging</link>
+      <pubDate>Wed, 30 Mar 2016 15:22:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/pycharm-remote-debugging</guid>
+      <description>&lt;p&gt;PyCharm提供两种远程调试(Remote Debugging)的方式:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置远程的解释器（remote interpreter）&lt;/li&gt;
+&lt;li&gt;配置Python调试服务器（Python Debug Server）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文主要介绍Python Debug Server配置与使用。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>使用screen查看OpenStack进程</title>
-      <link>http://dasheyuan.com/post/devstack-screen</link>
+      <link>http://dasheyuan.com/post/screen-openstack</link>
       <pubDate>Tue, 29 Mar 2016 14:00:01 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/devstack-screen</guid>
-      <description>&lt;p&gt;摘要：介绍screen在openstack调试中使用，整理screen的内容，包括快捷键和命令选项。&lt;/p&gt;
+      <guid>http://dasheyuan.com/post/screen-openstack</guid>
+      <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
-&lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如何需要进一步调试和开发openstack，则需要了解一下screen相关的内容，通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
+&lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
 </description>
     </item>
     
@@ -27,7 +44,7 @@
       <pubDate>Mon, 21 Mar 2016 23:00:01 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/lte-network-architecture</guid>
-      <description>&lt;p&gt;摘要：首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
+      <description>&lt;p&gt;首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
 
 &lt;p&gt;说明：文中的图片参考的是3GPP版本12的规范文档。&lt;/p&gt;
 </description>

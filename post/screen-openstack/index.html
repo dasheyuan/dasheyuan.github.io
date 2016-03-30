@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://dasheyuan.com/post/devstack-screen">
+  <link rel="canonical" href="http://dasheyuan.com/post/screen-openstack">
   <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
   
   
@@ -71,11 +71,11 @@
       <article class="post-content">
       
 
-<p>摘要：介绍screen在openstack调试中使用，整理screen的内容，包括快捷键和命令选项。</p>
+<p>介绍screen在openstack调试中的使用，整理screen的内容及快捷键。</p>
 
-<p>DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如何需要进一步调试和开发openstack，则需要了解一下screen相关的内容，通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。</p>
+<p>DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。</p>
 
-<h2 id="一-使用screen查看openstack进程:e76514580022665ff8690551aea07c18">一、使用screen查看OpenStack进程</h2>
+<h2 id="一-使用screen查看openstack进程:4426c4102afb18eb621b1ee428fa3355">一、使用screen查看OpenStack进程</h2>
 
 <p>首先得有个通俗的概念，DevStack安装完成后，OpenStack的进程是运行在“后台”的，如何把运行在“后台”的进程信息打印到屏幕上呢？答案是使用<code>screen</code>。</p>
 
@@ -121,7 +121,7 @@ $ sudo chmod 777 /dev/pts/26
  18$(L) c-api  19$(L) c-sch  20$(L) c-vol   21$(L) horizon*
 </code></pre>
 
-<h2 id="二-终止和重启进程:e76514580022665ff8690551aea07c18">二、终止和重启进程</h2>
+<h2 id="二-终止和重启进程:4426c4102afb18eb621b1ee428fa3355">二、终止和重启进程</h2>
 
 <p>screen与terminal一样，通过CTRL+c终止当前进程。所以，通过在screen中切换至需要终止的进程List，CTRL+c当前进程。</p>
 
@@ -139,7 +139,7 @@ fg || echo &quot;n-api failed to start&quot; | tee \
 
 <p>下面的内容摘自参考资料，部分删改。</p>
 
-<h2 id="三-引入screen的原因:e76514580022665ff8690551aea07c18">三、引入screen的原因</h2>
+<h2 id="三-引入screen的原因:4426c4102afb18eb621b1ee428fa3355">三、引入screen的原因</h2>
 
 <p>当通过ssh远程登录到Linux服务器时，经常遇到一些需要长时间运行的任务，比如系统备份、FTP传输等。必须等待这些任务进行完才可以进行其他操作，另外，在此期间不能关掉窗口或者断开连接，否则会终止掉这些进程。</p>
 
@@ -166,7 +166,7 @@ fg || echo &quot;n-api failed to start&quot; | tee \
 
 <p>简单来说，screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。</p>
 
-<h3 id="快捷键:e76514580022665ff8690551aea07c18">快捷键</h3>
+<h3 id="快捷键:4426c4102afb18eb621b1ee428fa3355">快捷键</h3>
 
 <table>
 <thead>
@@ -229,7 +229,7 @@ fg || echo &quot;n-api failed to start&quot; | tee \
 </tbody>
 </table>
 
-<h2 id="参考:e76514580022665ff8690551aea07c18">参考</h2>
+<h2 id="参考:4426c4102afb18eb621b1ee428fa3355">参考</h2>
 
 <ol>
 <li><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-screen/">http://www.ibm.com/developerworks/cn/linux/l-cn-screen/</a></li>
