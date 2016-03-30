@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Shell on Chen Yuan&#39;s Blog </title>
+      <title>Screen on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/shell/</link>
+    <link>http://dasheyuan.com/tags/screen/</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
@@ -18,30 +18,6 @@
       <description>&lt;p&gt;摘要：介绍screen在openstack调试中使用，整理screen的内容，包括快捷键和命令选项。&lt;/p&gt;
 
 &lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如何需要进一步调试和开发openstack，则需要了解一下screen相关的内容，通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Shell重定向2&gt;&amp;1的理解</title>
-      <link>http://dasheyuan.com/post/shell-redirect</link>
-      <pubDate>Wed, 16 Mar 2016 22:11:03 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/shell-redirect</guid>
-      <description>&lt;h2 id=&#34;一-系统文件描述符:690961c0631c450a5ba210a36e05dd89&#34;&gt;一、系统文件描述符&lt;/h2&gt;
-
-&lt;p&gt;标准输入   0&lt;br /&gt;
- 标准输出   1&lt;br /&gt;
- 标准错误输出 2&lt;/p&gt;
-
-&lt;p&gt;测试用例&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cat mytest.sh 
-echo &amp;quot;my test&amp;quot;
-mytest
-$ ./mytest.sh 
-my test  #标准输出
-./mytest.sh: line 2: mytest: command not found #标准错误输出
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

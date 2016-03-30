@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>使用screen查看OpenStack进程 - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/devstack-screen">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">使用screen查看OpenStack进程</h1>
+		<span class="post-meta">2016年3月29日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/openstack">openstack</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/devstack">devstack</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/shell">shell</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/screen">screen</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>摘要：介绍screen在openstack调试中使用，整理screen的内容，包括快捷键和命令选项。</p>
+
+<p>DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如何需要进一步调试和开发openstack，则需要了解一下screen相关的内容，通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。</p>
+
+<h2 id="一-使用screen查看openstack进程:e76514580022665ff8690551aea07c18">一、使用screen查看OpenStack进程</h2>
+
+<p>首先得有个通俗的概念，DevStack安装完成后，OpenStack的进程是运行在“后台”的，如何把运行在“后台”的进程信息打印到屏幕上呢？答案是使用<code>screen</code>。</p>
+
+<p>几个常用的screen命令</p>
+
+<pre><code>#获取screen列表
+screen -list
+#打开指定screen
+screen -x stack
+#Next
+CTRL+a+n
+#Previous 
+CTRL+a+p
+#List显示screen列表
+CTRL+a+&quot;
+#Detach断开当前screen
+CTRL+a+d
+</code></pre>
+
+<p>实践操作<br />
+获取screen列表</p>
+
+<pre><code>$ screen -list
+There is a screen on:
+	81151.stack	(03/26/16 23:43:14)	(Detached)
+1 Socket in /var/run/screen/S-stack.
+</code></pre>
+
+<p>打开stack的screen</p>
+
+<pre><code>$ screen -x stack
+Cannot open your terminal '/dev/pts/26' - please check.
+#权限问题，修改/dev/pts/26权限
+$ sudo chmod 777 /dev/pts/26
+</code></pre>
+
+<pre><code>$ screen -x stack
+#stack的screen有多个List，屏幕输出最后一行，带*就是当前List显示的内容
+#CTRL+a+n/p切换当前List
+#CTRL+a+d退出当前scree
+#CTRL+a+&quot;显示当前所有的List（测试时无法打开）
+
+ 18$(L) c-api  19$(L) c-sch  20$(L) c-vol   21$(L) horizon*
+</code></pre>
+
+<h2 id="二-终止和重启进程:e76514580022665ff8690551aea07c18">二、终止和重启进程</h2>
+
+<p>screen与terminal一样，通过CTRL+c终止当前进程。所以，通过在screen中切换至需要终止的进程List，CTRL+c当前进程。</p>
+
+<pre><code>n-api failed to start
+</code></pre>
+
+<p>重启进程，通过方向键向上，找到终止掉的进程命令，拷贝到任意terminal或当前screen运行即可。</p>
+
+<pre><code>$ /usr/local/bin/nova-api &amp; echo $! &gt;/opt/stack/status/stack/n-api.pid; \
+fg || echo &quot;n-api failed to start&quot; | tee \
+&quot;/opt/stack/status/stack/n-api.failure&quot;
+</code></pre>
+
+<hr />
+
+<p>下面的内容摘自参考资料，部分删改。</p>
+
+<h2 id="三-引入screen的原因:e76514580022665ff8690551aea07c18">三、引入screen的原因</h2>
+
+<p>当通过ssh远程登录到Linux服务器时，经常遇到一些需要长时间运行的任务，比如系统备份、FTP传输等。必须等待这些任务进行完才可以进行其他操作，另外，在此期间不能关掉窗口或者断开连接，否则会终止掉这些进程。</p>
+
+<p>元凶：SIGHUP 信号
+让我们来看看为什么关掉窗口/断开连接会使得正在运行的程序死掉。
+在Linux/Unix中，有这样几个概念：</p>
+
+<ul>
+<li>进程组（process group）：一个或多个进程的集合，每一个进程组有唯一一个进程组ID，即进程组长进程的ID。</li>
+<li>会话期（session）：一个或多个进程组的集合，有唯一一个会话期首进程（session leader）。会话期ID为首进程的ID。</li>
+<li>会话期可以有一个单独的控制终端（controlling terminal）。与控制终端连接的会话期首进程叫做控制进程（controlling process）。当前与终端交互的进程称为前台进程组。其余进程组称为后台进程组。</li>
+</ul>
+
+<p>根据POSIX.1定义：</p>
+
+<ul>
+<li>挂断信号（SIGHUP）默认的动作是终止程序。</li>
+<li>当终端接口检测到网络连接断开，将挂断信号发送给控制进程（会话期首进程）。</li>
+<li>如果会话期首进程终止，则该信号发送到该会话期前台进程组。</li>
+<li>一个进程退出导致一个孤儿进程组中产生时，如果任意一个孤儿进程组进程处于STOP状态，发送SIGHUP和SIGCONT信号到该进程组中所有进程。</li>
+</ul>
+
+<p>因此当网络断开或终端窗口关闭后，控制进程收到SIGHUP信号退出，会导致该会话期内其他进程退出。</p>
+
+<p>简单来说，screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器。screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet/SSH连接窗口那样。</p>
+
+<h3 id="快捷键:e76514580022665ff8690551aea07c18">快捷键</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">C-a ?</th>
+<th align="left">显示所有键绑定信息</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">C-a w</td>
+<td align="left">显示所有窗口列表</td>
+</tr>
+
+<tr>
+<td align="left">C-a C-a</td>
+<td align="left">切换到之前显示的窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a c</td>
+<td align="left">创建一个新的运行shell的窗口并切换到该窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a n</td>
+<td align="left">切换到下一个窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a p</td>
+<td align="left">切换到上一个窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a 0..9</td>
+<td align="left">切换到窗口0..9</td>
+</tr>
+
+<tr>
+<td align="left">C-a a</td>
+<td align="left">发送C-a到当前窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a d</td>
+<td align="left">暂时断开screen会话</td>
+</tr>
+
+<tr>
+<td align="left">C-a k</td>
+<td align="left">杀掉当前窗口</td>
+</tr>
+
+<tr>
+<td align="left">C-a [</td>
+<td align="left">进入拷贝回滚模式</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="命令选项:e76514580022665ff8690551aea07c18">命令选项</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">-c file</th>
+<th align="left">使用配置文件file，而不使用默认的screenrc配置文件</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-d|-D\[pid.tty.host\]</td>
+<td align="left">不开启新的screen会话，而是断开其他正在运行的screen会话</td>
+</tr>
+
+<tr>
+<td align="left">-h num</td>
+<td align="left">指定历史回滚缓冲区大小为num行</td>
+</tr>
+
+<tr>
+<td align="left">-list|-ls</td>
+<td align="left">列出现有screen会话，格式为pid.tty.host</td>
+</tr>
+
+<tr>
+<td align="left">-d -m</td>
+<td align="left">启动一个开始就处于断开模式的会话</td>
+</tr>
+
+<tr>
+<td align="left">-r sessionowner/\[pid.tty.host\]</td>
+<td align="left">重新连接一个断开的会话。多用户模式下连接到其他用户screen会话需要指定sessionowner，需要setuid-root权限</td>
+</tr>
+
+<tr>
+<td align="left">-S sessionname</td>
+<td align="left">创建screen会话时为会话指定一个名字</td>
+</tr>
+
+<tr>
+<td align="left">-v</td>
+<td align="left">显示screen版本信息</td>
+</tr>
+
+<tr>
+<td align="left">-wipe \[match\]</td>
+<td align="left">同-list，但删除那些无法连接的会话</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="参考:e76514580022665ff8690551aea07c18">参考</h3>
+
+<p>[转]<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-screen/">http://www.ibm.com/developerworks/cn/linux/l-cn-screen/</a></p>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257808735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257808735%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+
