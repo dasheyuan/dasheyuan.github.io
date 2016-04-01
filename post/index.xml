@@ -7,7 +7,21 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 30 Mar 2016 15:22:01 CST</updated>
+    <updated>Fri, 01 Apr 2016 15:22:01 CST</updated>
+    
+    <item>
+      <title>搭建OpenStack/DevStack远程开发调试环境</title>
+      <link>http://dasheyuan.com/post/openstack-dev-environment</link>
+      <pubDate>Fri, 01 Apr 2016 15:22:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/openstack-dev-environment</guid>
+      <description>&lt;p&gt;在开始写这篇文章的时候，有种感慨：搭建OpenStack/DevStack开发调试环境&lt;strong&gt;成本&lt;/strong&gt;真不低。涉及的技术太多了。不知道什么时候对OpenStack的开发与PHP一样，可以一键部署开发环境呢？&lt;/p&gt;
+
+&lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;
+
+&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>PyCharm远程调试</title>
@@ -34,7 +48,7 @@
       <guid>http://dasheyuan.com/post/screen-openstack</guid>
       <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
-&lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
 </description>
     </item>
     
@@ -114,6 +128,18 @@ my test  #标准输出
 &lt;p&gt;Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。&lt;/p&gt;
 
 &lt;p&gt;静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OpenStack中的设计模式1:单例模式</title>
+      <link>http://dasheyuan.com/post/openstack-singleton-pattern</link>
+      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/openstack-singleton-pattern</guid>
+      <description>&lt;p&gt;设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。&lt;/p&gt;
+
+&lt;p&gt;单例模式（Singleton Pattern）最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”&lt;/p&gt;
 </description>
     </item>
     

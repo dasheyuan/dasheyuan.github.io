@@ -17,7 +17,7 @@
       <guid>http://dasheyuan.com/post/screen-openstack</guid>
       <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
-&lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
 </description>
     </item>
     

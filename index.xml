@@ -7,7 +7,21 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 30 Mar 2016 15:22:01 CST</updated>
+    <updated>Fri, 01 Apr 2016 15:22:01 CST</updated>
+    
+    <item>
+      <title>搭建OpenStack/DevStack远程开发调试环境</title>
+      <link>http://dasheyuan.com/post/openstack-dev-environment</link>
+      <pubDate>Fri, 01 Apr 2016 15:22:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/openstack-dev-environment</guid>
+      <description>&lt;p&gt;在开始写这篇文章的时候，有种感慨：搭建OpenStack/DevStack开发调试环境&lt;strong&gt;成本&lt;/strong&gt;真不低。涉及的技术太多了。不知道什么时候对OpenStack的开发与PHP一样，可以一键部署开发环境呢？&lt;/p&gt;
+
+&lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;
+
+&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>PyCharm远程调试</title>
@@ -34,7 +48,7 @@
       <guid>http://dasheyuan.com/post/screen-openstack</guid>
       <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
-&lt;p&gt;DevStack安装完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
 </description>
     </item>
     
@@ -124,6 +138,18 @@ my test  #标准输出
       
       <guid>http://dasheyuan.com/about</guid>
       <description>2010 红岩网校@CQUPT 2015 BWA@TSINGHUA EMAIL：dasheyuan@qq.com 陈圆，男，90后，属羊，老家广东茂名。 大蛇圆是初中同学起的昵称，当时火影忍者还很火。我挺喜欢这个昵称的。 关于博客 通信小硕。读研实习期间，拼凑模仿，逐步搭建完善自己的技术日志站点，旨在记录分享在北京求学和以后学习的点滴积累，更重要的是督促自己不断地总结所学的内容。 钟意 瞎吐槽，深夜惊奇@知乎日报 糗事播报，段子来了，段子来了羞羞版，一黑到底@喜马拉雅FM 原创精选，轻松时刻，暴走大事件，罗辑思维，时间的朋友，麻辣隔壁，毛骗@优酷 黄子华棟笃笑 郑渊洁童话大王 今晚80后脱口秀 屌丝男士 糗事百科 奔跑吧兄弟 仙剑奇侠传 打游戏 小智 小莫解说 七龙珠 跑步 吉他 卡农 天空之城 许巍 艾薇儿 煮饭 熬汤 糖醋排骨 化州糖水 水果 逛书店 奥卡姆剃刀 数学 模仿 Python Markdown Git 夜空中最亮的星 人月神话 九寨沟 唔钟意 雾霾 台风 北京冷 重庆热 睡不着 太冷清 唔该 spf13 Nanshu Wang</description>
+    </item>
+    
+    <item>
+      <title>OpenStack中的设计模式1:单例模式</title>
+      <link>http://dasheyuan.com/post/openstack-singleton-pattern</link>
+      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/openstack-singleton-pattern</guid>
+      <description>&lt;p&gt;设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。&lt;/p&gt;
+
+&lt;p&gt;单例模式（Singleton Pattern）最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”&lt;/p&gt;
+</description>
     </item>
     
     <item>
