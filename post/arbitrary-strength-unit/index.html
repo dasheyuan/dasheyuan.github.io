@@ -65,11 +65,11 @@
 <p>最近在看LTE的入门通识相关的资料。LTE终端进行小区选择的过程中，会测量小区参考信号的信号强度RSRP，然后根据测量到的RSRP，通过选择算法进行判决，判决通过后，终端就会与目标小区同步。选择算法中提到一个值Q_rxlevmin，指可驻留的目标小区需要的最低RSRP，通常为-124dBm。</p>
 
 <p>顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？<br />
-asu也是一种信号强度参考（相对）单位，一般出现在Android系统的手机中。其实就是一个整形（integer）变量。</p>
+asu也是一种信号强度参考（相对）单位，一般出现在Android系统的手机中。<br />
+asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。</p>
 
 <p><img src="http://dasheyuan.com/images/Arbitrary Strength Unit.png" alt="Arbitrary Strength Unit" />
-（上图是双模终端Android系统信息的截图）
-asu，维基百科中指的是Arbitrary Strength Unit，百度百科中却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。</p>
+（上图是双模终端Android系统信息的截图）</p>
 
 <p>不同的制式的系统，dBm与asu的有不同的关系。<br />
 1、在GSM系统中，asu与RSSI(Received Signal Strength Indicator）有关：</p>
