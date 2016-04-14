@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>GitHub上删不掉的issues - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/github-issues">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">GitHub上删不掉的issues</h1>
+		<span class="post-meta">2016年4月14日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/technology">technology</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>小结一下GitHub上的issues功能，很有意思。</p>
+
+<p>今天发现<a href="http://yikun.github.io">Yikun</a>的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。</p>
+
+<p>测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。<br />
+这样的设计应该是有原因的，现在想不明白，以后再探究吧。<br />
+今天也大概了解了一下GitHub的API，也挺好玩的。</p>
+
+<h2 id="issues的属性:9aa2e4e22a96cf6d857da756290dc23a">issues的属性</h2>
+
+<p>GitHub中每一个仓库都会有对应的一个issues的功能，issues中可以新建多个issue，每一个issue就像一篇文章，有标题和内容，还有评论。另外，每个issue都有唯一的编号“#n”。
+issue可以设置：<code>Opened</code>和<code>Closed</code>两种状态。</p>
+
+<p>issue 还可以有额外的属性：<br />
+Labels，标签。包括bug、invalid等，可以自定义。表示issue的类型，解决的方式。<br />
+Milestone，里程碑。通常用来做版本管理，v0.1、v1.0之类的，也可以是任意自定义字符串。一个里程碑对应的所有 issue 都被关闭后，这个里程碑会被自动认为已经达成。<br />
+Assignee，责任人。指定这个issue由谁负责来解决。</p>
+
+<h2 id="个人如何利用issues的功能:9aa2e4e22a96cf6d857da756290dc23a">个人如何利用issues的功能？</h2>
+
+<p>GitHub 的issue功能，对个人而言，就如同 TODO list。<br />
+可以把所有想要在下一步完成的工作，如 feature 添加、bug 修复等，都写成一个个的 issue ，放在上面。既可以作为提醒，也可以统一管理。
+另外，每一次 commit 都可以选择性的与某个 issue 关联。比如在 message 中添加 #n，就可以与第 n 个 issue 进行关联。
+commit message title, #1
+这个提交会作为一个 comment ，出现在编号为1的 issue 记录中。
+如果添加：</p>
+
+<ul>
+<li>fix #n</li>
+<li>fixes #n</li>
+<li>fixed #n</li>
+<li>close #n</li>
+<li>closes #n</li>
+<li>closed #n</li>
+</ul>
+
+<p>比如</p>
+
+<pre><code>commit message title, fix #n
+</code></pre>
+
+<p>则可以<strong>自动关闭</strong>第 n 个 issue。</p>
+
+<p>充分利用这些功能，让每一个 commit 的意义更加明确，可以起到了良好的过程管理作用，使得这个Git库的项目进度更加显然。而且，这也是项目后期，写文档的绝佳素材。</p>
+
+<h2 id="团队如何利用issues的功能:9aa2e4e22a96cf6d857da756290dc23a">团队如何利用issues的功能？</h2>
+
+<p>对团队而言，这就是一个协作系统。</p>
+
+<p>现在，很多大公司的软件研发团队协作，都是通过<code>JIRA</code>来实现的。<br />
+目前也流行很多非代码的团队协作，比如<code>teambition</code>、<code>Tower.im</code>、<code>Worktile</code>、<code>trello</code>等。<br />
+其实，GitHub 的issues，就是一个轻量级协作系统。它的comment支持 GitHub Flavored Markdown，可以进行内容丰富的交流。<br />
+Git本身就是分布式的代码版本控制软件，是为了程序员的协作而设计的。而 issue 的 Assignee 功能，就是这个在线协作系统的核心，足以让一群线上的开发者，一起完成一个软件项目。</p>
+
+<p>最后，作为一个路人，你可以通过 issue 给别人的项目提 bug。</p>
+
+<h2 id="参考:9aa2e4e22a96cf6d857da756290dc23a">参考</h2>
+
+<p>1.<a href="http://www.zhihu.com/question/22969033">github issue是做什么的？</a></p>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+
