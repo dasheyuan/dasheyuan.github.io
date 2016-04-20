@@ -7,7 +7,29 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 20 Apr 2016 18:00:28 CST</updated>
+    <updated>Wed, 20 Apr 2016 21:00:28 CST</updated>
+    
+    <item>
+      <title>2016 Eclipse IoT的物联网开发者调查统计</title>
+      <link>http://dasheyuan.com/post/2016-iot-developer-survey</link>
+      <pubDate>Wed, 20 Apr 2016 21:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/2016-iot-developer-survey</guid>
+      <description>&lt;p&gt;2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。&lt;/p&gt;
+
+&lt;p&gt;从2016年调查的结果分析，有以下几点关键趋势：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;目前，大部分参与者的公司正在或将研发IoT解决方案。&lt;/li&gt;
+&lt;li&gt;安全问题成为了一个关键的研究问题。&lt;/li&gt;
+&lt;li&gt;IoT开发编程语言排行：Java， C， Java Script, Python。&lt;/li&gt;
+&lt;li&gt;MQTT和HTTP在消息协议占主要地位。（CoAP紧跟其后）&lt;/li&gt;
+&lt;li&gt;IoT操作系统Linux占主要地位。&lt;/li&gt;
+&lt;li&gt;AWS主导者IoT云服务。（私有云紧跟其后）&lt;/li&gt;
+&lt;li&gt;IoT开源代码无处不在。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>MQTT和Modbus物联网协议简介(译)</title>
@@ -15,7 +37,7 @@
       <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</guid>
-      <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。
+      <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。&lt;br /&gt;
 译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。&lt;/p&gt;
