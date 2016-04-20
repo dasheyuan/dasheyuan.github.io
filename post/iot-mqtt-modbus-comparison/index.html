@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MQTT和Modbus物联网协议简介(译) - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/iot-mqtt-modbus-comparison">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">MQTT和Modbus物联网协议简介(译)</h1>
+		<span class="post-meta">2016年4月20日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/iot">iot</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>翻译到最后才发现这是一篇广告文。呵呵。
+译文地址：<a href="https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus">https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus</a></p>
+
+<p>物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。</p>
+
+<p>Modbus是一个串口通信协议，约定俗成的工业设备连接的协议，在1979年首次被提出。20年后，MQTT协议才被提出来。但正是因为这两种协议赋予了嵌入式设备连接更大范围的互联网的能力。下图通过一个IoT网关，解释了这两种协议间的关系。<br />
+<img src="https://lh3.googleusercontent.com/ebUheMIH0m3JfFyMaGAvUPh9F2mjai10HHT9NzIgJmqceflQLptVQD6xK9jy_qrQ_lTf9RfeuehIFcxi_IDyv4ItzWGQ6e_Z6IHSRNgF4_g8IBoE_pHUsLiWWqUxgn34eMJgllQZPMb0Z8zB3Q" alt="" /></p>
+
+<h2 id="一-modbus:06bd73342796d71aae0dc8c712aa3da5">一、Modbus</h2>
+
+<p>自从1979年首次提出后，Modbus基于多种物理链路（如:RS-485，注：RS-485一般指通信接口）,逐渐演进成一个被广泛使用的协议。Modbus协议的核心是主-从模式的串口通信协议。主设备发送一个请求给从设备，然后从设备返回一个响应给主设备。在一个标准的Modbus网络中，存在一个主设备和至多247中从设备（即使2字节的地址可以有效解决这个限制问题）。<br />
+在RS-485应用中，主从设备间的通信的数据帧中包含一个功能编码，这个功能编码表示主设备要求从设备执行的操作，比如读一个离散的输入，或者是读一个FIFO队列，或者执行故障诊断。从设备基于这个功能编码进行操作并通过指定的字节进行回应。从设备可以使智能设备或者是传感器简单的设备。<br />
+根据上面的描述，你可以看出Modbus协议的简单性，但是它的开放性使它在工业或者是数据监控系统中大受欢迎，并成为了约定俗成的标准协议。</p>
+
+<h2 id="二-mqtt:06bd73342796d71aae0dc8c712aa3da5">二、MQTT</h2>
+
+<p>MQTT是一个专门为物联网交互设计的开放的、轻量级的M2M协议。MQTT协议组织的网络中包括一个MQTT Broker和多个MQTT agent，Broker负责协调MQTT agent间的交互，MQTT agent又可分为发布者Publishers和订阅者SubScribers两种，如下图所示。<br />
+<img src="https://lh6.googleusercontent.com/JPumVlUmsaWJNLpqTyLXFNkNbkNVlwwLgXBv_2InlRrWyVSHLGlbdAZmFje8Z6lhxQeUKYK-r7OMGsU-iSwcqxrZ0AUbkxjvN5a9ME9ZanSsdo2WBIiuN8rO4tRGtmYDxht43ryEmc_NflkHUw" alt="" /><br />
+运行MQTT的要求是很小的，因为它就是为那些资源受限的嵌入式设备设计的。另外，由于数据封装很小，系统开销很小（相对于其他协议如HTTP），即使在带宽受限的网络中使用MQTT也能有效地通信。在3G网络中测试中，MQTT的吞吐量是REST HTTP的93倍。<br />
+MQTT实现了一个最少方法集合的发布/订阅的模型，这些方法表示了特定主题的执行动作。代理连接到Broker，然后发布或者订阅主题，完成后代理断开Broker的连接。MQTT的方法定义如下：</p>
+
+<ul>
+<li>Connect 连接Broker</li>
+<li>Disconnect 断开Broker连接</li>
+<li>Publish 发布主题消息到Broker</li>
+<li>Subscribe 从Broker订阅主题</li>
+<li>Unsubscribe 从Broker中取消主题订阅</li>
+</ul>
+
+<p>下图说明了Broker与Agents之间的关系。消息的发布者连接到Broker，同样，消息的订阅者也连接到Broker。然后，订阅者订阅主题为 <code>/home/alarms/1/status</code>的消息。当发布者有一条主题为 <code>/home/alarms/1/status</code>的消息发送到Broker后，Broker将这条消息发送给所有订阅了这个主题的订阅者。<br />
+<img src="https://lh4.googleusercontent.com/cc2OtxQkkS_ytDRjHAdauwM0iEV6uDwLKjYEr4apkjLHqPCydyBYYW0vmR8Cr9xdHlWlDvcRgyRgAOVETOt-LNu9BgaXEHpCs6UGMFB3PsdgL95FtlcxbCnw-ChDNWdkIJu3QjOsa_btV-4FTA" alt="" /><br />
+注意到上述主题的结构，它与文件系统的树形结构很相似。这种分层的资源描述结构在REST协议中也很流行。</p>
+
+<p>MQTT甚至允许通配符形式的主题，当订阅者需要知道所有警告的状态，订阅的主题可以写成这样<code>/home/alarms/+/status</code>，当需要订阅/home下所有的主题时可以写成<code>/home/#</code>。</p>
+
+<h3 id="mqtt服务质量qos:06bd73342796d71aae0dc8c712aa3da5">MQTT服务质量QoS</h3>
+
+<p>MQTT允许订阅服务的质量，在MQTT中，存在三种等级的服务质量：</p>
+
+<ul>
+<li>QoS 0 这种服务等级要求消息至多发送一次，若消息发送不需要确认时，这是一个一劳永逸的途径。</li>
+<li>QoS 1 这种服务等级要求消息至少发送一次，订阅者可能会收到多条相同的消息。</li>
+<li>QoS 2 这种服务等级最慢，但最安全消息的方式。QoS 2 意味着消息只发送一次，但这一次包含4个步骤的握手通信。</li>
+</ul>
+
+<p>根据消息的重要程度选择发送的服务等级。</p>
+
+<hr />
+
+<p>后面部分有广告嫌疑，就不译了:(</p>
+
+<h2 id="参考:06bd73342796d71aae0dc8c712aa3da5">参考</h2>
+
+<p><a href="http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html">http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html</a></p>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

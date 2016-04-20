@@ -7,23 +7,7 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 14 Apr 2016 23:30:28 CST</updated>
-    
-    <item>
-      <title>GitHub上删不掉的issues</title>
-      <link>http://dasheyuan.com/post/github-issues</link>
-      <pubDate>Thu, 14 Apr 2016 23:30:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/github-issues</guid>
-      <description>&lt;p&gt;小结一下GitHub上的issues功能，很有意思。&lt;/p&gt;
-
-&lt;p&gt;今天发现&lt;a href=&#34;http://yikun.github.io&#34;&gt;Yikun&lt;/a&gt;的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。&lt;/p&gt;
-
-&lt;p&gt;测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。&lt;br /&gt;
-这样的设计应该是有原因的，现在想不明白，以后再探究吧。&lt;br /&gt;
-今天也大概了解了一下GitHub的API，也挺好玩的。&lt;/p&gt;
-</description>
-    </item>
+    <updated>Tue, 12 Apr 2016 23:30:28 CST</updated>
     
     <item>
       <title>hp 2570p准系统组装经历</title>

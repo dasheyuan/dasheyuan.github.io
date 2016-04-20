@@ -7,7 +7,20 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 14 Apr 2016 23:30:28 CST</updated>
+    <updated>Wed, 20 Apr 2016 18:00:28 CST</updated>
+    
+    <item>
+      <title>MQTT和Modbus物联网协议简介(译)</title>
+      <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</link>
+      <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</guid>
+      <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。
+译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GitHub上删不掉的issues</title>
