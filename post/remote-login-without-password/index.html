@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>公钥验证登录远程服务器 - Chen Yuan&#39;s Blog</title>
+  <title>SSH免密码登录远程主机 - Chen Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -49,7 +49,7 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">公钥验证登录远程服务器</h1>
+        <h1 class="py2">SSH免密码登录远程主机</h1>
 		<span class="post-meta">2016年5月7日</span>
         
       </div>
@@ -121,8 +121,7 @@ PasswordAuthentication no
 
 <hr />
 
-<p>可能遇到的问题：<br />
-a.用户目录及公钥文件权限会影响验证过程，导致无法读取服务器上的公钥文件，无法正常登陆。</p>
+<p>a.用户目录及公钥文件权限会影响验证过程，导致无法读取服务器上的公钥文件，无法正常登陆。</p>
 
 <pre><code>用户目录权限为 755 或者 700就是不能是77x   
 .ssh目录权限为755   
@@ -136,15 +135,18 @@ rsa_id权限为600
 <pre><code>bad ownership or modes fordirectory
 </code></pre>
 
-<p>c.<code>authorized_keys</code>是一个文件夹时</p>
+<p><code>authorized_keys</code>是一个文件夹时</p>
 
 <pre><code>.ssh/authorized_keys isnot a regular file
 </code></pre>
 
-<h2 id="参考:6cadce29846755f8f3c7636afbd0b3e4">参考</h2>
+<p>顺便了解了一下SSH端口转发的内容，还是挺有意思的，但现在用到的情况很少。</p>
+
+<h2 id="参考:c062443e1e550f69e0ad06726daff171">参考</h2>
 
 <ol>
 <li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">SSH原理与运用（一）：远程登录</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html">SSH原理与运用（二）：远程操作与端口转发</a></li>
 </ol>
 
       </article>
