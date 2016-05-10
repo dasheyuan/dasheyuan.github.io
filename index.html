@@ -55,6 +55,44 @@
                         
                         
                             <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/remote-login-without-password">
+		<p class="post-meta left">2016年5月7日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">公钥验证登录远程服务器 </h3>
+		<p class="post-summary"><p>操作Linux系统一般会使用SSH工具进行远程登录系统操作。</p>
+
+<p>使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。</p>
+
+<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
+
+<p>所谓&rdquo;公钥登录&rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
+
+<p>另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间者攻击</a>）。</p>
+
+<p>可以知道，上面的过程要用到<strong>两对</strong>密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。</p>
+
+<p>测试环境</p>
+
+<ul>
+<li>Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128<br /></li>
+<li>Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录<br /></li>
+</ul>
+
+<p>测试步骤</p>
+</p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		
+	</p>
+</div>
+
+                        
+                            <div class="post">
 	<a class="post-link" href="http://dasheyuan.com/post/visit-beijing-ericsson">
 		<p class="post-meta left">2016年4月27日</p>
 		
@@ -117,6 +155,24 @@
 
 <p>物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。</p>
 </p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/iot">iot</a>
+		
+	</p>
+</div>
+
+                        
+                            <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/modbus-in-a-nutshell">
+		<p class="post-meta left">2016年4月20日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">MODBUS简介(译) </h3>
+		<p class="post-summary">Google上搜到的 译文地址：http://gridconnect.com/blog/general/modbus-in-a-nutshell/ 参考 http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html</p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
@@ -260,48 +316,6 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
 		
 		
 		<a href="http://dasheyuan.com/tags/openstack">openstack</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/screen-openstack">
-		<p class="post-meta left">2016年3月29日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">使用screen查看OpenStack进程 </h3>
-		<p class="post-summary"><p>介绍screen在openstack调试中的使用，整理screen的内容及快捷键。</p>
-
-<p><a href="http://www.chenshake.com/install-ubuntu-14-04-devstack/">DevStack安装</a>完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。</p>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/openstack">openstack</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/lte-network-architecture">
-		<p class="post-meta left">2016年3月21日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">LTE网格架构简介 </h3>
-		<p class="post-summary"><p>首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。</p>
-
-<p>说明：文中的图片参考的是3GPP版本12的规范文档。</p>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/lte">lte</a>
 		
 	</p>
 </div>

@@ -7,7 +7,36 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 27 Apr 2016 18:00:28 CST</updated>
+    <updated>Sat, 07 May 2016 18:00:28 CST</updated>
+    
+    <item>
+      <title>公钥验证登录远程服务器</title>
+      <link>http://dasheyuan.com/post/remote-login-without-password</link>
+      <pubDate>Sat, 07 May 2016 18:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/remote-login-without-password</guid>
+      <description>&lt;p&gt;操作Linux系统一般会使用SSH工具进行远程登录系统操作。&lt;/p&gt;
+
+&lt;p&gt;使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。&lt;/p&gt;
+
+&lt;p&gt;使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。&lt;/p&gt;
+
+&lt;p&gt;所谓&amp;rdquo;公钥登录&amp;rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。&lt;/p&gt;
+
+&lt;p&gt;另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（&lt;a href=&#34;https://en.wikipedia.org/wiki/Man-in-the-middle_attack&#34;&gt;中间者攻击&lt;/a&gt;）。&lt;/p&gt;
+
+&lt;p&gt;可以知道，上面的过程要用到&lt;strong&gt;两对&lt;/strong&gt;密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。&lt;/p&gt;
+
+&lt;p&gt;测试环境&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;测试步骤&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>北京爱立信参观交流</title>
@@ -41,6 +70,15 @@
 &lt;li&gt;IoT开源代码无处不在。&lt;/li&gt;
 &lt;/ol&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>MODBUS简介(译)</title>
+      <link>http://dasheyuan.com/post/modbus-in-a-nutshell</link>
+      <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/modbus-in-a-nutshell</guid>
+      <description>Google上搜到的 译文地址：http://gridconnect.com/blog/general/modbus-in-a-nutshell/ 参考 http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html</description>
     </item>
     
     <item>
@@ -233,18 +271,6 @@ my test  #标准输出
 &lt;p&gt;Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。&lt;/p&gt;
 
 &lt;p&gt;静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>OpenStack中的设计模式1:单例模式</title>
-      <link>http://dasheyuan.com/post/openstack-singleton-pattern</link>
-      <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/openstack-singleton-pattern</guid>
-      <description>&lt;p&gt;设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。&lt;/p&gt;
-
-&lt;p&gt;单例模式（Singleton Pattern）最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”&lt;/p&gt;
 </description>
     </item>
     

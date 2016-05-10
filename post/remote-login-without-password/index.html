@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>公钥验证登录远程服务器 - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/remote-login-without-password">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">公钥验证登录远程服务器</h1>
+		<span class="post-meta">2016年5月7日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/linux">linux</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>操作Linux系统一般会使用SSH工具进行远程登录系统操作。</p>
+
+<p>使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。</p>
+
+<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
+
+<p>所谓&rdquo;公钥登录&rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
+
+<p>另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间者攻击</a>）。</p>
+
+<p>可以知道，上面的过程要用到<strong>两对</strong>密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。</p>
+
+<p>测试环境</p>
+
+<ul>
+<li>Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128<br /></li>
+<li>Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录<br /></li>
+</ul>
+
+<p>测试步骤</p>
+
+<p>1、生成一对公私密钥对。可以使用<code>ssh-keygen</code>命令工具生成，也可以使用Xshell等工具生成，这里不需要考虑在客户端生成还是服务端系统中生成，只要符合服务器openssh-server的格式（OpenSSH）即可。</p>
+
+<pre><code>$ ssh-keygen
+</code></pre>
+
+<p>根据提示指定密钥保存的地方和密码（可以为空）。默认情况下，在<code>$HOME/.ssh/</code>目录，会新生成两个文件：<code>id_rsa.pub</code>和<code>id_rsa</code>。前者是公钥，后者是私钥。
+2、把<code>id_rsa.pub</code>公钥中的内容上传至远程服务器<code>$HOME/.ssh/authorized_keys</code>文件中。</p>
+
+<pre><code>$ ssh-copy-id bwa@192.168.27.128
+</code></pre>
+
+<p>注意，<code>authorized_keys</code>并不是一个保存公钥文件的文件夹。它是一个文本文件，文本每一行可以保存一个公钥，因此可以保存多个公钥。</p>
+
+<p>3、把<code>id_rsa</code>私钥文件放在客户端<code>$HOME/.ssh/</code>中,通过<code>ssh-add</code>命令把私钥导入。</p>
+
+<pre><code>$ ssh-add ~/.ssh/id_rsa
+</code></pre>
+
+<p>4、修改<code>sshd_config</code>配置文件后就可以免密码登录了。</p>
+
+<pre><code>$ vim /etc/ssh/sshd_config 
+#启用公告密钥配对认证方式 
+PubkeyAuthentication yes
+#设定PublicKey文件路径
+AuthorizedKeysFile .ssh/authorized_keys    
+#允许RSA密钥
+RSAAuthentication yes
+#禁止密码登录,如果启用,RSA认证登录就没有意义
+PasswordAuthentication no
+</code></pre>
+
+<pre><code>$ ssh bwa@192.168.27.128
+</code></pre>
+
+<p>OK</p>
+
+<hr />
+
+<p>可能遇到的问题：<br />
+a.用户目录及公钥文件权限会影响验证过程，导致无法读取服务器上的公钥文件，无法正常登陆。</p>
+
+<pre><code>用户目录权限为 755 或者 700就是不能是77x   
+.ssh目录权限为755   
+rsa_id.pub 及authorized_keys权限为644   
+rsa_id权限为600   
+</code></pre>
+
+<p>b.Ubuntu系统日志文件<code>/var/log/auth.log</code>中记录了验证登录时出现的异常。<br />
+比如用户目录权限异常时会出现</p>
+
+<pre><code>bad ownership or modes fordirectory
+</code></pre>
+
+<p>c.<code>authorized_keys</code>是一个文件夹时</p>
+
+<pre><code>.ssh/authorized_keys isnot a regular file
+</code></pre>
+
+<h2 id="参考:6cadce29846755f8f3c7636afbd0b3e4">参考</h2>
+
+<ol>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">SSH原理与运用（一）：远程登录</a></li>
+</ol>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+
