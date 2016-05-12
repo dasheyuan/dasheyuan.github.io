@@ -7,7 +7,47 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 07 May 2016 18:00:28 CST</updated>
+    <updated>Thu, 12 May 2016 22:00:28 CST</updated>
+    
+    <item>
+      <title>Ubuntu中Node.js的安装方法</title>
+      <link>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</link>
+      <pubDate>Thu, 12 May 2016 22:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</guid>
+      <description>&lt;p&gt;最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。&lt;/p&gt;
+
+&lt;p&gt;Ubuntu直接使用&lt;code&gt;sudo apt-get install nodejs&lt;/code&gt;命名安装Node.js无法安装最新版本。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://nodejs.org/en/download/package-manager/&#34;&gt;官网&lt;/a&gt;上给出来的安装命令:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+
+sudo apt-get install -y nodejs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;curl &lt;code&gt;-s&lt;/code&gt; 静默状态，即不输出任何信息。&lt;/p&gt;
+
+&lt;p&gt;curl &lt;code&gt;-L&lt;/code&gt; 重定向地址，即如果当前地址发生重定向，获取重定向的地址的内容(参考1）。&lt;/p&gt;
+
+&lt;p&gt;sudo &lt;code&gt;-E&lt;/code&gt; 在sudo执行时保留当前用户已存在的环境变量,不会被sudo重置。&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install &lt;code&gt;-y&lt;/code&gt; 默认安装过程中的确认步骤(yes)。&lt;/p&gt;
+
+&lt;p&gt;bash &lt;code&gt;-&lt;/code&gt;（参考2）&lt;/p&gt;
+
+&lt;h3 id=&#34;关于减号-的用途:3c5bcaeaf18fe8a0464d0cde8792c2a3&#34;&gt;“关于减号 - 的用途&lt;/h3&gt;
+
+&lt;p&gt;管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &amp;ldquo;-&amp;rdquo; 来替代， 举例来说：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tar -cvf - /home | tar -xvf -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！&lt;/p&gt;
+
+&lt;h3&gt;”&lt;/h3&gt;
+</description>
+    </item>
     
     <item>
       <title>SSH免密码登录远程主机</title>
