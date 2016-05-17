@@ -29,7 +29,10 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
       <pubDate>Mon, 21 Mar 2016 23:00:01 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/lte-network-architecture</guid>
-      <description>&lt;p&gt;首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://dasheyuan.com/images/R12-E-UTRAN.png&#34; alt=&#34;R12-E-UTRAN&#34; /&gt;&lt;br /&gt;
+（上图为Basic Configuration of a 3GPP Access PLMN supporting CS and PS services (using GPRS and EPS) and interfaces，蓝色的框图和接口都是属于LTE的）&lt;/p&gt;
+
+&lt;p&gt;首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
 
 &lt;p&gt;说明：文中的图片参考的是3GPP版本12的规范文档。&lt;/p&gt;
 </description>

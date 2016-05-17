@@ -7,7 +7,21 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 14 Apr 2016 23:30:28 CST</updated>
+    <updated>Tue, 17 May 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>GitHub的高级搜索功能</title>
+      <link>http://dasheyuan.com/post/github-advanced-search</link>
+      <pubDate>Tue, 17 May 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/github-advanced-search</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://help.github.com/assets/images/help/search/advanced_search_demo.gif&#34; alt=&#34;&#34; /&gt;
+今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。&lt;/p&gt;
+
+&lt;p&gt;高级搜索链接：&lt;a href=&#34;https://github.com/search/advanced&#34;&gt;https://github.com/search/advanced&lt;/a&gt;&lt;br /&gt;
+也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GitHub上删不掉的issues</title>

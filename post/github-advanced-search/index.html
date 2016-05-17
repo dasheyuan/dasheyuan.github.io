@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ubuntu中Node.js的安装方法 - Chen Yuan&#39;s Blog</title>
+  <title>GitHub的高级搜索功能 - Chen Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://dasheyuan.com/post/ubuntu-install-nodejs-scripts">
+  <link rel="canonical" href="http://dasheyuan.com/post/github-advanced-search">
   <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
   
   
@@ -49,56 +49,78 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">Ubuntu中Node.js的安装方法</h1>
-		<span class="post-meta">2016年5月12日</span>
+        <h1 class="py2">GitHub的高级搜索功能</h1>
+		<span class="post-meta">2016年5月17日</span>
         
       </div>
        <p class="post-meta">Tags:&nbsp;
         
             
-            <a href="http://dasheyuan.com/tags/linux">linux</a>
+            <a href="http://dasheyuan.com/tags/git">git</a>
         
       </p> 
       <article class="post-content">
       
 
-<p>最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。</p>
+<p><img src="https://help.github.com/assets/images/help/search/advanced_search_demo.gif" alt="" />
+今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。</p>
 
-<p>Ubuntu直接使用<code>sudo apt-get install nodejs</code>命名安装Node.js无法安装最新版本。</p>
+<p>高级搜索链接：<a href="https://github.com/search/advanced">https://github.com/search/advanced</a><br />
+也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。</p>
 
-<p><a href="https://nodejs.org/en/download/package-manager/">官网</a>上给出来的安装命令可以解决这个问题:</p>
+<p>尝试一下查询PHP语言项目中，点赞超过1000的项目。<br />
+通过在多种表单中填关键信息，会在搜索框中自动生成搜索表达式：</p>
 
-<pre><code>curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-
-sudo apt-get install -y nodejs
+<pre><code>language:PHP stars:&gt;1000
 </code></pre>
 
-<p>curl <code>-s</code> 静默状态，即不输出任何信息。</p>
+<p>从搜索的结果可以大概了解到GitHub上PHP项目受欢迎的有哪些了。</p>
 
-<p>curl <code>-L</code> 重定向地址，即如果当前地址发生重定向，获取重定向的地址的内容(参考1)。</p>
+<p>当然还有其他的高级搜索功能，系统地小结一下吧。</p>
 
-<p>sudo <code>-E</code> 在sudo执行时保留当前用户已存在的环境变量,不会被sudo重置。</p>
+<h3 id="高级:fa427d4ad092a3bf0790ec2f0a16a451">高级</h3>
 
-<p>sudo apt-get install <code>-y</code> 默认安装过程中的确认步骤(yes)。</p>
+<p>1、指定代码拥有者，github, joyent<br />
+2、指定代码仓库，twbs/bootstrap, rails/rails<br />
+3、指定创建日期，&gt;YYYY-MM-DD, YYYY-MM-DD<br />
+4、指定代码语言种类，C、C++、PHP等</p>
 
-<p>bash <code>-</code>（参考2）</p>
+<h3 id="仓库:fa427d4ad092a3bf0790ec2f0a16a451">仓库</h3>
 
-<h3 id="关于减号-的用途:3c5bcaeaf18fe8a0464d0cde8792c2a3">“关于减号 - 的用途</h3>
+<p>1、指定点赞数量，0..100, 200, &gt;1000<br />
+2、指定分支数量，50..100, 200, &lt;5<br />
+3、指定仓库大小，100KB<br />
+4、指定更新日期，&lt;YYYY-MM-DD<br />
+5、指定是否包含分支，not|and|only</p>
 
-<p>管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &ldquo;-&rdquo; 来替代， 举例来说：</p>
+<h3 id="代码:fa427d4ad092a3bf0790ec2f0a16a451">代码</h3>
 
-<pre><code>$ tar -cvf - /home | tar -xvf -
-</code></pre>
+<p>1、指定代码扩展名，rb, py, jpg<br />
+2、指定代码行数，100..8000, &gt;10000<br />
+3、指定路径，/foo/bar/baz/qux</p>
 
-<p>上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！</p>
+<h3 id="issues:fa427d4ad092a3bf0790ec2f0a16a451">Issues</h3>
 
-<h3 id="toc_1:3c5bcaeaf18fe8a0464d0cde8792c2a3">”</h3>
+<p>1、指定状态，open|closed<br />
+2、指定评论数，0..100, &gt;442<br />
+3、指定标签labels<br />
+4、指定发起者<br />
+5、指定提及者<br />
+6、指定安排者<br />
+7、指定更新日期</p>
 
-<h2 id="参考:3c5bcaeaf18fe8a0464d0cde8792c2a3">参考</h2>
+<h3 id="用户:fa427d4ad092a3bf0790ec2f0a16a451">用户</h3>
+
+<p>1、指定名字<br />
+2、指定位置<br />
+3、指定Follow者的人数<br />
+4、指定公开仓库的数量<br />
+5、指定开发语言</p>
+
+<h2 id="参考:fa427d4ad092a3bf0790ec2f0a16a451">参考</h2>
 
 <ol>
-<li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html">curl网站开发指南</a></li>
-<li><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0320bash.php#pipe_7">鸟哥的Linux私房菜</a></li>
+<li><a href="https://github.com/search/advanced">GitHub高级搜索页面</a></li>
 </ol>
 
       </article>

@@ -32,15 +32,6 @@
     </item>
     
     <item>
-      <title>MODBUS简介(译)</title>
-      <link>http://dasheyuan.com/post/modbus-in-a-nutshell</link>
-      <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/modbus-in-a-nutshell</guid>
-      <description>Google上搜到的 译文地址：http://gridconnect.com/blog/general/modbus-in-a-nutshell/ 参考 http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html</description>
-    </item>
-    
-    <item>
       <title>MQTT和Modbus物联网协议简介(译)</title>
       <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</link>
       <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
