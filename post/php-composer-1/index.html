@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PHP的依赖管理工具Composer(1) - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/php-composer-1">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">PHP的依赖管理工具Composer(1)</h1>
+		<span class="post-meta">2016年5月21日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/php">php</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p><img src="http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png" alt="" /><br />
+无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。</p>
+
+<p>Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？</p>
+
+<p>PHP有Composer。</p>
+
+<p>最近一个项目需要，重新拿起PHP来编写程序开发。为了提高开发效率，尝试用Laravel框架进行开发，学一下新东西。近期应该会整理多一些文章。</p>
+
+<blockquote>
+<p>Composer是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。</p>
+</blockquote>
+
+<p>Laravel框架的功能部分是基于Composer，了解一下Composer对框架的学习与使用有一定的帮助。</p>
+
+<p>总结一下自己使用Composer的过程与查阅的参考资料。</p>
+
+<p>一种工具能解决某些具体的问题的属性。比如尺子能解决测量长度的问题。Composer将这样为你解决问题：<br />
+a)问题：你有一个项目依赖于若干个库，其中一些库依赖于其他库。<br />
+b)方法：你声明你所依赖的东西。<br />
+c)解决：Composer 会根据你的声明，找出哪个版本的包需要安装，并安装它们（将它们下载到你的项目中）。</p>
+
+<h2 id="安装:5d1039e000a894e2ab69bbdd1397fbd2">安装</h2>
+
+<p><code>测试环境：Ubuntu-14.04 + LAMP</code><br />
+全局安装，把<code>composer.phar</code>放在<code>PATH</code>中，这样就可以全局访问它了，在类Unix系统中，在使用时可以不加<code>php</code>前缀。</p>
+
+<p>执行下面两条命令即可：</p>
+
+<pre><code>$ curl -sS https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer
+</code></pre>
+
+<p>查看Composer版本号：</p>
+
+<pre><code>$ composer -V
+Composer version 1.1.1 2016-05-17 12:25:44
+</code></pre>
+
+<p>Composer工具安装完成！</p>
+
+<h2 id="使用:5d1039e000a894e2ab69bbdd1397fbd2">使用</h2>
+
+<p>上面提到Composer解决问题的步骤abc，细化这些步骤：<br />
+a）问题：你正在创建一个项目，你需要一个库来做日志记录。你决定使用<code>monolog</code>第三方库，将它添加到你的项目中。</p>
+
+<pre><code>$ mkdir MyProject
+$ cd MyProject/
+</code></pre>
+
+<p>b)方法：创建一个 <code>composer.json</code> 文件，其中描述了项目的依赖关系。</p>
+
+<pre><code>$ vim composer.json
+{
+    &quot;require&quot;: {
+        &quot;monolog/monolog&quot;: &quot;1.2.*&quot;
+    }
+}
+</code></pre>
+
+<p><code>composer.json</code>指出项目需要一些<code>monolog/monolog</code>的包，从 1.2 开始的任何版本。</p>
+
+<p>c)解决：使用<code>composer install</code>命令，解决和下载依赖。</p>
+
+<pre><code>$ composer install
+</code></pre>
+
+<pre><code>$ ls
+composer.json  composer.lock  vendor
+</code></pre>
+
+<p>可以看到，MyProject的文件中多了一个文件<code>composer.lock</code>和一个文件夹<code>vendor</code>。<code>composer.lock</code>文件的作用是锁定项目的版本。
+vendor文件夹中包含了<code>composer.json</code>中指定的依赖monolog库文件和自动加载这些库文件的自动加载文件。依赖关系解决了，下面来看看具体如何在程序中使用monolog的功能。<br />
+在MyProject文件夹下新建<code>app.php</code>文件。里面的代码如下：</p>
+
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+$log = new Monolog\Logger('name');
+$log-&gt;pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+$log-&gt;addWarning('Foo');
+</code></pre>
+
+<p>执行这段代码</p>
+
+<pre><code>$ php app.php
+</code></pre>
+
+<p>没有报错，产生一个<code>app.log</code>的文件，这样，第三方库引用就成功了。</p>
+
+<h2 id="参考:5d1039e000a894e2ab69bbdd1397fbd2">参考</h2>
+
+<ol>
+<li><a href="http://docs.phpcomposer.com/">Composer中文文档</a></li>
+<li><a href="http://docs.phpcomposer.com/01-basic-usage.html#composer.lock-The-Lock-File">composer.lock - 锁文件</a></li>
+</ol>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

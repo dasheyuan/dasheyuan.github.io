@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Php on Chen Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/php/</link>
+    
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sat, 21 May 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>PHP的依赖管理工具Composer(1)</title>
+      <link>http://dasheyuan.com/post/php-composer-1</link>
+      <pubDate>Sat, 21 May 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/php-composer-1</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。&lt;/p&gt;
+
+&lt;p&gt;Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？&lt;/p&gt;
+
+&lt;p&gt;PHP有Composer。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+
