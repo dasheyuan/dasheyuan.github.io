@@ -7,7 +7,32 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 21 May 2016 23:00:00 CST</updated>
+    <updated>Sat, 28 May 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>学习PHP闭包(Closure)</title>
+      <link>http://dasheyuan.com/post/php-closure</link>
+      <pubDate>Sat, 28 May 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/php-closure</guid>
+      <description>&lt;p&gt;在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。&lt;/p&gt;
+
+&lt;p&gt;可能目前理解的还不妥，先记录下来吧。&lt;/p&gt;
+
+&lt;h2 id=&#34;一-闭包函数的基本用法:af6e9c11cbbb13f0bfa1d37c0052e314&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
+
+&lt;p&gt;匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。&lt;br /&gt;
+Example #1 匿名函数示例，用作回调函数参数的值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
+    return strtoupper($match[1]);
+}, &#39;hello-world&#39;);
+// 输出 helloWorld
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>PHP的依赖管理工具Composer(1)</title>

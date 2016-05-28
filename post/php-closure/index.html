@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>学习PHP闭包(Closure) - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/php-closure">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">学习PHP闭包(Closure)</h1>
+		<span class="post-meta">2016年5月28日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/php">php</a>
+        
+      </p> 
+      <article class="post-content">
+      
+
+<p>在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。</p>
+
+<p>可能目前理解的还不妥，先记录下来吧。</p>
+
+<h2 id="一-闭包函数的基本用法:af6e9c11cbbb13f0bfa1d37c0052e314">一、闭包函数的基本用法</h2>
+
+<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
+Example #1 匿名函数示例，用作回调函数参数的值。</p>
+
+<pre><code>&lt;?php
+echo preg_replace_callback('~-([a-z])~', function ($match) {
+    return strtoupper($match[1]);
+}, 'hello-world');
+// 输出 helloWorld
+?&gt;
+</code></pre>
+
+<p>闭包函数也可以作为变量的值来使用。PHP 会自动把此种表达式转换成内置类 Closure 的对象实例。把一个 closure 对象赋值给一个变量的方式与普通变量赋值的语法是一样的，最后也要加上分号：<br />
+Example #2 匿名函数变量赋值示例</p>
+
+<pre><code>&lt;?php
+$greet = function($name)
+{
+    printf(&quot;Hello %s\r\n&quot;, $name);
+};
+
+$greet('World');
+$greet('PHP');
+?&gt;
+</code></pre>
+
+<p>闭包可以从父作用域中继承变量。 任何此类变量都应该用 use 语言结构传递进去。<br />
+Example #3 从父作用域继承变量</p>
+
+<pre><code>$message = 'hello';
+
+// 没有 &quot;use&quot;
+$example = function () {
+    var_dump($message);
+};
+echo $example();
+//输出为null,匿名函数继承（获取）到外部变量$message.
+</code></pre>
+
+<pre><code>// 继承 $message
+$message = 'hello';
+
+$example = function () use ($message) {
+    var_dump($message);
+};
+echo $example();
+//输出 string 'hello' (length=5)，使用关键词use后，
+//匿名函数可以获取到外部变量$message.
+</code></pre>
+
+<pre><code>// Inherited variable's value is from when the function
+// is defined, not when called
+// 继承的变量的值在匿名函数定义时获取，并不是在调用时。
+// 可以了解这种通过变量名的继承，是一种复制的方式。
+$message = 'hello';
+
+$example = function () use ($message) {
+    var_dump($message);
+};
+
+$message = 'world';
+echo $example();
+//输出仍然为 string 'hello' (length=5),
+//就算调用前$message的值改变了。
+</code></pre>
+
+<pre><code>// 引用继承
+// Inherit by-reference
+
+$message = 'hello';
+
+$example = function () use (&amp;message) {
+    var_dump($message);
+};
+
+$message = 'world';
+echo $example();
+//输出 string 'world' (length=5),
+</code></pre>
+
+<p>Example #4 匿名函数可以接受参数</p>
+
+<pre><code>$message = 'world';
+$example = function ($arg) use ($message) {
+    var_dump($arg . ' ' . $message);
+};
+$example(&quot;hello&quot;);
+//输出 string 'hello world' (length=11)
+</code></pre>
+
+<h2 id="二-闭包-closure-类:af6e9c11cbbb13f0bfa1d37c0052e314">二、闭包 Closure 类</h2>
+
+<p>匿名函数目前是通过 <code>Closure</code> 类来实现的。<br />
+Closure类定义了三种方法：</p>
+
+<ul>
+<li>Closure::__construct — 用于禁止实例化的构造函数。<br /></li>
+<li>Closure::bind — 复制一个闭包，绑定指定的<code>$this</code>对象和类作用域。</li>
+<li>Closure::bindTo — 复制当前闭包对象，绑定指定的<code>$this</code>对象和类作用域。</li>
+</ul>
+
+<p>Closure::bind的用法,这个方法是 Closure::bindTo() 的静态版本。</p>
+
+<pre><code>//public static Closure Closure::bind ( Closure $closure , 
+//object $newthis [, mixed $newscope = 'static' ] )
+class A {
+    private static $sfoo = 1;
+    private $ifoo = 2;
+}
+$cl1 = function() {
+    return A::$sfoo;
+};
+$cl2 = function() {
+    return $this-&gt;ifoo;
+};
+
+$bcl1 = Closure::bind($cl1, null, 'A');
+$bcl2 = Closure::bind($cl2, new A(), 'A');
+echo $bcl1(), &quot;\n&quot;;
+echo $bcl2(), &quot;\n&quot;;
+//输出
+//1
+//2
+</code></pre>
+
+<p>Closure::bindTo的用法：</p>
+
+<pre><code>//public Closure Closure::bindTo ( object $newthis [, 
+//mixed $newscope = 'static' ] )
+class A {
+    function __construct($val) {
+        $this-&gt;val = $val;
+    }
+    function getClosure() {
+        //returns closure bound to this object and scope
+        return function() { return $this-&gt;val; };
+    }
+}
+
+$ob1 = new A(1);
+$ob2 = new A(2);
+
+$cl = $ob1-&gt;getClosure();
+echo $cl(), &quot;\n&quot;;
+$cl = $cl-&gt;bindTo($ob2);
+echo $cl(), &quot;\n&quot;;
+</code></pre>
+
+<h2 id="三-闭包的理解:af6e9c11cbbb13f0bfa1d37c0052e314">三、闭包的理解</h2>
+
+<h2 id="1-变量的作用域:af6e9c11cbbb13f0bfa1d37c0052e314">1.变量的作用域</h2>
+
+<p>变量的作用域无非就是两种：全局变量和局部变量。</p>
+
+<p>出于种种原因，我们有时候需要得到函数内的局部变量。但是，前面已经说过了，正常情况下，这是办不到的，只有通过变通方法才能实现。</p>
+
+<p>如何从外部读取局部变量？看下面的例子：</p>
+
+<pre><code>function f1() {
+        $n = 2;
+        $f2 = function () use($n) {
+            return $n;
+        };
+        return  $f2;
+}
+var_dump($n);
+//null
+$f = f1();
+var_dump($f());
+//int 2
+</code></pre>
+
+<p>在上面的代码中，匿名函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是选择可见的（关键词：use）。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。<br />
+既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
+
+<p>阮一峰老师从Javascriptd语言考虑，对闭包的理解的是：<strong>闭包就是能够读取其他函数内部变量的函数</strong>。<br />
+他说，闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+我对他的看法是认可的，但我觉着还不能够帮助我理解，因为虽然我知道闭包的作用是这样的，但然后呢？</p>
+
+<p>我觉得，PHP的闭包的绑定作用，可以加深对闭包的<strong>应用</strong>的理解。</p>
+
+<h2 id="2-闭包的绑定:af6e9c11cbbb13f0bfa1d37c0052e314">2.闭包的绑定</h2>
+
+<p>下面这个例子有点容器的影子。</p>
+
+<p>只不过这个容器只是用来“装”函数的，Laravel的容器是用来“装”类的。</p>
+
+<pre><code>MetaTrait.php
+&lt;?php
+//关键词：trait，可以理解为除继承、接口的另外一种解决“多重继承”方法。
+trait MetaTrait
+{
+    //定义$methods数组,用于保存方法（函数）的名字和地址。
+    private $methods = array();
+    //定义addMethod方法，使用闭包类绑定匿名函数。
+    public function addMethod($methodName, $methodCallable)
+    {
+        if (!is_callable($methodCallable)) {
+            throw new InvalidArgumentException('Second param must 
+                be callable');
+        }
+        $this-&gt;methods[$methodName] = Closure::bind($methodCallable, 
+                $this, get_class());
+    }
+    //方法重载。为了避免当调用的方法不存在时产生错误，
+    //可以使用 __call() 方法来避免。
+    public function __call($methodName, array $args)
+    {
+        if (isset($this-&gt;methods[$methodName])) {
+            return call_user_func_array($this-&gt;
+                    methods[$methodName], $args);
+        }
+
+        throw RunTimeException('There is no method with 
+                the given name to call');
+    }
+
+}
+?&gt;
+
+test.php
+&lt;?php
+require 'MetaTrait.php';
+//定义HackThursday类，继承MetaTrait。
+//可以把MetaTrait理解为容器的基类，HackThursday是一种容器，
+//这个容器是装什么的呢？匿名函数。
+//可以把匿名函数灵活地绑定至容器中。
+class HackThursday {
+    use MetaTrait;
+
+    private $dayOfWeek = 'Thursday';
+
+}
+
+$test = new HackThursday();
+$test-&gt;addMethod('when', function () {
+    return $this-&gt;dayOfWeek;
+});
+
+echo $test-&gt;when();
+
+?&gt;
+</code></pre>
+
+<h2 id="参考:af6e9c11cbbb13f0bfa1d37c0052e314">参考</h2>
+
+<p>1.<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">学习Javascript闭包（Closure）</a><br />
+2.<a href="http://php.net/manual/zh/class.closure.php">PHP手册-Closure类</a><br />
+3.<a href="http://php.net/manual/zh/functions.anonymous.php">PHP手册-匿名函数</a><br />
+4.<a href="laravel 学习笔记 —— 神奇的服务容器">Laravel学习笔记——神奇的服务容器</a></p>
+
+      </article>
+	  
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+
