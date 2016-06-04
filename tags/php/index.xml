@@ -7,7 +7,31 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 28 May 2016 23:00:00 CST</updated>
+    <updated>Thu, 02 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>PHP的依赖管理工具Composer(2)</title>
+      <link>http://dasheyuan.com/post/php-composer-2</link>
+      <pubDate>Thu, 02 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/php-composer-2</guid>
+      <description>&lt;p&gt;之前介绍过如何安装Composer和简单使用，出门左拐能找到。&lt;br /&gt;
+&lt;a href=&#34;http://http://dasheyuan.com/post/php-composer-1/&#34;&gt;PHP的依赖管理工具Composer(1)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;现在更深入地学习Composer。在上一篇MyProject的&lt;code&gt;app.php&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+require &#39;vendor/autoload.php&#39;;
+$log = new Monolog\Logger(&#39;name&#39;);
+
+...
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的代码是为了 &lt;code&gt;new Monolog\Logger(&#39;name&#39;)&lt;/code&gt; ，所以&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，作用是为了找到Monolog\Logger类的实现代码，然后require。&lt;br /&gt;
+这应该很好理解，因为假如不用&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，那就必须require &lt;code&gt;Logger.php&lt;/code&gt;源码。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>学习PHP闭包(Closure)</title>
@@ -19,7 +43,7 @@
 
 &lt;p&gt;可能目前理解的还不妥，先记录下来吧。&lt;/p&gt;
 
-&lt;h2 id=&#34;一-闭包函数的基本用法:af6e9c11cbbb13f0bfa1d37c0052e314&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
+&lt;h2 id=&#34;一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
 
 &lt;p&gt;匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。&lt;br /&gt;
 Example #1 匿名函数示例，用作回调函数参数的值。&lt;/p&gt;

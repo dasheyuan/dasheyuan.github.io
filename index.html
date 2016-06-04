@@ -55,6 +55,39 @@
                         
                         
                             <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/php-composer-2">
+		<p class="post-meta left">2016年6月2日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">PHP的依赖管理工具Composer(2) </h3>
+		<p class="post-summary"><p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
+<a href="http://http://dasheyuan.com/post/php-composer-1/">PHP的依赖管理工具Composer(1)</a></p>
+
+<p>现在更深入地学习Composer。在上一篇MyProject的<code>app.php</code>中</p>
+
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+$log = new Monolog\Logger('name');
+
+...
+
+</code></pre>
+
+<p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
+这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
+</p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/php">php</a>
+		
+	</p>
+</div>
+
+                        
+                            <div class="post">
 	<a class="post-link" href="http://dasheyuan.com/post/php-closure">
 		<p class="post-meta left">2016年5月28日</p>
 		
@@ -64,7 +97,7 @@
 
 <p>可能目前理解的还不妥，先记录下来吧。</p>
 
-<h2 id="一-闭包函数的基本用法:af6e9c11cbbb13f0bfa1d37c0052e314">一、闭包函数的基本用法</h2>
+<h2 id="一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0">一、闭包函数的基本用法</h2>
 
 <p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
 Example #1 匿名函数示例，用作回调函数参数的值。</p>
@@ -316,43 +349,6 @@ sudo apt-get install -y nodejs
 		
 		
 		<a href="http://dasheyuan.com/tags/git">git</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/barebone-system">
-		<p class="post-meta left">2016年4月12日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">hp 2570p准系统组装经历 </h3>
-		<p class="post-summary"><p>第一次接触“准系统”这三个字还是上个月的事吧，因为考虑入手一台二手的笔记本以备不时之需。准系统不是什么高大上的东西，笔记本（台式机也一样）去掉CPU、内存、硬盘等后就可以叫“准系统”。笔记本出厂阶段都有一个准系统的阶段的。</p>
-
-<p>准系统除了厂家生产出售的，还存在由外国淘汰掉的，俗称洋垃圾，流进国内的笔记本。为了提高倒卖价格，把笔记本拆分成准系统出售。也有可能是内存、硬盘毁掉（重要数据）了，笔记本再被回收流转的。</p>
-
-<p>扯了一些概念，还是看看我组装好的笔记本配置及总共花费吧。</p>
-
-<p>安装好Win10系统，开机在10秒内！</p>
-
-<pre><code>购买平台         配件类型           型号             价格 
-论坛/淘宝        准系统           hp 2570p          600
-淘宝             CPU             i5 3230m         458
-京东             内存x2           金士顿 4G         234
-京东             固态硬盘         闪迪 加强版240G    379
-                                             合计：1671
-</code></pre>
-
-<p>从刚开始的入手台笔记本的想法到现在，墨迹了大半个月。一般是在数码之家上了解二手交易的信息，有时候也会在闲鱼上看一下，浏览一下有没有“笋野”。</p>
-
-<p>终于，上周五，为了不想再花时间耗在这方面，头一热，和论坛里一个“二手商”交流了一下，就从他那里入手台了hp 2570p的准系统。特意加了50块要台成色最好的，不知道有没有被坑。</p>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/technology">technology</a>
 		
 	</p>
 </div>

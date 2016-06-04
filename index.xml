@@ -7,7 +7,31 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 28 May 2016 23:00:00 CST</updated>
+    <updated>Thu, 02 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>PHP的依赖管理工具Composer(2)</title>
+      <link>http://dasheyuan.com/post/php-composer-2</link>
+      <pubDate>Thu, 02 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/php-composer-2</guid>
+      <description>&lt;p&gt;之前介绍过如何安装Composer和简单使用，出门左拐能找到。&lt;br /&gt;
+&lt;a href=&#34;http://http://dasheyuan.com/post/php-composer-1/&#34;&gt;PHP的依赖管理工具Composer(1)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;现在更深入地学习Composer。在上一篇MyProject的&lt;code&gt;app.php&lt;/code&gt;中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+require &#39;vendor/autoload.php&#39;;
+$log = new Monolog\Logger(&#39;name&#39;);
+
+...
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的代码是为了 &lt;code&gt;new Monolog\Logger(&#39;name&#39;)&lt;/code&gt; ，所以&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，作用是为了找到Monolog\Logger类的实现代码，然后require。&lt;br /&gt;
+这应该很好理解，因为假如不用&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，那就必须require &lt;code&gt;Logger.php&lt;/code&gt;源码。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>学习PHP闭包(Closure)</title>
@@ -19,7 +43,7 @@
 
 &lt;p&gt;可能目前理解的还不妥，先记录下来吧。&lt;/p&gt;
 
-&lt;h2 id=&#34;一-闭包函数的基本用法:af6e9c11cbbb13f0bfa1d37c0052e314&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
+&lt;h2 id=&#34;一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
 
 &lt;p&gt;匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。&lt;br /&gt;
 Example #1 匿名函数示例，用作回调函数参数的值。&lt;/p&gt;
@@ -277,21 +301,6 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
       <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LTE网格架构简介</title>
-      <link>http://dasheyuan.com/post/lte-network-architecture</link>
-      <pubDate>Mon, 21 Mar 2016 23:00:01 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/lte-network-architecture</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://dasheyuan.com/images/R12-E-UTRAN.png&#34; alt=&#34;R12-E-UTRAN&#34; /&gt;&lt;br /&gt;
-（上图为Basic Configuration of a 3GPP Access PLMN supporting CS and PS services (using GPRS and EPS) and interfaces，蓝色的框图和接口都是属于LTE的）&lt;/p&gt;
-
-&lt;p&gt;首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
-
-&lt;p&gt;说明：文中的图片参考的是3GPP版本12的规范文档。&lt;/p&gt;
 </description>
     </item>
     
