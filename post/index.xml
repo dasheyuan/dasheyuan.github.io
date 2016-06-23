@@ -7,7 +7,16 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 02 Jun 2016 23:00:00 CST</updated>
+    <updated>Wed, 22 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>ECS服务器安装LAMP环境</title>
+      <link>http://dasheyuan.com/post/ecs-setup-lamp</link>
+      <pubDate>Wed, 22 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/ecs-setup-lamp</guid>
+      <description>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。 //1.更新库，否则可能会出现tasksel aptitude failed的错误 $sudo apt-get update //2.如果已经安装了可以跳过此步 $sudo apt-get install tasksel //3.安装LAMP环境，根据提示完成安装 sudo tasksel install lamp-server Tasksel提供了其他的软件包。 //查看选择需要的软件包 $sudo tasksel 当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。 参考 Tasksel</description>
+    </item>
     
     <item>
       <title>PHP的依赖管理工具Composer(2)</title>
@@ -289,18 +298,6 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
 &lt;/ul&gt;
 
 &lt;p&gt;本文主要介绍Python Debug Server配置与使用。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>使用screen查看OpenStack进程</title>
-      <link>http://dasheyuan.com/post/screen-openstack</link>
-      <pubDate>Tue, 29 Mar 2016 14:00:01 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/screen-openstack</guid>
-      <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
 </description>
     </item>
     

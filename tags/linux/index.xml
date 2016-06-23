@@ -7,7 +7,16 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 12 May 2016 22:00:28 CST</updated>
+    <updated>Wed, 22 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>ECS服务器安装LAMP环境</title>
+      <link>http://dasheyuan.com/post/ecs-setup-lamp</link>
+      <pubDate>Wed, 22 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/ecs-setup-lamp</guid>
+      <description>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。 //1.更新库，否则可能会出现tasksel aptitude failed的错误 $sudo apt-get update //2.如果已经安装了可以跳过此步 $sudo apt-get install tasksel //3.安装LAMP环境，根据提示完成安装 sudo tasksel install lamp-server Tasksel提供了其他的软件包。 //查看选择需要的软件包 $sudo tasksel 当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。 参考 Tasksel</description>
+    </item>
     
     <item>
       <title>Ubuntu中Node.js的安装方法</title>
