@@ -55,12 +55,75 @@
                         
                         
                             <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/python-object-method-define">
+		<p class="post-meta left">2016年6月25日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">Python面向对象方法的定义方式 </h3>
+		<p class="post-summary"><p>Python面向对象的方法(函数)定义方式通常有三种：</p>
+
+<pre><code>class A(object):
+    # 普通方法
+    def foo(self,x):
+        print &quot;executing foo(%s,%s)&quot;%(self,x)
+
+    # 类方法
+    @classmethod
+    def class_foo(cls,x):
+        print &quot;executing class_foo(%s,%s)&quot;%(cls,x)
+
+    # 静态方法
+    @staticmethod
+    def static_foo(x):
+        print &quot;executing static_foo(%s)&quot;%x
+</code></pre>
+
+<p>定义方式不同点：修饰函数和函数参数。<br />
+普通方法没有修饰函数，函数参数中第一个是<code>self</code>，指向特定的实例；<br />
+类方法需要<code>@classmethod</code>函数装饰，函数参数中第一个是<code>cls</code>，指向这个类；<br />
+静态方法需要<code>@staticmethond</code>函数装饰，函数参数可以不指定。</p>
+
+<p>普通方法用了实现具体实例的的函数；<br />
+类方法用来管理类的函数，比如记录类的实例个数；<br />
+静态方法被用来组织类之间有逻辑关系的函数。</p>
+</p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/python">python</a>
+		
+	</p>
+</div>
+
+                        
+                            <div class="post">
 	<a class="post-link" href="http://dasheyuan.com/post/ecs-setup-lamp">
 		<p class="post-meta left">2016年6月22日</p>
 		
 		<div class="clearfix"></div>
 		<h3 class="h2 post-title">ECS服务器安装LAMP环境 </h3>
-		<p class="post-summary">使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。 //1.更新库，否则可能会出现tasksel aptitude failed的错误 $sudo apt-get update //2.如果已经安装了可以跳过此步 $sudo apt-get install tasksel //3.安装LAMP环境，根据提示完成安装 sudo tasksel install lamp-server Tasksel提供了其他的软件包。 //查看选择需要的软件包 $sudo tasksel 当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。 参考 Tasksel</p>
+		<p class="post-summary"><p>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。</p>
+
+<pre><code># 1.更新库，否则可能会出现tasksel aptitude failed的错误
+$ sudo apt-get update
+
+# 2.如果已经安装了可以跳过此步
+$ sudo apt-get install tasksel
+
+# 3.安装LAMP环境，根据提示完成安装
+$ sudo tasksel install lamp-server
+</code></pre>
+
+<p>Tasksel提供了其他的软件包。</p>
+
+<pre><code># 查看选择需要的软件包
+$ sudo tasksel
+</code></pre>
+
+<p>当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。</p>
+</p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
@@ -313,28 +376,6 @@ sudo apt-get install -y nodejs
 <li>AWS主导者IoT云服务。（私有云紧跟其后）</li>
 <li>IoT开源代码无处不在。</li>
 </ol>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/iot">iot</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/iot-mqtt-modbus-comparison">
-		<p class="post-meta left">2016年4月20日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">MQTT和Modbus物联网协议简介(译) </h3>
-		<p class="post-summary"><p>翻译到最后才发现这是一篇广告文。呵呵。<br />
-译文地址：<a href="https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus">https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus</a></p>
-
-<p>物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。</p>
 </p>
 	</a>
 	

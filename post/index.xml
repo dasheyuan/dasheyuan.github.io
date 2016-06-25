@@ -7,7 +7,42 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 22 Jun 2016 23:00:00 CST</updated>
+    <updated>Sat, 25 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>Python面向对象方法的定义方式</title>
+      <link>http://dasheyuan.com/post/python-object-method-define</link>
+      <pubDate>Sat, 25 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/python-object-method-define</guid>
+      <description>&lt;p&gt;Python面向对象的方法(函数)定义方式通常有三种：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class A(object):
+    # 普通方法
+    def foo(self,x):
+        print &amp;quot;executing foo(%s,%s)&amp;quot;%(self,x)
+
+    # 类方法
+    @classmethod
+    def class_foo(cls,x):
+        print &amp;quot;executing class_foo(%s,%s)&amp;quot;%(cls,x)
+
+    # 静态方法
+    @staticmethod
+    def static_foo(x):
+        print &amp;quot;executing static_foo(%s)&amp;quot;%x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;定义方式不同点：修饰函数和函数参数。&lt;br /&gt;
+普通方法没有修饰函数，函数参数中第一个是&lt;code&gt;self&lt;/code&gt;，指向特定的实例；&lt;br /&gt;
+类方法需要&lt;code&gt;@classmethod&lt;/code&gt;函数装饰，函数参数中第一个是&lt;code&gt;cls&lt;/code&gt;，指向这个类；&lt;br /&gt;
+静态方法需要&lt;code&gt;@staticmethond&lt;/code&gt;函数装饰，函数参数可以不指定。&lt;/p&gt;
+
+&lt;p&gt;普通方法用了实现具体实例的的函数；&lt;br /&gt;
+类方法用来管理类的函数，比如记录类的实例个数；&lt;br /&gt;
+静态方法被用来组织类之间有逻辑关系的函数。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ECS服务器安装LAMP环境</title>
@@ -15,7 +50,26 @@
       <pubDate>Wed, 22 Jun 2016 23:00:00 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/ecs-setup-lamp</guid>
-      <description>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。 //1.更新库，否则可能会出现tasksel aptitude failed的错误 $sudo apt-get update //2.如果已经安装了可以跳过此步 $sudo apt-get install tasksel //3.安装LAMP环境，根据提示完成安装 sudo tasksel install lamp-server Tasksel提供了其他的软件包。 //查看选择需要的软件包 $sudo tasksel 当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。 参考 Tasksel</description>
+      <description>&lt;p&gt;使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 1.更新库，否则可能会出现tasksel aptitude failed的错误
+$ sudo apt-get update
+
+# 2.如果已经安装了可以跳过此步
+$ sudo apt-get install tasksel
+
+# 3.安装LAMP环境，根据提示完成安装
+$ sudo tasksel install lamp-server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tasksel提供了其他的软件包。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 查看选择需要的软件包
+$ sudo tasksel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -281,23 +335,6 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
 &lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;
 
 &lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PyCharm远程调试</title>
-      <link>http://dasheyuan.com/post/pycharm-remote-debugging</link>
-      <pubDate>Wed, 30 Mar 2016 15:22:01 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/pycharm-remote-debugging</guid>
-      <description>&lt;p&gt;PyCharm提供两种远程调试(Remote Debugging)的方式:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;配置远程的解释器（remote interpreter）&lt;/li&gt;
-&lt;li&gt;配置Python调试服务器（Python Debug Server）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;本文主要介绍Python Debug Server配置与使用。&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Python on Chen Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/python/</link>
+    
+    
+    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sat, 25 Jun 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>Python面向对象方法的定义方式</title>
+      <link>http://dasheyuan.com/post/python-object-method-define</link>
+      <pubDate>Sat, 25 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/python-object-method-define</guid>
+      <description>&lt;p&gt;Python面向对象的方法(函数)定义方式通常有三种：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class A(object):
+    # 普通方法
+    def foo(self,x):
+        print &amp;quot;executing foo(%s,%s)&amp;quot;%(self,x)
+
+    # 类方法
+    @classmethod
+    def class_foo(cls,x):
+        print &amp;quot;executing class_foo(%s,%s)&amp;quot;%(cls,x)
+
+    # 静态方法
+    @staticmethod
+    def static_foo(x):
+        print &amp;quot;executing static_foo(%s)&amp;quot;%x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;定义方式不同点：修饰函数和函数参数。&lt;br /&gt;
+普通方法没有修饰函数，函数参数中第一个是&lt;code&gt;self&lt;/code&gt;，指向特定的实例；&lt;br /&gt;
+类方法需要&lt;code&gt;@classmethod&lt;/code&gt;函数装饰，函数参数中第一个是&lt;code&gt;cls&lt;/code&gt;，指向这个类；&lt;br /&gt;
+静态方法需要&lt;code&gt;@staticmethond&lt;/code&gt;函数装饰，函数参数可以不指定。&lt;/p&gt;
+
+&lt;p&gt;普通方法用了实现具体实例的的函数；&lt;br /&gt;
+类方法用来管理类的函数，比如记录类的实例个数；&lt;br /&gt;
+静态方法被用来组织类之间有逻辑关系的函数。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+
