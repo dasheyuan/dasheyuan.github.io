@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Shell重定向2&gt;&amp;1的理解 - Chen Yuan&#39;s Blog</title>
+  <title>CMake使用实例 - Chen Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://dasheyuan.com/post/shell-redirect">
+  <link rel="canonical" href="http://dasheyuan.com/post/cmake-example">
   <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
   
   
@@ -49,8 +49,8 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">Shell重定向2&gt;&amp;1的理解</h1>
-		<span class="post-meta">2016年3月16日</span>
+        <h1 class="py2">CMake使用实例</h1>
+		<span class="post-meta">2016年7月25日</span>
         
       </div>
        <p class="post-meta">Tags:&nbsp;
@@ -62,66 +62,55 @@
       <article class="post-content">
       
 
-<h2 id="一-系统文件描述符">一、系统文件描述符</h2>
+<p>最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
+实例的目录文件结构如下：</p>
 
-<p>标准输入   0<br />
- 标准输出   1<br />
- 标准错误输出 2</p>
-
-<p>测试用例</p>
-
-<pre><code>$ cat mytest.sh 
-echo &quot;my test&quot;
-mytest
-$ ./mytest.sh 
-my test  #标准输出
-./mytest.sh: line 2: mytest: command not found #标准错误输出
+<pre><code>── TOP
+    ├── CMakeCache.txt
+    ├── Demo
+    │   ├── CMakeLists.txt
+    │   └── demo.c
+    └── Hello
+        ├── CMakeLists.txt
+        ├── hello.c
+        └── hello.h
 </code></pre>
 
-<h2 id="二-重定向输出">二、重定向输出</h2>
+<p>/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。<br />
+另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：</p>
 
-<h3 id="1-文件名">1.&gt;文件名</h3>
+<pre><code>/TOP/CMakeCache.txt
+cmake_minimum_required (VERSION 2.8.11)
+project (HELLO)
+add_subdirectory (Hello)
+add_subdirectory (Demo)
 
-<pre><code>$ ./mytest.sh &gt; out.txt
-./mytest.sh: line 2: mytest: command not found
-$ cat out.txt
-mytest
 </code></pre>
 
-<p>标准输出的内容保存到文件out.txt中,标准错误输出仍然打印出来。</p>
-
-<h3 id="2-文件名">2.&gt;&gt;文件名</h3>
-
-<pre><code>$ ./mytest.sh &gt;&gt; out.txt
+<pre><code>/TOP/Hello/CMakeCache.txt
+add_library (Hello hello.c)
+target_include_directories (Hello PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 </code></pre>
 
-<p>标准输出的内容增加到文件out.txt中。</p>
-
-<h3 id="3-文件名">3.&amp;&gt;文件名</h3>
-
-<pre><code>$ ./mytest.sh &amp;&gt; out.txt
-$ cat out.txt
-my test
-./mytest.sh: line 2: mytest: command not found
+<pre><code>/TOP/Demo/CMakeCache.txt
+add_executable (helloDemo demo.c)
+target_link_libraries (helloDemo LINK_PUBLIC Hello)
 </code></pre>
 
-<p>标准输出和标准错误输出的内容保存到文件out.txt中，同理
-<code>&amp;&gt;&gt;</code>为增加到文件中。</p>
+<p>执行如下命令编译运行程序。</p>
 
-<h3 id="4-文件描述符">4.&gt;&amp;文件描述符</h3>
-
-<pre><code>$ ./mytest.sh &gt; out.txt 2&gt;&amp;1
-$ cat out.txt
-my test
-./mytest.sh: line 2: mytest: command not found
+<pre><code>cd /TOP
+cmkae .
+make
+ ./Demo/helloDemo 
 </code></pre>
 
-<p>标准输出的内容保存到文件out.txt中，然后将标准错误输出重定向到与标准输出相同的地方。</p>
+<h2 id="参考">参考</h2>
 
-<h2 id="三-重定向输入">三、重定向输入</h2>
-
-<pre><code>$ more &lt; lsout.txt
-</code></pre>
+<ol>
+<li><a href="http://blog.csdn.net/netnote/article/details/4051620">CMAKE的使用</a></li>
+<li><a href="https://cmake.org/examples/">CMAKE EXAMPLE</a></li>
+</ol>
 
       </article>
 	  
@@ -132,9 +121,9 @@ my test
 	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'dasheyuan';
-    var disqus_identifier = 'http:\/\/dasheyuan.com\/post\/shell-redirect';
-    var disqus_title = 'Shell重定向2\x3e\x261的理解';
-    var disqus_url = 'http:\/\/dasheyuan.com\/post\/shell-redirect';
+    var disqus_identifier = 'http:\/\/dasheyuan.com\/post\/cmake-example';
+    var disqus_title = 'CMake使用实例';
+    var disqus_url = 'http:\/\/dasheyuan.com\/post\/cmake-example';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -71,16 +71,16 @@
 
 <p>本文主要介绍Python Debug Server配置与使用。</p>
 
-<h2 id="python-debug-server参考模型:0ab3dcd8f345c9ed62e1ded890d40da9">Python Debug Server参考模型</h2>
+<h2 id="python-debug-server参考模型">Python Debug Server参考模型</h2>
 
 <p><img src="http://dasheyuan.com/images/PyCharm remote debug.png" alt="PyCharm remote debug" /><br />
 （上图为Python Debug Server模型，仅供参考）</p>
 
 <p>如上图所示，PyCharm远程调试方式的模型其实就是一个典型的Server/Client模型。模型左侧，Server服务运行在本地主机PyCharm中。配置Debug Server完成后就可以启动这个服务器。服务器启动后，就是等待Client客户端的接入。模型右侧，需要调试的Python程序通过调用pycharm-debug提供的<code>pydevd</code>库，然后连接到服务端。这样，本地主机就可以使用PyCharm调试远程主机运行的Python程序了，调试的方法与直接调试本地Python程序一样。</p>
 
-<h2 id="python-debug-server配置使用:0ab3dcd8f345c9ed62e1ded890d40da9">Python Debug Server配置使用</h2>
+<h2 id="python-debug-server配置使用">Python Debug Server配置使用</h2>
 
-<h3 id="1-服务端配置:0ab3dcd8f345c9ed62e1ded890d40da9">1.服务端配置</h3>
+<h3 id="1-服务端配置">1.服务端配置</h3>
 
 <p>首先在Run/Debug Configuration中添加Python Remote Debug服务。
 <img src="http://dasheyuan.com/images/PyCharm remote debug-2.jpg" alt="server configurate" /><br />
@@ -103,7 +103,7 @@ pydevd.settrace('192.168.27.1', port=51234, stdoutToServer=True, stderrToServer=
 
 </code></pre>
 
-<h3 id="2-客户端配置:0ab3dcd8f345c9ed62e1ded890d40da9">2.客户端配置</h3>
+<h3 id="2-客户端配置">2.客户端配置</h3>
 
 <p>参考模型中提到，远程主机需要配置<code>pydev</code>库。而提供库的源文件在PyCharm安装路径下的<code>debug-eggs</code>目录中，其中<code>pycharm-debug.egg</code>对应的是版本2，<code>pycharm-debug-py3k.egg</code>对应的是版本3。
 把<code>pycharm-debug.egg</code>文件复制到<strong>远程主机</strong>，然后通过easy_install命令安装。
@@ -126,7 +126,7 @@ print &quot;code need to debug&quot;
 pydevd.stoptrace()
 </code></pre>
 
-<h3 id="3-调试方式:0ab3dcd8f345c9ed62e1ded890d40da9">3.调试方式</h3>
+<h3 id="3-调试方式">3.调试方式</h3>
 
 <p>调试方式比较简单，首先启动远程主机的程序，进入调试状态。然后返回本地主机的PyCharm界面进行调试。</p>
 
@@ -139,7 +139,7 @@ remote debug
 （上图为本地主机PyCharm调试界面说明）<br />
 此步骤之前需要配置路径映射关系，即远程主机中的代码如何映射到本地主机中，本文用到的是win-sshfs工具，工具的使用方式就有时间再介绍。</p>
 
-<h2 id="参考:0ab3dcd8f345c9ed62e1ded890d40da9">参考</h2>
+<h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="https://www.jetbrains.com/pycharm/help/remote-debugging.html">https://www.jetbrains.com/pycharm/help/remote-debugging.html</a></li>

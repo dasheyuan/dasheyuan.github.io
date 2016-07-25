@@ -66,7 +66,7 @@
 
 <p>可能目前理解的还不妥，先记录下来吧。</p>
 
-<h2 id="一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0">一、闭包函数的基本用法</h2>
+<h2 id="一-闭包函数的基本用法">一、闭包函数的基本用法</h2>
 
 <p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
 Example #1 匿名函数示例，用作回调函数参数的值。</p>
@@ -157,7 +157,7 @@ $example(&quot;hello&quot;);
 //输出 string 'hello world' (length=11)
 </code></pre>
 
-<h2 id="二-闭包-closure-类:69bb680910cb3c60159aee15004370d0">二、闭包 Closure 类</h2>
+<h2 id="二-闭包-closure-类">二、闭包 Closure 类</h2>
 
 <p>匿名函数目前是通过 <code>Closure</code> 类来实现的。<br />
 Closure类定义了三种方法：</p>
@@ -215,9 +215,9 @@ $cl = $cl-&gt;bindTo($ob2);
 echo $cl(), &quot;\n&quot;;
 </code></pre>
 
-<h2 id="三-闭包的理解:69bb680910cb3c60159aee15004370d0">三、闭包的理解</h2>
+<h2 id="三-闭包的理解">三、闭包的理解</h2>
 
-<h2 id="1-变量的作用域:69bb680910cb3c60159aee15004370d0">1.变量的作用域</h2>
+<h2 id="1-变量的作用域">1.变量的作用域</h2>
 
 <p>变量的作用域无非就是两种：全局变量和局部变量。</p>
 
@@ -248,7 +248,7 @@ var_dump($f());
 
 <p>我觉得，PHP的闭包的绑定作用，可以加深对闭包的<strong>应用</strong>的理解。</p>
 
-<h2 id="2-闭包的绑定:69bb680910cb3c60159aee15004370d0">2.闭包的绑定</h2>
+<h2 id="2-闭包的绑定">2.闭包的绑定</h2>
 
 <p>下面这个例子有点容器的影子。</p>
 
@@ -311,7 +311,7 @@ echo $test-&gt;when();
 ?&gt;
 </code></pre>
 
-<h2 id="参考:69bb680910cb3c60159aee15004370d0">参考</h2>
+<h2 id="参考">参考</h2>
 
 <p>1.<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">学习Javascript闭包（Closure）</a><br />
 2.<a href="http://php.net/manual/zh/class.closure.php">PHP手册-Closure类</a><br />

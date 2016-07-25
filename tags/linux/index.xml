@@ -7,7 +7,32 @@
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Wed, 22 Jun 2016 23:00:00 CST</updated>
+    <updated>Mon, 25 Jul 2016 23:00:00 CST</updated>
+    
+    <item>
+      <title>CMake使用实例</title>
+      <link>http://dasheyuan.com/post/cmake-example</link>
+      <pubDate>Mon, 25 Jul 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cmake-example</guid>
+      <description>&lt;p&gt;最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
+实例的目录文件结构如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;── TOP
+    ├── CMakeCache.txt
+    ├── Demo
+    │   ├── CMakeLists.txt
+    │   └── demo.c
+    └── Hello
+        ├── CMakeLists.txt
+        ├── hello.c
+        └── hello.h
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。&lt;br /&gt;
+另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ECS服务器安装LAMP环境</title>
@@ -64,7 +89,7 @@ sudo apt-get install -y nodejs
 
 &lt;p&gt;bash &lt;code&gt;-&lt;/code&gt;（参考2）&lt;/p&gt;
 
-&lt;h3 id=&#34;关于减号-的用途:3c5bcaeaf18fe8a0464d0cde8792c2a3&#34;&gt;“关于减号 - 的用途&lt;/h3&gt;
+&lt;h3 id=&#34;关于减号-的用途&#34;&gt;“关于减号 - 的用途&lt;/h3&gt;
 
 &lt;p&gt;管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &amp;ldquo;-&amp;rdquo; 来替代， 举例来说：&lt;/p&gt;
 
@@ -112,7 +137,7 @@ sudo apt-get install -y nodejs
       <pubDate>Wed, 16 Mar 2016 22:11:03 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/shell-redirect</guid>
-      <description>&lt;h2 id=&#34;一-系统文件描述符:690961c0631c450a5ba210a36e05dd89&#34;&gt;一、系统文件描述符&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;一-系统文件描述符&#34;&gt;一、系统文件描述符&lt;/h2&gt;
 
 &lt;p&gt;标准输入   0&lt;br /&gt;
  标准输出   1&lt;br /&gt;

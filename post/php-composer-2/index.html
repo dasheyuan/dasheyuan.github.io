@@ -78,9 +78,9 @@ $log = new Monolog\Logger('name');
 <p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
 这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
 
-<h2 id="psr-4-规范:f952182683aef10bd754e5d7f685e8fe">PSR-4 规范</h2>
+<h2 id="psr-4-规范">PSR-4 规范</h2>
 
-<h3 id="1-简介:f952182683aef10bd754e5d7f685e8fe">1、简介</h3>
+<h3 id="1-简介">1、简介</h3>
 
 <p>在深入学习Composer的之前，了解一下Composer实现自动加载功能所参考的标准规范PSR。<br />
 FIG 制定的PHP规范，简称PSR，是PHP开发的事实标准。<br />
@@ -127,7 +127,7 @@ Composer使用PSR-0风格</p>
 
 <p>对比以上两种结构，明显可以看出PSR-4带来更简洁的文件结构。</p>
 
-<h3 id="2-psr-4-规范说明:f952182683aef10bd754e5d7f685e8fe">2、PSR-4 规范说明</h3>
+<h3 id="2-psr-4-规范说明">2、PSR-4 规范说明</h3>
 
 <p>class的说明包括class、interface、traint或其他相似的结构。</p>
 
@@ -142,7 +142,7 @@ d.下划线在命名的任一部分都没有特别的意义。（我的理解是
 e.可以由任意大小写字母组合。<br />
 f.字母大小写敏感。</p>
 
-<h4 id="举例:f952182683aef10bd754e5d7f685e8fe">举例</h4>
+<h4 id="举例">举例</h4>
 
 <p>下面的表展示了对一个完全合规的类名, 命名空间前缀以及base目录对应的文件路径。<br />
 <img src="http://dasheyuan.com/images/PSR-4 Examples.jpg" alt="PyCharm remote debug" /><br />
@@ -153,7 +153,7 @@ b.基目录之后的子目录名字必须（MUST）与命名空间前缀后的�
 c.后面的类名对应于以.php为后缀的文件名，这个文件名必须（MUST）匹配到后面的类名。<br />
 d.自动加载实现一定不能（MUST NOT）抛出异常，一定不能（MUST NOT）引发任何级别的错误, 并且不应当（SHOULD NOT）返回值。</p>
 
-<h3 id="3-monolog使用的是psr-0-但不影响理解:f952182683aef10bd754e5d7f685e8fe">3、Monolog使用的是PSR-0，但不影响理解</h3>
+<h3 id="3-monolog使用的是psr-0-但不影响理解">3、Monolog使用的是PSR-0，但不影响理解</h3>
 
 <p>分析<code>require 'vendor/autoload.php'</code>源码。</p>
 
@@ -405,7 +405,7 @@ return array(
 <p>找到$file = <strong>DIR</strong>.&rdquo;\vendor\monolog\monolog\src\Monolog\Logger.php&rdquo;之后include执行，然后就是Logger实例化的过程了。<br />
 Composer的运行过程就是酱紫了。</p>
 
-<h3 id="4-还有一个问题:f952182683aef10bd754e5d7f685e8fe">4、还有一个问题</h3>
+<h3 id="4-还有一个问题">4、还有一个问题</h3>
 
 <p>autoload_namespaces.php、autoload_psr4.php、autoload_classmap.php中的数组变量怎么来的？</p>
 
@@ -423,7 +423,7 @@ Composer的运行过程就是酱紫了。</p>
 
 <p>Composer的学习目前就先到这里了，往后如果需要制作一个库，再往更深一层学习吧。</p>
 
-<h2 id="参考:f952182683aef10bd754e5d7f685e8fe">参考</h2>
+<h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="http://docs.phpcomposer.com/">Composer中文文档</a></li>

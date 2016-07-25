@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="generator" content="Hugo 0.16" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chen Yuan&#39;s Blog</title>
@@ -53,6 +54,40 @@
                 <div class="posts">
                     
                         
+                        
+                            <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/cmake-example">
+		<p class="post-meta left">2016年7月25日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">CMake使用实例 </h3>
+		<p class="post-summary"><p>最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
+实例的目录文件结构如下：</p>
+
+<pre><code>── TOP
+    ├── CMakeCache.txt
+    ├── Demo
+    │   ├── CMakeLists.txt
+    │   └── demo.c
+    └── Hello
+        ├── CMakeLists.txt
+        ├── hello.c
+        └── hello.h
+</code></pre>
+
+<p>/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。<br />
+另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：</p>
+</p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		
+	</p>
+</div>
+
                         
                             <div class="post">
 	<a class="post-link" href="http://dasheyuan.com/post/python-object-method-define">
@@ -178,7 +213,7 @@ $log = new Monolog\Logger('name');
 
 <p>可能目前理解的还不妥，先记录下来吧。</p>
 
-<h2 id="一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0">一、闭包函数的基本用法</h2>
+<h2 id="一-闭包函数的基本用法">一、闭包函数的基本用法</h2>
 
 <p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
 Example #1 匿名函数示例，用作回调函数参数的值。</p>
@@ -276,7 +311,7 @@ sudo apt-get install -y nodejs
 
 <p>bash <code>-</code>（参考2）</p>
 
-<h3 id="关于减号-的用途:3c5bcaeaf18fe8a0464d0cde8792c2a3">“关于减号 - 的用途</h3>
+<h3 id="关于减号-的用途">“关于减号 - 的用途</h3>
 
 <p>管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &ldquo;-&rdquo; 来替代， 举例来说：</p>
 
@@ -352,37 +387,6 @@ sudo apt-get install -y nodejs
 		
 		
 		<a href="http://dasheyuan.com/tags/beijing">beijing</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/iot-developer-survey-2016">
-		<p class="post-meta left">2016年4月20日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Eclipse IoT 2016 物联网开发者调查统计 </h3>
-		<p class="post-summary"><p>2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。</p>
-
-<p>从2016年调查的结果分析，有以下几点关键趋势：</p>
-
-<ol>
-<li>目前，大部分参与者的公司正在或将研发IoT解决方案。</li>
-<li>安全问题成为了一个关键的研究问题。</li>
-<li>IoT开发编程语言排行：Java， C， Java Script, Python。</li>
-<li>MQTT和HTTP在消息协议占主要地位。（CoAP紧跟其后）</li>
-<li>IoT操作系统Linux占主要地位。</li>
-<li>AWS主导者IoT云服务。（私有云紧跟其后）</li>
-<li>IoT开源代码无处不在。</li>
-</ol>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/iot">iot</a>
 		
 	</p>
 </div>

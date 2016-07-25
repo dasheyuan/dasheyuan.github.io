@@ -43,7 +43,7 @@ $log = new Monolog\Logger(&#39;name&#39;);
 
 &lt;p&gt;可能目前理解的还不妥，先记录下来吧。&lt;/p&gt;
 
-&lt;h2 id=&#34;一-闭包函数的基本用法:69bb680910cb3c60159aee15004370d0&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
+&lt;h2 id=&#34;一-闭包函数的基本用法&#34;&gt;一、闭包函数的基本用法&lt;/h2&gt;
 
 &lt;p&gt;匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。&lt;br /&gt;
 Example #1 匿名函数示例，用作回调函数参数的值。&lt;/p&gt;

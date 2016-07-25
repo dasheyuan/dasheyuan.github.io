@@ -70,13 +70,13 @@
 <p>Modbus是一个串口通信协议，约定俗成的工业设备连接的协议，在1979年首次被提出。20年后，MQTT协议才被提出来。但正是因为这两种协议赋予了嵌入式设备连接更大范围的互联网的能力。下图通过一个IoT网关，解释了这两种协议间的关系。<br />
 <img src="https://lh3.googleusercontent.com/ebUheMIH0m3JfFyMaGAvUPh9F2mjai10HHT9NzIgJmqceflQLptVQD6xK9jy_qrQ_lTf9RfeuehIFcxi_IDyv4ItzWGQ6e_Z6IHSRNgF4_g8IBoE_pHUsLiWWqUxgn34eMJgllQZPMb0Z8zB3Q" alt="" /></p>
 
-<h2 id="一-modbus:06bd73342796d71aae0dc8c712aa3da5">一、Modbus</h2>
+<h2 id="一-modbus">一、Modbus</h2>
 
 <p>自从1979年首次提出后，Modbus基于多种物理链路（如:RS-485，注：RS-485一般指通信接口）,逐渐演进成一个被广泛使用的协议。Modbus协议的核心是主-从模式的串口通信协议。主设备发送一个请求给从设备，然后从设备返回一个响应给主设备。在一个标准的Modbus网络中，存在一个主设备和至多247中从设备（即使2字节的地址可以有效解决这个限制问题）。<br />
 在RS-485应用中，主从设备间的通信的数据帧中包含一个功能编码，这个功能编码表示主设备要求从设备执行的操作，比如读一个离散的输入，或者是读一个FIFO队列，或者执行故障诊断。从设备基于这个功能编码进行操作并通过指定的字节进行回应。从设备可以使智能设备或者是传感器简单的设备。<br />
 根据上面的描述，你可以看出Modbus协议的简单性，但是它的开放性使它在工业或者是数据监控系统中大受欢迎，并成为了约定俗成的标准协议。</p>
 
-<h2 id="二-mqtt:06bd73342796d71aae0dc8c712aa3da5">二、MQTT</h2>
+<h2 id="二-mqtt">二、MQTT</h2>
 
 <p>MQTT是一个专门为物联网交互设计的开放的、轻量级的M2M协议。MQTT协议组织的网络中包括一个MQTT Broker和多个MQTT agent，Broker负责协调MQTT agent间的交互，MQTT agent又可分为发布者Publishers和订阅者SubScribers两种，如下图所示。<br />
 <img src="https://lh6.googleusercontent.com/JPumVlUmsaWJNLpqTyLXFNkNbkNVlwwLgXBv_2InlRrWyVSHLGlbdAZmFje8Z6lhxQeUKYK-r7OMGsU-iSwcqxrZ0AUbkxjvN5a9ME9ZanSsdo2WBIiuN8rO4tRGtmYDxht43ryEmc_NflkHUw" alt="" /><br />
@@ -97,7 +97,7 @@ MQTT实现了一个最少方法集合的发布/订阅的模型，这些方法表
 
 <p>MQTT甚至允许通配符形式的主题，当订阅者需要知道所有警告的状态，订阅的主题可以写成这样<code>/home/alarms/+/status</code>，当需要订阅/home下所有的主题时可以写成<code>/home/#</code>。</p>
 
-<h3 id="mqtt服务质量qos:06bd73342796d71aae0dc8c712aa3da5">MQTT服务质量QoS</h3>
+<h3 id="mqtt服务质量qos">MQTT服务质量QoS</h3>
 
 <p>MQTT允许订阅服务的质量，在MQTT中，存在三种等级的服务质量：</p>
 
@@ -113,7 +113,7 @@ MQTT实现了一个最少方法集合的发布/订阅的模型，这些方法表
 
 <p>后面部分有广告嫌疑，就不译了:(</p>
 
-<h2 id="参考:06bd73342796d71aae0dc8c712aa3da5">参考</h2>
+<h2 id="参考">参考</h2>
 
 <p><a href="http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html">http://www.cnblogs.com/luomingui/archive/2013/06/14/Modbus.html</a></p>
 

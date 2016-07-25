@@ -71,7 +71,7 @@
 
 <p>这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。</p>
 
-<h2 id="开发环境简介:6305b983b2f7c5b6179ef0c9a2008d9c">开发环境简介</h2>
+<h2 id="开发环境简介">开发环境简介</h2>
 
 <p>我配置的环境：Win10系统台式机，用到的软件有PyCharm，VMware Workstation，XShell和win-sshfs。另外虚拟机运行的是Ubuntu 14.04 Server板，DevStack的安装在Ubuntu中。简单的模型框架如下图。<br />
 <img src="http://dasheyuan.com/images/OpenStack debug.png" alt="OpenStack debug" /></p>
@@ -80,7 +80,7 @@
 
 <p>另外，在<a href="http://https://www.ibm.com/developerworks/cn/linux/l-cn-pythondebugger/">Python 代码调试技巧</a>一文中提到了pdb、PyDev、PyCharm、日志等几种常见的调试方法都可以作为OpenStack开发调试的方法，这里不赘述。</p>
 
-<h2 id="搭建步骤小结:6305b983b2f7c5b6179ef0c9a2008d9c">搭建步骤小结</h2>
+<h2 id="搭建步骤小结">搭建步骤小结</h2>
 
 <p>下面步骤是我查阅网上资料和实测后的理解，详细的步骤可以参考我给出的链接。<br />
 1）DevStack的安装。网上教程很多，建议参考陈沙克老师的安装方法，<a href="http://www.chenshake.com/install-ubuntu-14-04-devstack/">Ubuntu 14.04 Devstack安装</a>，安装完成后，可以先新建实例测试一下。PS：保存快照。</p>
@@ -92,7 +92,7 @@
 
 <p>4）<a href="http://dasheyuan.com/post/screen-openstack/">使用screen查看OpenStack进程</a>。了解screen可以帮助我们在搭建好的开发环境中调试的理解。</p>
 
-<h2 id="具体调试过程:6305b983b2f7c5b6179ef0c9a2008d9c">具体调试过程</h2>
+<h2 id="具体调试过程">具体调试过程</h2>
 
 <p>调试的过程参考在这篇博客中的新建<a href="http://www.sdnlab.com/15223.html">Neutron API</a>的例子，具体操作有些不同，注意区别。（建议每一个操作和每一行代码都一个一个字母敲）。</p>
 
@@ -154,11 +154,11 @@ class PasteTest(object):
 <p>5）切换至PyCharm，打开配置好的“q-svc”远程调试服务器。调用新建的API，可通过在浏览器中输入 <code>http://192.168.27.128:9696/pastetest</code> 调用。这时可发现，PyCharm进入了代码调试的模式。
 <img src="http://dasheyuan.com/images/OpenStack debug-1.jpg" alt="OpenStack debug-1" /></p>
 
-<h2 id="小结:6305b983b2f7c5b6179ef0c9a2008d9c">小结</h2>
+<h2 id="小结">小结</h2>
 
 <p>至此，OpenStack/DevStack开发调试平台的搭建已经粗略地介绍完了。每一个步骤所包含的技术点多很多，需要耐心地去尝试整合这些技术。限于现在的水平，无法一一去展开。</p>
 
-<h2 id="参考:6305b983b2f7c5b6179ef0c9a2008d9c">参考</h2>
+<h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="http://www.chenshake.com/install-ubuntu-14-04-devstack/">Ubuntu 14.04 Devstack安装-陈沙克日志</a></li>
