@@ -60,9 +60,7 @@
         
       </p> 
       <article class="post-content">
-      
-
-<p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
+      <p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
 <a href="http://http://dasheyuan.com/post/php-composer-1/">PHP的依赖管理工具Composer(1)</a></p>
 
 <p>现在更深入地学习Composer。在上一篇MyProject的<code>app.php</code>中</p>
@@ -77,6 +75,8 @@ $log = new Monolog\Logger('name');
 
 <p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
 这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
+
+<p></p>
 
 <h2 id="psr-4-规范">PSR-4 规范</h2>
 
@@ -429,7 +429,6 @@ Composer的运行过程就是酱紫了。</p>
 <li><a href="http://docs.phpcomposer.com/">Composer中文文档</a></li>
 <li><a href="http://my.oschina.net/1pei/blog/485099">FIG-PHP PSR规范系列4-自动加载</a></li>
 </ol>
-
       </article>
 	  
 

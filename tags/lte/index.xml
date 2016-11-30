@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Lte on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/lte/</link>
+    <link>http://dasheyuan.com/tags/lte/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 07 Apr 2016 23:30:28 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>LTE终端信号强度单位dBm与asu的关系</title>
@@ -19,8 +19,10 @@
 
 &lt;p&gt;顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？&lt;br /&gt;
 asu也是一种信号强度参考（相对）单位，一般出现在Android系统的手机中。&lt;br /&gt;
-asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。&lt;/p&gt;
-</description>
+asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。&lt;br /&gt;
+
+&lt;img src=&#34;http://dasheyuan.com/images/Arbitrary Strength Unit.png&#34; alt=&#34;Arbitrary Strength Unit&#34; /&gt;
+（上图是双模终端Android系统信息的截图）&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -34,8 +36,8 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
 
 &lt;p&gt;首先描述了E-UTRAN（LTE）网络架构参考模型，给出当前3GPP中描述的整体网络架构，包括2G、3G和4G；然后是介绍E-UTRAN（LTE）中的网元及其功能。&lt;/p&gt;
 
-&lt;p&gt;说明：文中的图片参考的是3GPP版本12的规范文档。&lt;/p&gt;
-</description>
+&lt;p&gt;说明：文中的图片参考的是3GPP版本12的规范文档。
+&lt;/p&gt;</description>
     </item>
     
   </channel>

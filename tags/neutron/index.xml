@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Neutron on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/neutron/</link>
+    <link>http://dasheyuan.com/tags/neutron/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Fri, 01 Apr 2016 15:22:01 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>搭建OpenStack/DevStack远程开发调试环境</title>
@@ -19,8 +19,8 @@
 
 &lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;
 
-&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。&lt;/p&gt;
-</description>
+&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。
+&lt;/p&gt;</description>
     </item>
     
   </channel>

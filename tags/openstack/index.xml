@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Openstack on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/openstack/</link>
+    <link>http://dasheyuan.com/tags/openstack/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Fri, 01 Apr 2016 15:22:01 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>搭建OpenStack/DevStack远程开发调试环境</title>
@@ -19,8 +19,8 @@
 
 &lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;
 
-&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。&lt;/p&gt;
-</description>
+&lt;p&gt;这是在网上查找参考的基础上，自己进行的测试，记录下来希望加深自己的理解。
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,8 +36,8 @@
 &lt;li&gt;配置Python调试服务器（Python Debug Server）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;本文主要介绍Python Debug Server配置与使用。&lt;/p&gt;
-</description>
+&lt;p&gt;本文主要介绍Python Debug Server配置与使用。
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -48,8 +48,8 @@
       <guid>http://dasheyuan.com/post/screen-openstack</guid>
       <description>&lt;p&gt;介绍screen在openstack调试中的使用，整理screen的内容及快捷键。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;a href=&#34;http://www.chenshake.com/install-ubuntu-14-04-devstack/&#34;&gt;DevStack安装&lt;/a&gt;完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,10 +58,7 @@
       <pubDate>Sun, 14 Feb 2016 21:30:28 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/openstack-singleton-pattern</guid>
-      <description>&lt;p&gt;设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。&lt;/p&gt;
-
-&lt;p&gt;单例模式（Singleton Pattern）最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.17" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="baidu-site-verification" content="T60dVIfBs3" />
+  <link rel="canonical" href="http://dasheyuan.com/">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+<div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+    
+    <div class="post p2 p-responsive wrap" role="main">
+        <div class="measure">
+            <div class="home">
+                <div class="posts">
+                    
+                        
+                        
+                            <div class="post">
+	<a class="post-link" href="http://dasheyuan.com/post/ubuntu-install-nodejs-scripts">
+		<p class="post-meta left">2016年5月12日</p>
+		
+		<div class="clearfix"></div>
+		<h3 class="h2 post-title">Ubuntu中Node.js的安装方法 </h3>
+		<p class="post-summary"><p>最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。</p>
+
+<p>Ubuntu直接使用<code>sudo apt-get install nodejs</code>命名安装Node.js无法安装最新版本。</p>
+
+<p><a href="https://nodejs.org/en/download/package-manager/">官网</a>上给出来的安装命令可以解决这个问题:</p>
+
+<pre><code>curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+
+sudo apt-get install -y nodejs
+</code></pre>
+
+<p>curl <code>-s</code> 静默状态，即不输出任何信息。</p>
+
+<p>curl <code>-L</code> 重定向地址，即如果当前地址发生重定向，获取重定向的地址的内容(参考1)。</p>
+
+<p>sudo <code>-E</code> 在sudo执行时保留当前用户已存在的环境变量,不会被sudo重置。</p>
+
+<p>sudo apt-get install <code>-y</code> 默认安装过程中的确认步骤(yes)。</p>
+
+<p>bash <code>-</code>（参考2）</p>
+
+<h3 id="关于减号-的用途">“关于减号 - 的用途</h3>
+
+<p>管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &ldquo;-&rdquo; 来替代， 举例来说：</p>
+
+<pre><code>$ tar -cvf - /home | tar -xvf -
+</code></pre>
+
+<p>上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！</p>
+
+<h3 id="toc_1">”</h3>
+
+<p></p></p>
+	</a>
+	
+	<p class="post-meta">Tags:&nbsp;
+		
+		
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		
+	</p>
+</div>
+
+                        
+                </div>
+            </div>
+            <div class="paginatin_area">
+                        <div class="pagination clearfix mb1 mt4">
+  <div class="left">
+  
+  
+  <a class="pagination-item" href="http://dasheyuan.com/page/7/">Newer</a>
+  
+  
+  </div>
+  <div class="right">
+  
+  <a class="pagination-item" href="http://dasheyuan.com/page/9/">Older</a>
+  
+  </div>
+</div>
+
+                
+            </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

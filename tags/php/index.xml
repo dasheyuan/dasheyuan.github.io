@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Php on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/php/</link>
+    <link>http://dasheyuan.com/tags/php/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 02 Jun 2016 23:00:00 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>PHP的依赖管理工具Composer(2)</title>
@@ -30,7 +30,8 @@ $log = new Monolog\Logger(&#39;name&#39;);
 
 &lt;p&gt;上面的代码是为了 &lt;code&gt;new Monolog\Logger(&#39;name&#39;)&lt;/code&gt; ，所以&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，作用是为了找到Monolog\Logger类的实现代码，然后require。&lt;br /&gt;
 这应该很好理解，因为假如不用&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，那就必须require &lt;code&gt;Logger.php&lt;/code&gt;源码。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,8 +55,7 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
 }, &#39;hello-world&#39;);
 // 输出 helloWorld
 ?&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -67,10 +67,7 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
       <description>&lt;p&gt;&lt;img src=&#34;http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
 无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。&lt;/p&gt;
 
-&lt;p&gt;Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？&lt;/p&gt;
-
-&lt;p&gt;PHP有Composer。&lt;/p&gt;
-</description>
+&lt;p&gt;Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？&lt;/p&gt;</description>
     </item>
     
   </channel>

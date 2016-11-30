@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Python on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/python/</link>
+    <link>http://dasheyuan.com/tags/python/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Sat, 25 Jun 2016 23:00:00 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>Python面向对象方法的定义方式</title>
@@ -40,8 +40,9 @@
 
 &lt;p&gt;普通方法用了实现具体实例的的函数；&lt;br /&gt;
 类方法用来管理类的函数，比如记录类的实例个数；&lt;br /&gt;
-静态方法被用来组织类之间有逻辑关系的函数。&lt;/p&gt;
-</description>
+静态方法被用来组织类之间有逻辑关系的函数。
+&lt;br /&gt;
+另外，常见的使用&lt;code&gt;@property&lt;/code&gt;及&lt;code&gt;@setter&lt;/code&gt;装饰器定义的方法：&lt;/p&gt;</description>
     </item>
     
   </channel>

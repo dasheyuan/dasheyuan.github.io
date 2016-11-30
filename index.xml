@@ -3,7 +3,7 @@
   <channel>
       <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/</link>
+    <link>http://dasheyuan.com/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
@@ -30,8 +30,8 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。&lt;br /&gt;
-另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：&lt;/p&gt;
-</description>
+另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,8 +65,9 @@
 
 &lt;p&gt;普通方法用了实现具体实例的的函数；&lt;br /&gt;
 类方法用来管理类的函数，比如记录类的实例个数；&lt;br /&gt;
-静态方法被用来组织类之间有逻辑关系的函数。&lt;/p&gt;
-</description>
+静态方法被用来组织类之间有逻辑关系的函数。
+&lt;br /&gt;
+另外，常见的使用&lt;code&gt;@property&lt;/code&gt;及&lt;code&gt;@setter&lt;/code&gt;装饰器定义的方法：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,8 +94,8 @@ $ sudo tasksel install lamp-server
 $ sudo tasksel
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。&lt;/p&gt;
-</description>
+&lt;p&gt;当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。&lt;br /&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -118,7 +119,8 @@ $log = new Monolog\Logger(&#39;name&#39;);
 
 &lt;p&gt;上面的代码是为了 &lt;code&gt;new Monolog\Logger(&#39;name&#39;)&lt;/code&gt; ，所以&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，作用是为了找到Monolog\Logger类的实现代码，然后require。&lt;br /&gt;
 这应该很好理解，因为假如不用&lt;code&gt;require &#39;vendor/autoload.php&#39;&lt;/code&gt;，那就必须require &lt;code&gt;Logger.php&lt;/code&gt;源码。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -142,8 +144,7 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
 }, &#39;hello-world&#39;);
 // 输出 helloWorld
 ?&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -155,10 +156,7 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
       <description>&lt;p&gt;&lt;img src=&#34;http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
 无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。&lt;/p&gt;
 
-&lt;p&gt;Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？&lt;/p&gt;
-
-&lt;p&gt;PHP有Composer。&lt;/p&gt;
-</description>
+&lt;p&gt;Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -171,8 +169,10 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
 今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。&lt;/p&gt;
 
 &lt;p&gt;高级搜索链接：&lt;a href=&#34;https://github.com/search/advanced&#34;&gt;https://github.com/search/advanced&lt;/a&gt;&lt;br /&gt;
-也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。&lt;/p&gt;
-</description>
+也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。
+
+尝试一下查询PHP语言项目中，点赞超过1000的项目。&lt;br /&gt;
+通过在多种表单中填关键信息，会在搜索框中自动生成搜索表达式：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -211,8 +211,9 @@ sudo apt-get install -y nodejs
 
 &lt;p&gt;上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！&lt;/p&gt;
 
-&lt;h3&gt;”&lt;/h3&gt;
-</description>
+&lt;h3 id=&#34;toc_1&#34;&gt;”&lt;/h3&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -238,10 +239,7 @@ sudo apt-get install -y nodejs
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;测试步骤&lt;/p&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -250,10 +248,7 @@ sudo apt-get install -y nodejs
       <pubDate>Wed, 27 Apr 2016 18:00:28 CST</pubDate>
       
       <guid>http://dasheyuan.com/post/visit-beijing-ericsson</guid>
-      <description>&lt;p&gt;4月26日至29日，爱立信“技术创新周”在北京爱立信电信大厦举行，我们这边实验室也收到了邀请。今天有幸能跟随着老师到爱立信参观学习。“创新周活动以‘创新成就未来’为主题，全面呈现爱立信在5G、云和IP、物联网、网络社会等领域的技术创新和领先的解决方案”。上一句话来自网络，我引过来是为了把文章显得高(cou)大(zi)上(shu)的:)&lt;/p&gt;
-
-&lt;p&gt;我们这边课题组这边也是在5G领域有一定的研究，上面列举的一些5G前沿的技术平时都会所接触和了解，所以不会因为他们所展示的技术比较前沿、广泛而无趣。就把今天参观的过程和感想记录一些吧。&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;4月26日至29日，爱立信“技术创新周”在北京爱立信电信大厦举行，我们这边实验室也收到了邀请。今天有幸能跟随着老师到爱立信参观学习。“创新周活动以‘创新成就未来’为主题，全面呈现爱立信在5G、云和IP、物联网、网络社会等领域的技术创新和领先的解决方案”。上一句话来自网络，我引过来是为了把文章显得高(cou)大(zi)上(shu)的:)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -273,9 +268,15 @@ sudo apt-get install -y nodejs
 &lt;li&gt;MQTT和HTTP在消息协议占主要地位。（CoAP紧跟其后）&lt;/li&gt;
 &lt;li&gt;IoT操作系统Linux占主要地位。&lt;/li&gt;
 &lt;li&gt;AWS主导者IoT云服务。（私有云紧跟其后）&lt;/li&gt;
-&lt;li&gt;IoT开源代码无处不在。&lt;/li&gt;
+&lt;li&gt;IoT开源代码无处不在。
+
+在这份调查统计结果中，我比较关心的是通信协议使用的情况。&lt;br /&gt;
+&lt;img src=&#34;http://dasheyuan.com/images/iot survey.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+(上图摘自参考资料2，IoT解决方案中使用的通信协议)
+在无线接入技术中，WiFi使用的比例是最高的，我想原因很简单，现在WiFi接入的成本越来越低，而且很方便。&lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
+
+&lt;p&gt;另外，我也还注意到还有LPWAN中的LTE-M。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -285,10 +286,7 @@ sudo apt-get install -y nodejs
       
       <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</guid>
       <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。&lt;br /&gt;
-译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;物联网不仅仅是新技术，它也是目前技术的整合，其中一个关键的属性就是通信。可用的通信（协议）方式是多种多样，但正是这大量的通信协议，在把那些“乱七八糟”的“物”连接到互联网中扮演着重要的角色。这篇文章将研究物联网中两个互补的通信协议：Modbus,一种短距离设备间通信的协议；Message Queuing Telemetry Transport（MQTT），一种可拓展的全球通信的互联协议。&lt;/p&gt;
-</description>
+译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -304,7 +302,8 @@ sudo apt-get install -y nodejs
 &lt;p&gt;测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。&lt;br /&gt;
 这样的设计应该是有原因的，现在想不明白，以后再探究吧。&lt;br /&gt;
 今天也大概了解了一下GitHub的API，也挺好玩的。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -329,10 +328,7 @@ sudo apt-get install -y nodejs
                                              合计：1671
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;从刚开始的入手台笔记本的想法到现在，墨迹了大半个月。一般是在数码之家上了解二手交易的信息，有时候也会在闲鱼上看一下，浏览一下有没有“笋野”。&lt;/p&gt;
-
-&lt;p&gt;终于，上周五，为了不想再花时间耗在这方面，头一热，和论坛里一个“二手商”交流了一下，就从他那里入手台了hp 2570p的准系统。特意加了50块要台成色最好的，不知道有没有被坑。&lt;/p&gt;
-</description>
+&lt;p&gt;从刚开始的入手台笔记本的想法到现在，墨迹了大半个月。一般是在数码之家上了解二手交易的信息，有时候也会在闲鱼上看一下，浏览一下有没有“笋野”。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -345,8 +341,10 @@ sudo apt-get install -y nodejs
 
 &lt;p&gt;顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？&lt;br /&gt;
 asu也是一种信号强度参考（相对）单位，一般出现在Android系统的手机中。&lt;br /&gt;
-asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。&lt;/p&gt;
-</description>
+asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。&lt;br /&gt;
+
+&lt;img src=&#34;http://dasheyuan.com/images/Arbitrary Strength Unit.png&#34; alt=&#34;Arbitrary Strength Unit&#34; /&gt;
+（上图是双模终端Android系统信息的截图）&lt;/p&gt;</description>
     </item>
     
   </channel>

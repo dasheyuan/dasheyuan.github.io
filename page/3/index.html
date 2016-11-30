@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="generator" content="Hugo 0.16" />
+	<meta name="generator" content="Hugo 0.17" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chen Yuan&#39;s Blog</title>
@@ -56,82 +56,37 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/programmer-how-to-write-a-good-article">
-		<p class="post-meta left">2016年3月2日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/ecs-setup-lamp">
+		<p class="post-meta left">2016年6月22日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">程序员怎样才能写出一篇好的博客或者技术文章(转) </h3>
-		<p class="post-summary"><p>转自：<a href="https://www.phodal.com/blog/programmer-how-to-write-a-good-article">https://www.phodal.com/blog/programmer-how-to-write-a-good-article</a></p>
+		<h3 class="h2 post-title">ECS服务器安装LAMP环境 </h3>
+		<p class="post-summary"><p>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。</p>
 
-<p>文章来源于 @justjavac在知乎上的邀请，要写在知乎上的回答。因为有原创，所以先首发，免得被伪原创。每天有大把的时间刷GitHub，写博客。从我大二的时候，大概六年前开始写技术博客，到现在已经有540+了，大概每年会写一百篇左右。</p>
+<pre><code># 1.更新库，否则可能会出现tasksel aptitude failed的错误
+$ sudo apt-get update
 
-<p>这个答案由四部分组成：</p>
+# 2.如果已经安装了可以跳过此步
+$ sudo apt-get install tasksel
 
-<ol>
-<li>博客的流量来源</li>
-<li>不同文章类型的写作要点</li>
-<li>如何写博客</li>
-<li>如何收集写作的灵感</li>
-</ol>
-</p>
+# 3.安装LAMP环境，根据提示完成安装
+$ sudo tasksel install lamp-server
+</code></pre>
+
+<p>Tasksel提供了其他的软件包。</p>
+
+<pre><code># 查看选择需要的软件包
+$ sudo tasksel
+</code></pre>
+
+<p>当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。<br />
+</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/blog">blog</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/nanshu-hugo">
-		<p class="post-meta left">2016年2月20日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Hugo静态网站生成器中文教程(转) </h3>
-		<p class="post-summary"><p>转自：<a href="http://nanshu.wang/post/2015-01-31/">http://nanshu.wang/post/2015-01-31/</a></p>
-
-<h2 id="前言">前言</h2>
-
-<p><a href="http://gohugo.io">Hugo</a>是什么？官方文档是这样介绍它的：</p>
-
-<blockquote>
-<p>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator.</p>
-</blockquote>
-
-<p>Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。</p>
-
-<p>静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。</p>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/blog">blog</a>
-		
-	</p>
-</div>
-
-                        
-                            <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/openstack-singleton-pattern">
-		<p class="post-meta left">2016年2月14日</p>
-		
-		<div class="clearfix"></div>
-		<h3 class="h2 post-title">OpenStack中的设计模式1:单例模式 </h3>
-		<p class="post-summary"><p>设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。从而可以通过使用设计模式让代码更容易被别人理解，同时有保证了代码的可靠性。</p>
-
-<p>单例模式（Singleton Pattern）最初的定义出现于《设计模式》（艾迪生维斯理, 1994）：“保证一个类仅有一个实例，并提供一个访问它的全局访问点。”</p>
-</p>
-	</a>
-	
-	<p class="post-meta">Tags:&nbsp;
-		
-		
-		<a href="http://dasheyuan.com/tags/openstack">openstack</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>
@@ -150,7 +105,7 @@
   </div>
   <div class="right">
   
-  <span class="pagination-item disabled">Older</span>
+  <a class="pagination-item" href="http://dasheyuan.com/page/4/">Older</a>
   
   </div>
 </div>

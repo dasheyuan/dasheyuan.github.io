@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Git on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/git/</link>
+    <link>http://dasheyuan.com/tags/git/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Tue, 17 May 2016 23:00:00 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>GitHub的高级搜索功能</title>
@@ -19,8 +19,10 @@
 今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。&lt;/p&gt;
 
 &lt;p&gt;高级搜索链接：&lt;a href=&#34;https://github.com/search/advanced&#34;&gt;https://github.com/search/advanced&lt;/a&gt;&lt;br /&gt;
-也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。&lt;/p&gt;
-</description>
+也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。
+
+尝试一下查询PHP语言项目中，点赞超过1000的项目。&lt;br /&gt;
+通过在多种表单中填关键信息，会在搜索框中自动生成搜索表达式：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,7 +38,8 @@
 &lt;p&gt;测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。&lt;br /&gt;
 这样的设计应该是有原因的，现在想不明白，以后再探究吧。&lt;br /&gt;
 今天也大概了解了一下GitHub的API，也挺好玩的。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

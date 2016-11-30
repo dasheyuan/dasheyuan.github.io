@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Linux on Chen Yuan&#39;s Blog </title>
+      <title> on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/linux/</link>
+    <link>http://dasheyuan.com/tags/linux/index.xml</link>
     
     
     <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 25 Jul 2016 23:00:00 CST</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>CMake使用实例</title>
@@ -30,8 +30,8 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。&lt;br /&gt;
-另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：&lt;/p&gt;
-</description>
+另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,8 +58,8 @@ $ sudo tasksel install lamp-server
 $ sudo tasksel
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。&lt;/p&gt;
-</description>
+&lt;p&gt;当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。&lt;br /&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -98,8 +98,9 @@ sudo apt-get install -y nodejs
 
 &lt;p&gt;上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！&lt;/p&gt;
 
-&lt;h3&gt;”&lt;/h3&gt;
-</description>
+&lt;h3 id=&#34;toc_1&#34;&gt;”&lt;/h3&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -125,10 +126,7 @@ sudo apt-get install -y nodejs
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;测试步骤&lt;/p&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -152,7 +150,8 @@ $ ./mytest.sh
 my test  #标准输出
 ./mytest.sh: line 2: mytest: command not found #标准错误输出
 &lt;/code&gt;&lt;/pre&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
