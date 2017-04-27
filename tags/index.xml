@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Tags on Chen Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/</link>
+    
+    
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Wed, 27 Apr 2016 18:00:28 CST</updated>
+    
+    <item>
+      <title>Beijing</title>
+      <link>http://dasheyuan.com/tags/beijing/</link>
+      <pubDate>Wed, 27 Apr 2016 18:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/beijing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>http://dasheyuan.com/tags/blog/</link>
+      <pubDate>Wed, 02 Mar 2016 19:00:03 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://dasheyuan.com/tags/git/</link>
+      <pubDate>Tue, 17 May 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iot</title>
+      <link>http://dasheyuan.com/tags/iot/</link>
+      <pubDate>Wed, 20 Apr 2016 21:00:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://dasheyuan.com/tags/linux/</link>
+      <pubDate>Mon, 25 Jul 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lte</title>
+      <link>http://dasheyuan.com/tags/lte/</link>
+      <pubDate>Thu, 07 Apr 2016 23:30:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/lte/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neutron</title>
+      <link>http://dasheyuan.com/tags/neutron/</link>
+      <pubDate>Fri, 01 Apr 2016 15:22:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/neutron/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Openstack</title>
+      <link>http://dasheyuan.com/tags/openstack/</link>
+      <pubDate>Fri, 01 Apr 2016 15:22:01 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/openstack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Php</title>
+      <link>http://dasheyuan.com/tags/php/</link>
+      <pubDate>Thu, 02 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://dasheyuan.com/tags/python/</link>
+      <pubDate>Sat, 25 Jun 2016 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>http://dasheyuan.com/tags/technology/</link>
+      <pubDate>Tue, 12 Apr 2016 23:30:28 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
+

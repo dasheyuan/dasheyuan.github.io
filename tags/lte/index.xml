@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Lte on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/lte/index.xml</link>
+    <link>http://dasheyuan.com/tags/lte/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Thu, 07 Apr 2016 23:30:28 CST</updated>
     
     <item>
       <title>LTE终端信号强度单位dBm与asu的关系</title>
-      <link>http://dasheyuan.com/post/arbitrary-strength-unit</link>
+      <link>http://dasheyuan.com/post/arbitrary-strength-unit/</link>
       <pubDate>Thu, 07 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/arbitrary-strength-unit</guid>
+      <guid>http://dasheyuan.com/post/arbitrary-strength-unit/</guid>
       <description>&lt;p&gt;最近在看LTE的入门通识相关的资料。LTE终端进行小区选择的过程中，会测量小区参考信号的信号强度RSRP，然后根据测量到的RSRP，通过选择算法进行判决，判决通过后，终端就会与目标小区同步。选择算法中提到一个值Q_rxlevmin，指可驻留的目标小区需要的最低RSRP，通常为-124dBm。&lt;/p&gt;
 
 &lt;p&gt;顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？&lt;br /&gt;
@@ -27,10 +27,10 @@ asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal
     
     <item>
       <title>LTE网格架构简介</title>
-      <link>http://dasheyuan.com/post/lte-network-architecture</link>
+      <link>http://dasheyuan.com/post/lte-network-architecture/</link>
       <pubDate>Mon, 21 Mar 2016 23:00:01 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/lte-network-architecture</guid>
+      <guid>http://dasheyuan.com/post/lte-network-architecture/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://dasheyuan.com/images/R12-E-UTRAN.png&#34; alt=&#34;R12-E-UTRAN&#34; /&gt;&lt;br /&gt;
 （上图为Basic Configuration of a 3GPP Access PLMN supporting CS and PS services (using GPRS and EPS) and interfaces，蓝色的框图和接口都是属于LTE的）&lt;/p&gt;
 

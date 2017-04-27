@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Neutron on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/neutron/index.xml</link>
+    <link>http://dasheyuan.com/tags/neutron/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Fri, 01 Apr 2016 15:22:01 CST</updated>
     
     <item>
       <title>搭建OpenStack/DevStack远程开发调试环境</title>
-      <link>http://dasheyuan.com/post/openstack-dev-environment</link>
+      <link>http://dasheyuan.com/post/openstack-dev-environment/</link>
       <pubDate>Fri, 01 Apr 2016 15:22:01 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/openstack-dev-environment</guid>
+      <guid>http://dasheyuan.com/post/openstack-dev-environment/</guid>
       <description>&lt;p&gt;在开始写这篇文章的时候，有种感慨：搭建OpenStack/DevStack开发调试环境&lt;strong&gt;成本&lt;/strong&gt;真不低，涉及的技术比较多。不知道什么时候对OpenStack的开发与PHP一样，可以一键部署开发环境呢？&lt;/p&gt;
 
 &lt;p&gt;这篇文章记录的是如何搭建OpenStack/DevStack的开发环境，具体调试过程将结合一个Neutron API新建的例子。&lt;/p&gt;

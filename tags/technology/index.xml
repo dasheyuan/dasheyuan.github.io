@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Technology on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/technology/index.xml</link>
+    <link>http://dasheyuan.com/tags/technology/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 12 Apr 2016 23:30:28 CST</updated>
     
     <item>
       <title>hp 2570p准系统组装经历</title>
-      <link>http://dasheyuan.com/post/barebone-system</link>
+      <link>http://dasheyuan.com/post/barebone-system/</link>
       <pubDate>Tue, 12 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/barebone-system</guid>
+      <guid>http://dasheyuan.com/post/barebone-system/</guid>
       <description>&lt;p&gt;第一次接触“准系统”这三个字还是上个月的事吧，因为考虑入手一台二手的笔记本以备不时之需。准系统不是什么高大上的东西，笔记本（台式机也一样）去掉CPU、内存、硬盘等后就可以叫“准系统”。笔记本出厂阶段都有一个准系统的阶段的。&lt;/p&gt;
 
 &lt;p&gt;准系统除了厂家生产出售的，还存在由外国淘汰掉的，俗称洋垃圾，流进国内的笔记本。为了提高倒卖价格，把笔记本拆分成准系统出售。也有可能是内存、硬盘毁掉（重要数据）了，笔记本再被回收流转的。&lt;/p&gt;

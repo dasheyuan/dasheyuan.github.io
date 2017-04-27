@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Searches on Chen Yuan&#39;s Blog </title>
+      <title>Categories on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/search/</link>
+    <link>http://dasheyuan.com/categories/</link>
     
     
     <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
     <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Search</title>
-      <link>http://dasheyuan.com/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://dasheyuan.com/search/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Git on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/git/index.xml</link>
+    <link>http://dasheyuan.com/tags/git/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Tue, 17 May 2016 23:00:00 CST</updated>
     
     <item>
       <title>GitHub的高级搜索功能</title>
-      <link>http://dasheyuan.com/post/github-advanced-search</link>
+      <link>http://dasheyuan.com/post/github-advanced-search/</link>
       <pubDate>Tue, 17 May 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/github-advanced-search</guid>
+      <guid>http://dasheyuan.com/post/github-advanced-search/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://help.github.com/assets/images/help/search/advanced_search_demo.gif&#34; alt=&#34;&#34; /&gt;
 今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。&lt;/p&gt;
 
@@ -27,10 +27,10 @@
     
     <item>
       <title>GitHub上删不掉的issues</title>
-      <link>http://dasheyuan.com/post/github-issues</link>
+      <link>http://dasheyuan.com/post/github-issues/</link>
       <pubDate>Thu, 14 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/github-issues</guid>
+      <guid>http://dasheyuan.com/post/github-issues/</guid>
       <description>&lt;p&gt;小结一下GitHub上的issues功能，很有意思。&lt;/p&gt;
 
 &lt;p&gt;今天发现&lt;a href=&#34;http://yikun.github.io&#34;&gt;Yikun&lt;/a&gt;的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。&lt;/p&gt;

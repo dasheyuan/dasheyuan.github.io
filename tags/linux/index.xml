@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Linux on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/linux/index.xml</link>
+    <link>http://dasheyuan.com/tags/linux/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Mon, 25 Jul 2016 23:00:00 CST</updated>
     
     <item>
       <title>CMake使用实例</title>
-      <link>http://dasheyuan.com/post/cmake-example</link>
+      <link>http://dasheyuan.com/post/cmake-example/</link>
       <pubDate>Mon, 25 Jul 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/cmake-example</guid>
+      <guid>http://dasheyuan.com/post/cmake-example/</guid>
       <description>&lt;p&gt;最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
 实例的目录文件结构如下：&lt;/p&gt;
 
@@ -36,10 +36,10 @@
     
     <item>
       <title>ECS服务器安装LAMP环境</title>
-      <link>http://dasheyuan.com/post/ecs-setup-lamp</link>
+      <link>http://dasheyuan.com/post/ecs-setup-lamp/</link>
       <pubDate>Wed, 22 Jun 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/ecs-setup-lamp</guid>
+      <guid>http://dasheyuan.com/post/ecs-setup-lamp/</guid>
       <description>&lt;p&gt;使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# 1.更新库，否则可能会出现tasksel aptitude failed的错误
@@ -64,10 +64,10 @@ $ sudo tasksel
     
     <item>
       <title>Ubuntu中Node.js的安装方法</title>
-      <link>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</link>
+      <link>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts/</link>
       <pubDate>Thu, 12 May 2016 22:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</guid>
+      <guid>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts/</guid>
       <description>&lt;p&gt;最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。&lt;/p&gt;
 
 &lt;p&gt;Ubuntu直接使用&lt;code&gt;sudo apt-get install nodejs&lt;/code&gt;命名安装Node.js无法安装最新版本。&lt;/p&gt;
@@ -105,10 +105,10 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>SSH免密码登录远程主机</title>
-      <link>http://dasheyuan.com/post/remote-login-without-password</link>
+      <link>http://dasheyuan.com/post/remote-login-without-password/</link>
       <pubDate>Sat, 07 May 2016 18:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/remote-login-without-password</guid>
+      <guid>http://dasheyuan.com/post/remote-login-without-password/</guid>
       <description>&lt;p&gt;操作Linux系统一般会使用SSH工具进行远程登录系统操作。&lt;/p&gt;
 
 &lt;p&gt;使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。&lt;/p&gt;
@@ -131,10 +131,10 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>Shell重定向2&gt;&amp;1的理解</title>
-      <link>http://dasheyuan.com/post/shell-redirect</link>
+      <link>http://dasheyuan.com/post/shell-redirect/</link>
       <pubDate>Wed, 16 Mar 2016 22:11:03 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/shell-redirect</guid>
+      <guid>http://dasheyuan.com/post/shell-redirect/</guid>
       <description>&lt;h2 id=&#34;一-系统文件描述符&#34;&gt;一、系统文件描述符&lt;/h2&gt;
 
 &lt;p&gt;标准输入   0&lt;br /&gt;

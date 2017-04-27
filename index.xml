@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Chen Yuan&#39;s Blog on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/index.xml</link>
+    <link>http://dasheyuan.com/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
     <updated>Mon, 25 Jul 2016 23:00:00 CST</updated>
     
     <item>
       <title>CMake使用实例</title>
-      <link>http://dasheyuan.com/post/cmake-example</link>
+      <link>http://dasheyuan.com/post/cmake-example/</link>
       <pubDate>Mon, 25 Jul 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/cmake-example</guid>
+      <guid>http://dasheyuan.com/post/cmake-example/</guid>
       <description>&lt;p&gt;最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
 实例的目录文件结构如下：&lt;/p&gt;
 
@@ -36,10 +36,10 @@
     
     <item>
       <title>Python面向对象方法的定义方式</title>
-      <link>http://dasheyuan.com/post/python-object-method-define</link>
+      <link>http://dasheyuan.com/post/python-object-method-define/</link>
       <pubDate>Sat, 25 Jun 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/python-object-method-define</guid>
+      <guid>http://dasheyuan.com/post/python-object-method-define/</guid>
       <description>&lt;p&gt;Python面向对象的方法(函数)定义方式通常有三种：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;class A(object):
@@ -72,10 +72,10 @@
     
     <item>
       <title>ECS服务器安装LAMP环境</title>
-      <link>http://dasheyuan.com/post/ecs-setup-lamp</link>
+      <link>http://dasheyuan.com/post/ecs-setup-lamp/</link>
       <pubDate>Wed, 22 Jun 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/ecs-setup-lamp</guid>
+      <guid>http://dasheyuan.com/post/ecs-setup-lamp/</guid>
       <description>&lt;p&gt;使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# 1.更新库，否则可能会出现tasksel aptitude failed的错误
@@ -100,10 +100,10 @@ $ sudo tasksel
     
     <item>
       <title>PHP的依赖管理工具Composer(2)</title>
-      <link>http://dasheyuan.com/post/php-composer-2</link>
+      <link>http://dasheyuan.com/post/php-composer-2/</link>
       <pubDate>Thu, 02 Jun 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/php-composer-2</guid>
+      <guid>http://dasheyuan.com/post/php-composer-2/</guid>
       <description>&lt;p&gt;之前介绍过如何安装Composer和简单使用，出门左拐能找到。&lt;br /&gt;
 &lt;a href=&#34;http://http://dasheyuan.com/post/php-composer-1/&#34;&gt;PHP的依赖管理工具Composer(1)&lt;/a&gt;&lt;/p&gt;
 
@@ -125,10 +125,10 @@ $log = new Monolog\Logger(&#39;name&#39;);
     
     <item>
       <title>学习PHP闭包(Closure)</title>
-      <link>http://dasheyuan.com/post/php-closure</link>
+      <link>http://dasheyuan.com/post/php-closure/</link>
       <pubDate>Sat, 28 May 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/php-closure</guid>
+      <guid>http://dasheyuan.com/post/php-closure/</guid>
       <description>&lt;p&gt;在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。&lt;/p&gt;
 
 &lt;p&gt;可能目前理解的还不妥，先记录下来吧。&lt;/p&gt;
@@ -149,10 +149,10 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
     
     <item>
       <title>PHP的依赖管理工具Composer(1)</title>
-      <link>http://dasheyuan.com/post/php-composer-1</link>
+      <link>http://dasheyuan.com/post/php-composer-1/</link>
       <pubDate>Sat, 21 May 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/php-composer-1</guid>
+      <guid>http://dasheyuan.com/post/php-composer-1/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
 无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。&lt;/p&gt;
 
@@ -161,10 +161,10 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
     
     <item>
       <title>GitHub的高级搜索功能</title>
-      <link>http://dasheyuan.com/post/github-advanced-search</link>
+      <link>http://dasheyuan.com/post/github-advanced-search/</link>
       <pubDate>Tue, 17 May 2016 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/github-advanced-search</guid>
+      <guid>http://dasheyuan.com/post/github-advanced-search/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://help.github.com/assets/images/help/search/advanced_search_demo.gif&#34; alt=&#34;&#34; /&gt;
 今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。&lt;/p&gt;
 
@@ -177,10 +177,10 @@ echo preg_replace_callback(&#39;~-([a-z])~&#39;, function ($match) {
     
     <item>
       <title>Ubuntu中Node.js的安装方法</title>
-      <link>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</link>
+      <link>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts/</link>
       <pubDate>Thu, 12 May 2016 22:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts</guid>
+      <guid>http://dasheyuan.com/post/ubuntu-install-nodejs-scripts/</guid>
       <description>&lt;p&gt;最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。&lt;/p&gt;
 
 &lt;p&gt;Ubuntu直接使用&lt;code&gt;sudo apt-get install nodejs&lt;/code&gt;命名安装Node.js无法安装最新版本。&lt;/p&gt;
@@ -218,10 +218,10 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>SSH免密码登录远程主机</title>
-      <link>http://dasheyuan.com/post/remote-login-without-password</link>
+      <link>http://dasheyuan.com/post/remote-login-without-password/</link>
       <pubDate>Sat, 07 May 2016 18:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/remote-login-without-password</guid>
+      <guid>http://dasheyuan.com/post/remote-login-without-password/</guid>
       <description>&lt;p&gt;操作Linux系统一般会使用SSH工具进行远程登录系统操作。&lt;/p&gt;
 
 &lt;p&gt;使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。&lt;/p&gt;
@@ -244,19 +244,19 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>北京爱立信参观交流</title>
-      <link>http://dasheyuan.com/post/visit-beijing-ericsson</link>
+      <link>http://dasheyuan.com/post/visit-beijing-ericsson/</link>
       <pubDate>Wed, 27 Apr 2016 18:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/visit-beijing-ericsson</guid>
+      <guid>http://dasheyuan.com/post/visit-beijing-ericsson/</guid>
       <description>&lt;p&gt;4月26日至29日，爱立信“技术创新周”在北京爱立信电信大厦举行，我们这边实验室也收到了邀请。今天有幸能跟随着老师到爱立信参观学习。“创新周活动以‘创新成就未来’为主题，全面呈现爱立信在5G、云和IP、物联网、网络社会等领域的技术创新和领先的解决方案”。上一句话来自网络，我引过来是为了把文章显得高(cou)大(zi)上(shu)的:)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Eclipse IoT 2016 物联网开发者调查统计</title>
-      <link>http://dasheyuan.com/post/iot-developer-survey-2016</link>
+      <link>http://dasheyuan.com/post/iot-developer-survey-2016/</link>
       <pubDate>Wed, 20 Apr 2016 21:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/iot-developer-survey-2016</guid>
+      <guid>http://dasheyuan.com/post/iot-developer-survey-2016/</guid>
       <description>&lt;p&gt;2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。&lt;/p&gt;
 
 &lt;p&gt;从2016年调查的结果分析，有以下几点关键趋势：&lt;/p&gt;
@@ -281,20 +281,20 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>MQTT和Modbus物联网协议简介(译)</title>
-      <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</link>
+      <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison/</link>
       <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</guid>
+      <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison/</guid>
       <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。&lt;br /&gt;
 译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>GitHub上删不掉的issues</title>
-      <link>http://dasheyuan.com/post/github-issues</link>
+      <link>http://dasheyuan.com/post/github-issues/</link>
       <pubDate>Thu, 14 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/github-issues</guid>
+      <guid>http://dasheyuan.com/post/github-issues/</guid>
       <description>&lt;p&gt;小结一下GitHub上的issues功能，很有意思。&lt;/p&gt;
 
 &lt;p&gt;今天发现&lt;a href=&#34;http://yikun.github.io&#34;&gt;Yikun&lt;/a&gt;的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。&lt;/p&gt;
@@ -308,10 +308,10 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>hp 2570p准系统组装经历</title>
-      <link>http://dasheyuan.com/post/barebone-system</link>
+      <link>http://dasheyuan.com/post/barebone-system/</link>
       <pubDate>Tue, 12 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/barebone-system</guid>
+      <guid>http://dasheyuan.com/post/barebone-system/</guid>
       <description>&lt;p&gt;第一次接触“准系统”这三个字还是上个月的事吧，因为考虑入手一台二手的笔记本以备不时之需。准系统不是什么高大上的东西，笔记本（台式机也一样）去掉CPU、内存、硬盘等后就可以叫“准系统”。笔记本出厂阶段都有一个准系统的阶段的。&lt;/p&gt;
 
 &lt;p&gt;准系统除了厂家生产出售的，还存在由外国淘汰掉的，俗称洋垃圾，流进国内的笔记本。为了提高倒卖价格，把笔记本拆分成准系统出售。也有可能是内存、硬盘毁掉（重要数据）了，笔记本再被回收流转的。&lt;/p&gt;
@@ -333,10 +333,10 @@ sudo apt-get install -y nodejs
     
     <item>
       <title>LTE终端信号强度单位dBm与asu的关系</title>
-      <link>http://dasheyuan.com/post/arbitrary-strength-unit</link>
+      <link>http://dasheyuan.com/post/arbitrary-strength-unit/</link>
       <pubDate>Thu, 07 Apr 2016 23:30:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/arbitrary-strength-unit</guid>
+      <guid>http://dasheyuan.com/post/arbitrary-strength-unit/</guid>
       <description>&lt;p&gt;最近在看LTE的入门通识相关的资料。LTE终端进行小区选择的过程中，会测量小区参考信号的信号强度RSRP，然后根据测量到的RSRP，通过选择算法进行判决，判决通过后，终端就会与目标小区同步。选择算法中提到一个值Q_rxlevmin，指可驻留的目标小区需要的最低RSRP，通常为-124dBm。&lt;/p&gt;
 
 &lt;p&gt;顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？&lt;br /&gt;

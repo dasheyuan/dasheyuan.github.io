@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title> on Chen Yuan&#39;s Blog </title>
+      <title>Iot on Chen Yuan&#39;s Blog </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://dasheyuan.com/tags/iot/index.xml</link>
+    <link>http://dasheyuan.com/tags/iot/</link>
     
     
-    <copyright>Copyright (c) 2016,Chen Yuan; all rights reserved.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Wed, 20 Apr 2016 21:00:28 CST</updated>
     
     <item>
       <title>Eclipse IoT 2016 物联网开发者调查统计</title>
-      <link>http://dasheyuan.com/post/iot-developer-survey-2016</link>
+      <link>http://dasheyuan.com/post/iot-developer-survey-2016/</link>
       <pubDate>Wed, 20 Apr 2016 21:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/iot-developer-survey-2016</guid>
+      <guid>http://dasheyuan.com/post/iot-developer-survey-2016/</guid>
       <description>&lt;p&gt;2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。&lt;/p&gt;
 
 &lt;p&gt;从2016年调查的结果分析，有以下几点关键趋势：&lt;/p&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>MQTT和Modbus物联网协议简介(译)</title>
-      <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</link>
+      <link>http://dasheyuan.com/post/iot-mqtt-modbus-comparison/</link>
       <pubDate>Wed, 20 Apr 2016 18:00:28 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison</guid>
+      <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison/</guid>
       <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。&lt;br /&gt;
 译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;</description>
     </item>
