@@ -56,25 +56,26 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/arbitrary-strength-unit/">
-		<p class="post-meta left">2016年4月7日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/github-issues/">
+		<p class="post-meta left">2016年4月14日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">LTE终端信号强度单位dBm与asu的关系 </h3>
-		<p class="post-summary"><p>最近在看LTE的入门通识相关的资料。LTE终端进行小区选择的过程中，会测量小区参考信号的信号强度RSRP，然后根据测量到的RSRP，通过选择算法进行判决，判决通过后，终端就会与目标小区同步。选择算法中提到一个值Q_rxlevmin，指可驻留的目标小区需要的最低RSRP，通常为-124dBm。</p>
+		<h3 class="h2 post-title">GitHub上删不掉的issues </h3>
+		<p class="post-summary"><p>小结一下GitHub上的issues功能，很有意思。</p>
 
-<p>顺手拿去手机，想看一下手机上有没有信号强度相关的信息。找到一组数据“信号强度 -61dBm 26asu”。dBm是常见的功率参考单位，那么asu又是什么呢？<br />
-asu也是一种信号强度参考（相对）单位，一般出现在Android系统的手机中。<br />
-asu，维基百科中指的是Arbitrary Strength Unit，百度却是Alone Signal Unit，我没有找到确实的出处。后来一想，这在Android API中就指的是一个相对于dBm的整形变量，具体定义是什么并不重要了。<br />
+<p>今天发现<a href="http://yikun.github.io">Yikun</a>的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。</p>
 
-<img src="http://dasheyuan.com/images/Arbitrary Strength Unit.png" alt="Arbitrary Strength Unit" />
-（上图是双模终端Android系统信息的截图）</p></p>
+<p>测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。<br />
+这样的设计应该是有原因的，现在想不明白，以后再探究吧。<br />
+今天也大概了解了一下GitHub的API，也挺好玩的。</p>
+
+<p></p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/lte">lte</a>
+		<a href="http://dasheyuan.com/tags/git">git</a>
 		
 	</p>
 </div>

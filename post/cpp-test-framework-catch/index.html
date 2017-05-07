@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>C&#43;&#43;测试框架Catch - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/cpp-test-framework-catch/">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">C&#43;&#43;测试框架Catch</h1>
+		<span class="post-meta">2017年5月7日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/C&#43;&#43;">C&#43;&#43;</a>
+        
+      </p> 
+      <article class="post-content">
+      <h1 id="catch简介">Catch简介</h1>
+
+<p>Catch 一种是 C++ 测试框架。<br />
+主要特点：</p>
+
+<ul>
+<li>配置简单，下载<code>catch.hpp</code>，然后<code>#include</code>即可。<br /></li>
+<li>无需额外库依赖。只要能编译 C++ 98 和包含 C++ 标准库。<br /></li>
+<li>编写测试用例与编写函数一样。<br /></li>
+<li><code>Section</code>中测试用例是独立运行的。<br /></li>
+<li>兼容测试用例传统风格和BDD风格：<code>Given-When-Then</code>。<br /></li>
+<li>条件比较是只用一个核心的警告宏。使用了标准的C/C++ 运算符重载功能。</li>
+</ul>
+
+<p></p>
+
+<h1 id="catch使用">Catch使用</h1>
+
+<h2 id="1-获取catch头文件">1.获取Catch头文件</h2>
+
+<p><a href="https://raw.githubusercontent.com/philsquared/Catch/master/single_include/catch.hpp">Catch头文件</a>托管在GitHub上。下载保存至能包含的位置。</p>
+
+<h2 id="2-编写测试">2.编写测试</h2>
+
+<p>准备要测试的函数，以斐波那契函数为例子。</p>
+
+<pre><code>unsigned int Factorial( unsigned int number ) {
+    return number &lt;= 1 ? number : Factorial(number-1)*number;
+}
+</code></pre>
+
+<p>为简单描述，把函数放在一个的 C++ 代码文件中。</p>
+
+<pre><code>#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include &quot;catch.hpp&quot;
+
+unsigned int Factorial( unsigned int number ) {
+    return number &lt;= 1 ? number : Factorial(number-1)*number;
+}
+
+TEST_CASE( &quot;Factorials are computed&quot;, &quot;[factorial]&quot; ) {
+    REQUIRE( Factorial(0) == 1 );
+    REQUIRE( Factorial(1) == 1 );
+    REQUIRE( Factorial(2) == 2 );
+    REQUIRE( Factorial(3) == 6 );
+    REQUIRE( Factorial(10) == 3628800 );
+}
+</code></pre>
+
+<p>编译运行上面代码。输出：</p>
+
+<pre><code>Example.cpp:9: FAILED:
+  REQUIRE( Factorial(0) == 1 )
+with expansion:
+  0 == 1
+</code></pre>
+
+<p>有一个测试用例没通过，提示用例1的输出结果与预期的不一致。修改过斐波那契函数：</p>
+
+<pre><code>unsigned int Factorial( unsigned int number ) {
+  return number &gt; 1 ? Factorial(number-1)*number : 1;
+}
+</code></pre>
+
+<p>重新编译运行，所有测试用例通过。</p>
+
+<pre><code>All tests passed(6 assertions in 1 test case)
+</code></pre>
+
+<h2 id="3-分析">3.分析</h2>
+
+<ol>
+<li><code>#definde CATCH_CONFIG_MAIN</code> 和 <code>#include &quot;catch.hpp&quot;</code>Catch测试的环境就配置好了，main()函数也不用写了。</li>
+<li><code>TEST_CASE</code>宏需要1或2个参数，测试名称和测试标签（可选）</li>
+<li><code>REQUIRE</code>宏里面写测试用例判断公式。</li>
+</ol>
+
+<h1 id="另一个例子">另一个例子</h1>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+
+#define CATCH_CONFIG_MAIN
+#include &quot;catch.hpp&quot;
+
+typedef struct TrieNode {
+    bool completed;
+    std::map&lt;char, TrieNode *&gt; children;
+    TrieNode() : completed(false) {};
+} TrieNode;
+
+class Trie {
+    public:
+        Trie(void);
+        ~Trie(void);
+        void insert(std::string word);
+        bool search(std::string word);
+    private:
+        TrieNode *root;
+};
+
+using namespace std;
+
+TEST_CASE(&quot;Testing Trie&quot;) {
+    // set up
+    Trie *t = new Trie();
+
+    // different sections
+    SECTION(&quot;Search an existent word.&quot;) {
+        string word = &quot;abandon&quot;;
+        t-&gt;insert(word);
+        REQUIRE(t-&gt;search(word) == true);
+    }
+    SECTION(&quot;Search a nonexistent word.&quot;) {
+        string word = &quot;abandon&quot;;
+        REQUIRE(t-&gt;search(word) == false);
+    }
+
+    // tear down
+    delete t;
+}
+</code></pre>
+
+<p>此处TEST_CASE里的两个section，第一个section是查找Trie中存在的单词，第二个section是查找Trie中不存在的单词。REQUIRE是Catch提供的宏，相当于assert，检验表达式是否成立。</p>
+
+<p>简单地讲，每个 TEST_CASE 由三部分组成，set up、sections 和 tear down，set up 是各个section都需要的准备工作，tear down是各个section都需要的清理工作，<strong>set up和tear down对于每个section都会执行一遍。</strong></p>
+
+<p>比如有一个TEST_CASE:</p>
+
+<pre><code>TEST_CASE {
+    set up
+    case 1
+    case 2
+    tear down
+}
+</code></pre>
+
+<p>真正执行时就是：set up-&gt;case 1-&gt;tear down-&gt;set up-&gt;case 2-&gt;tear down。</p>
+
+<h1 id="参考资料">参考资料</h1>
+
+<p>1.<a href="https://github.com/philsquared/Catch/blob/master/docs/tutorial.md">Catch的官方手册</a></p>
+
+<p>2.<a href="http://www.jianshu.com/p/6f03a0cfe60c">测试C++程序：使用Catch和Valgrind</a></p>
+      </article>
+	  
+
+
+	<aside id=comments>
+	<div><h2> Comments </h2></div>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dasheyuan';
+    var disqus_identifier = 'http:\/\/dasheyuan.com\/post\/cpp-test-framework-catch\/';
+    var disqus_title = 'C\x2b\x2b测试框架Catch';
+    var disqus_url = 'http:\/\/dasheyuan.com\/post\/cpp-test-framework-catch\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</aside>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

@@ -56,25 +56,33 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/github-advanced-search/">
-		<p class="post-meta left">2016年5月17日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/php-closure/">
+		<p class="post-meta left">2016年5月28日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">GitHub的高级搜索功能 </h3>
-		<p class="post-summary"><p><img src="https://help.github.com/assets/images/help/search/advanced_search_demo.gif" alt="" />
-今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。</p>
+		<h3 class="h2 post-title">学习PHP闭包(Closure) </h3>
+		<p class="post-summary"><p>在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。</p>
 
-<p>高级搜索链接：<a href="https://github.com/search/advanced">https://github.com/search/advanced</a><br />
-也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。
+<p>可能目前理解的还不妥，先记录下来吧。</p>
 
-尝试一下查询PHP语言项目中，点赞超过1000的项目。<br />
-通过在多种表单中填关键信息，会在搜索框中自动生成搜索表达式：</p></p>
+<h2 id="一-闭包函数的基本用法">一、闭包函数的基本用法</h2>
+
+<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
+Example #1 匿名函数示例，用作回调函数参数的值。</p>
+
+<pre><code>&lt;?php
+echo preg_replace_callback('~-([a-z])~', function ($match) {
+    return strtoupper($match[1]);
+}, 'hello-world');
+// 输出 helloWorld
+?&gt;
+</code></pre></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/git">git</a>
+		<a href="http://dasheyuan.com/tags/php">php</a>
 		
 	</p>
 </div>

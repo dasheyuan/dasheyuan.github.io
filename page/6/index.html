@@ -56,33 +56,37 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/php-closure/">
-		<p class="post-meta left">2016年5月28日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/ecs-setup-lamp/">
+		<p class="post-meta left">2016年6月22日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">学习PHP闭包(Closure) </h3>
-		<p class="post-summary"><p>在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。</p>
+		<h3 class="h2 post-title">ECS服务器安装LAMP环境 </h3>
+		<p class="post-summary"><p>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。</p>
 
-<p>可能目前理解的还不妥，先记录下来吧。</p>
+<pre><code># 1.更新库，否则可能会出现tasksel aptitude failed的错误
+$ sudo apt-get update
 
-<h2 id="一-闭包函数的基本用法">一、闭包函数的基本用法</h2>
+# 2.如果已经安装了可以跳过此步
+$ sudo apt-get install tasksel
 
-<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
-Example #1 匿名函数示例，用作回调函数参数的值。</p>
+# 3.安装LAMP环境，根据提示完成安装
+$ sudo tasksel install lamp-server
+</code></pre>
 
-<pre><code>&lt;?php
-echo preg_replace_callback('~-([a-z])~', function ($match) {
-    return strtoupper($match[1]);
-}, 'hello-world');
-// 输出 helloWorld
-?&gt;
-</code></pre></p>
+<p>Tasksel提供了其他的软件包。</p>
+
+<pre><code># 查看选择需要的软件包
+$ sudo tasksel
+</code></pre>
+
+<p>当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。<br />
+</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/php">php</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>

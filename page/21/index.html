@@ -56,34 +56,21 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/shell-redirect/">
-		<p class="post-meta left">2016年3月16日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/screen-openstack/">
+		<p class="post-meta left">2016年3月29日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Shell重定向2&gt;&amp;1的理解 </h3>
-		<p class="post-summary"><h2 id="一-系统文件描述符">一、系统文件描述符</h2>
+		<h3 class="h2 post-title">使用screen查看OpenStack进程 </h3>
+		<p class="post-summary"><p>介绍screen在openstack调试中的使用，整理screen的内容及快捷键。</p>
 
-<p>标准输入   0<br />
- 标准输出   1<br />
- 标准错误输出 2</p>
-
-<p>测试用例</p>
-
-<pre><code>$ cat mytest.sh 
-echo &quot;my test&quot;
-mytest
-$ ./mytest.sh 
-my test  #标准输出
-./mytest.sh: line 2: mytest: command not found #标准错误输出
-</code></pre>
-
-<p></p></p>
+<p><a href="http://www.chenshake.com/install-ubuntu-14-04-devstack/">DevStack安装</a>完成后，即OpenStack的平台搭建成功了，可以通过dashboard对平台进行使用。如果需要进一步调试和开发openstack，可以了解一下screen相关的内容。通过screen可以查看OpenStack运行的进程，最主要的是终止和重启需要调试的进程。
+</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		<a href="http://dasheyuan.com/tags/openstack">openstack</a>
 		
 	</p>
 </div>

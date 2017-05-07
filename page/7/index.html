@@ -56,15 +56,28 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/php-composer-1/">
-		<p class="post-meta left">2016年5月21日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/php-composer-2/">
+		<p class="post-meta left">2016年6月2日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">PHP的依赖管理工具Composer(1) </h3>
-		<p class="post-summary"><p><img src="http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png" alt="" /><br />
-无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。</p>
+		<h3 class="h2 post-title">PHP的依赖管理工具Composer(2) </h3>
+		<p class="post-summary"><p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
+<a href="http://http://dasheyuan.com/post/php-composer-1/">PHP的依赖管理工具Composer(1)</a></p>
 
-<p>Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？</p></p>
+<p>现在更深入地学习Composer。在上一篇MyProject的<code>app.php</code>中</p>
+
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+$log = new Monolog\Logger('name');
+
+...
+
+</code></pre>
+
+<p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
+这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
+
+<p></p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;

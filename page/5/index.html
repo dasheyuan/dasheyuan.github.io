@@ -56,34 +56,45 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/php-composer-2/">
-		<p class="post-meta left">2016年6月2日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/python-object-method-define/">
+		<p class="post-meta left">2016年6月25日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">PHP的依赖管理工具Composer(2) </h3>
-		<p class="post-summary"><p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
-<a href="http://http://dasheyuan.com/post/php-composer-1/">PHP的依赖管理工具Composer(1)</a></p>
+		<h3 class="h2 post-title">Python面向对象方法的定义方式 </h3>
+		<p class="post-summary"><p>Python面向对象的方法(函数)定义方式通常有三种：</p>
 
-<p>现在更深入地学习Composer。在上一篇MyProject的<code>app.php</code>中</p>
+<pre><code>class A(object):
+    # 普通方法
+    def foo(self,x):
+        print &quot;executing foo(%s,%s)&quot;%(self,x)
 
-<pre><code>&lt;?php
-require 'vendor/autoload.php';
-$log = new Monolog\Logger('name');
+    # 类方法
+    @classmethod
+    def class_foo(cls,x):
+        print &quot;executing class_foo(%s,%s)&quot;%(cls,x)
 
-...
-
+    # 静态方法
+    @staticmethod
+    def static_foo(x):
+        print &quot;executing static_foo(%s)&quot;%x
 </code></pre>
 
-<p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
-这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
+<p>定义方式不同点：修饰函数和函数参数。<br />
+普通方法没有修饰函数，函数参数中第一个是<code>self</code>，指向特定的实例；<br />
+类方法需要<code>@classmethod</code>函数装饰，函数参数中第一个是<code>cls</code>，指向这个类；<br />
+静态方法需要<code>@staticmethond</code>函数装饰，函数参数可以不指定。</p>
 
-<p></p></p>
+<p>普通方法用了实现具体实例的的函数；<br />
+类方法用来管理类的函数，比如记录类的实例个数；<br />
+静态方法被用来组织类之间有逻辑关系的函数。
+<br />
+另外，常见的使用<code>@property</code>及<code>@setter</code>装饰器定义的方法：</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/php">php</a>
+		<a href="http://dasheyuan.com/tags/python">python</a>
 		
 	</p>
 </div>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>C&#43;&#43; on Chen Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/c&#43;&#43;/</link>
+    
+    
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Sun, 07 May 2017 23:00:00 CST</updated>
+    
+    <item>
+      <title>C&#43;&#43;测试框架Catch</title>
+      <link>http://dasheyuan.com/post/cpp-test-framework-catch/</link>
+      <pubDate>Sun, 07 May 2017 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-test-framework-catch/</guid>
+      <description>&lt;h1 id=&#34;catch简介&#34;&gt;Catch简介&lt;/h1&gt;
+
+&lt;p&gt;Catch 一种是 C++ 测试框架。&lt;br /&gt;
+主要特点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置简单，下载&lt;code&gt;catch.hpp&lt;/code&gt;，然后&lt;code&gt;#include&lt;/code&gt;即可。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;无需额外库依赖。只要能编译 C++ 98 和包含 C++ 标准库。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;编写测试用例与编写函数一样。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Section&lt;/code&gt;中测试用例是独立运行的。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;兼容测试用例传统风格和BDD风格：&lt;code&gt;Given-When-Then&lt;/code&gt;。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;条件比较是只用一个核心的警告宏。使用了标准的C/C++ 运算符重载功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;测试工具Valgrind</title>
+      <link>http://dasheyuan.com/post/cpp-test-tool-valgrind/</link>
+      <pubDate>Sun, 07 May 2017 22:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-test-tool-valgrind/</guid>
+      <description>&lt;h1 id=&#34;引言&#34;&gt;引言&lt;/h1&gt;
+
+&lt;p&gt;测试C++程序时，我们通常会在意两件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;运行结果是否正确？&lt;/li&gt;
+&lt;li&gt;是否发生了内存泄漏？&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一件事所有编程语言都需要在意，通常是给程序各种输入，检验输出的正确性，Catch是一个轻巧的单元测试框架，学习起来非常容易；&lt;/p&gt;
+
+&lt;p&gt;第二件事应该是C/C++独有的，需要跟踪运行时动态分配的内存，虽然可以自行重载new/delete运算符做到这一点，但Valgrind可以为我们检测绝大多数内存相关问题（包括内存泄漏、数组越界、使用未初始化变量等）。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

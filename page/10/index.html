@@ -56,35 +56,25 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/remote-login-without-password/">
-		<p class="post-meta left">2016年5月7日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/github-advanced-search/">
+		<p class="post-meta left">2016年5月17日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">SSH免密码登录远程主机 </h3>
-		<p class="post-summary"><p>操作Linux系统一般会使用SSH工具进行远程登录系统操作。</p>
+		<h3 class="h2 post-title">GitHub的高级搜索功能 </h3>
+		<p class="post-summary"><p><img src="https://help.github.com/assets/images/help/search/advanced_search_demo.gif" alt="" />
+今天才发现GitHub是支持高级搜索功能的，使用了一下，功能很棒，就是搜索页面太“隐秘”了，现在才发现这个功能。</p>
 
-<p>使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。</p>
+<p>高级搜索链接：<a href="https://github.com/search/advanced">https://github.com/search/advanced</a><br />
+也可以点击GitHub搜索框，回车后，出现的页面中提示支持Advanced Search功能。
 
-<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
-
-<p>所谓&rdquo;公钥登录&rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
-
-<p>另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间者攻击</a>）。</p>
-
-<p>可以知道，上面的过程要用到<strong>两对</strong>密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。</p>
-
-<p>测试环境</p>
-
-<ul>
-<li>Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128<br /></li>
-<li>Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录<br /></li>
-</ul></p>
+尝试一下查询PHP语言项目中，点赞超过1000的项目。<br />
+通过在多种表单中填关键信息，会在搜索框中自动生成搜索表达式：</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		<a href="http://dasheyuan.com/tags/git">git</a>
 		
 	</p>
 </div>

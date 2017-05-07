@@ -56,34 +56,31 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/cmake-example/">
-		<p class="post-meta left">2016年7月25日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/cpp-test-tool-valgrind/">
+		<p class="post-meta left">2017年5月7日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">CMake使用实例 </h3>
-		<p class="post-summary"><p>最近在阅读OAI(OpenAirInterface，一个开源的LTE协议实现项目)的源码，该项目是通过CMake来编译的，今天通过使用一实例来学习CMake。
-实例的目录文件结构如下：</p>
+		<h3 class="h2 post-title">C&#43;&#43;测试工具Valgrind </h3>
+		<p class="post-summary"><h1 id="引言">引言</h1>
 
-<pre><code>── TOP
-    ├── CMakeCache.txt
-    ├── Demo
-    │   ├── CMakeLists.txt
-    │   └── demo.c
-    └── Hello
-        ├── CMakeLists.txt
-        ├── hello.c
-        └── hello.h
-</code></pre>
+<p>测试C++程序时，我们通常会在意两件事：</p>
 
-<p>/TOP是顶层目录，有两个子目录/Demo和/Hello，其中/Hello中包含/Demo调用的库函数代码。<br />
-另外，每个目录下都会有一个CMakeLists.txt文件，文件内容如下：
-</p></p>
+<ul>
+<li>运行结果是否正确？</li>
+<li>是否发生了内存泄漏？<br /></li>
+</ul>
+
+<p>第一件事所有编程语言都需要在意，通常是给程序各种输入，检验输出的正确性，Catch是一个轻巧的单元测试框架，学习起来非常容易；</p>
+
+<p>第二件事应该是C/C++独有的，需要跟踪运行时动态分配的内存，虽然可以自行重载new/delete运算符做到这一点，但Valgrind可以为我们检测绝大多数内存相关问题（包括内存泄漏、数组越界、使用未初始化变量等）。</p>
+
+<p></p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		<a href="http://dasheyuan.com/tags/C&#43;&#43;">C&#43;&#43;</a>
 		
 	</p>
 </div>

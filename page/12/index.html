@@ -56,37 +56,35 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/iot-developer-survey-2016/">
-		<p class="post-meta left">2016年4月20日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/remote-login-without-password/">
+		<p class="post-meta left">2016年5月7日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Eclipse IoT 2016 物联网开发者调查统计 </h3>
-		<p class="post-summary"><p>2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。</p>
+		<h3 class="h2 post-title">SSH免密码登录远程主机 </h3>
+		<p class="post-summary"><p>操作Linux系统一般会使用SSH工具进行远程登录系统操作。</p>
 
-<p>从2016年调查的结果分析，有以下几点关键趋势：</p>
+<p>使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。</p>
 
-<ol>
-<li>目前，大部分参与者的公司正在或将研发IoT解决方案。</li>
-<li>安全问题成为了一个关键的研究问题。</li>
-<li>IoT开发编程语言排行：Java， C， Java Script, Python。</li>
-<li>MQTT和HTTP在消息协议占主要地位。（CoAP紧跟其后）</li>
-<li>IoT操作系统Linux占主要地位。</li>
-<li>AWS主导者IoT云服务。（私有云紧跟其后）</li>
-<li>IoT开源代码无处不在。
+<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
 
-在这份调查统计结果中，我比较关心的是通信协议使用的情况。<br />
-<img src="http://dasheyuan.com/images/iot survey.png" alt="" /><br />
-(上图摘自参考资料2，IoT解决方案中使用的通信协议)
-在无线接入技术中，WiFi使用的比例是最高的，我想原因很简单，现在WiFi接入的成本越来越低，而且很方便。<br /></li>
-</ol>
+<p>所谓&rdquo;公钥登录&rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
 
-<p>另外，我也还注意到还有LPWAN中的LTE-M。</p></p>
+<p>另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间者攻击</a>）。</p>
+
+<p>可以知道，上面的过程要用到<strong>两对</strong>密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。</p>
+
+<p>测试环境</p>
+
+<ul>
+<li>Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128<br /></li>
+<li>Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录<br /></li>
+</ul></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/iot">iot</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>

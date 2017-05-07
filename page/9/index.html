@@ -56,50 +56,21 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/ubuntu-install-nodejs-scripts/">
-		<p class="post-meta left">2016年5月12日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/php-composer-1/">
+		<p class="post-meta left">2016年5月21日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Ubuntu中Node.js的安装方法 </h3>
-		<p class="post-summary"><p>最近重新学习一下JavaScript，了解Node.js是什么，给自己充充电。</p>
+		<h3 class="h2 post-title">PHP的依赖管理工具Composer(1) </h3>
+		<p class="post-summary"><p><img src="http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png" alt="" /><br />
+无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。</p>
 
-<p>Ubuntu直接使用<code>sudo apt-get install nodejs</code>命名安装Node.js无法安装最新版本。</p>
-
-<p><a href="https://nodejs.org/en/download/package-manager/">官网</a>上给出来的安装命令可以解决这个问题:</p>
-
-<pre><code>curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-
-sudo apt-get install -y nodejs
-</code></pre>
-
-<p>curl <code>-s</code> 静默状态，即不输出任何信息。</p>
-
-<p>curl <code>-L</code> 重定向地址，即如果当前地址发生重定向，获取重定向的地址的内容(参考1)。</p>
-
-<p>sudo <code>-E</code> 在sudo执行时保留当前用户已存在的环境变量,不会被sudo重置。</p>
-
-<p>sudo apt-get install <code>-y</code> 默认安装过程中的确认步骤(yes)。</p>
-
-<p>bash <code>-</code>（参考2）</p>
-
-<h3 id="关于减号-的用途">“关于减号 - 的用途</h3>
-
-<p>管线命令在 bash 的连续的处理程序中是相当重要的！另外，在 log file 的分析当中也是相当重要的一环， 所以请特别留意！另外，在管线命令当中，常常会使用到前一个命令的 stdout 作为这次的 stdin ， 某些命令需要用到文件名 (例如 tar) 来进行处理时，该 stdin 与 stdout 可以利用减号 &ldquo;-&rdquo; 来替代， 举例来说：</p>
-
-<pre><code>$ tar -cvf - /home | tar -xvf -
-</code></pre>
-
-<p>上面这个例子是说：『我将 /home 里面的文件给他打包，但打包的数据不是纪录到文件，而是传送到 stdout； 经过管线后，将 tar -cvf - /home 传送给后面的 tar -xvf - 』。后面的这个 - 则是取用前一个命令的 stdout， 因此，我们就不需要使用 file 了！这是很常见的例子喔！注意注意！</p>
-
-<h3 id="toc_1">”</h3>
-
-<p></p></p>
+<p>Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/linux">linux</a>
+		<a href="http://dasheyuan.com/tags/php">php</a>
 		
 	</p>
 </div>

@@ -56,32 +56,34 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/nanshu-hugo/">
-		<p class="post-meta left">2016年2月20日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/shell-redirect/">
+		<p class="post-meta left">2016年3月16日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">Hugo静态网站生成器中文教程(转) </h3>
-		<p class="post-summary"><p>转自：<a href="http://nanshu.wang/post/2015-01-31/">http://nanshu.wang/post/2015-01-31/</a></p>
+		<h3 class="h2 post-title">Shell重定向2&gt;&amp;1的理解 </h3>
+		<p class="post-summary"><h2 id="一-系统文件描述符">一、系统文件描述符</h2>
 
-<h2 id="前言">前言</h2>
+<p>标准输入   0<br />
+ 标准输出   1<br />
+ 标准错误输出 2</p>
 
-<p><a href="http://gohugo.io">Hugo</a>是什么？官方文档是这样介绍它的：</p>
+<p>测试用例</p>
 
-<blockquote>
-<p>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator.</p>
-</blockquote>
+<pre><code>$ cat mytest.sh 
+echo &quot;my test&quot;
+mytest
+$ ./mytest.sh 
+my test  #标准输出
+./mytest.sh: line 2: mytest: command not found #标准错误输出
+</code></pre>
 
-<p>Hugo是一种通用的网站框架。严格来说，Hugo应该被称作静态网站生成器。</p>
-
-<p>静态网站生成器从字面上来理解，就是将你的内容生成静态网站。所谓“静态”的含义其实反映在网站页面的生成的时间。一般的web服务器（WordPress, Ghost, Drupal等等）在收到页面请求时，需要调用数据库生成页面（也就是HTML代码），再返回给用户请求。而静态网站则不需要在收到请求后生成页面，而是在整个网站建立起之前就将所有的页面全部生成完成，页面一经生成便称为静态文件，访问时直接返回现成的静态页面，不需要数据库的参与。
-
-采用静态网站的维护也相当简单，实际上你根本不需要什么维护，完全不用考虑复杂的运行时间，依赖和数据库的问题。再有也不用担心安全性的问题，没有数据库，网站注入什么的也无从下手。</p></p>
+<p></p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/blog">blog</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>

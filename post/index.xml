@@ -7,7 +7,52 @@
     
     
     <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
-    <updated>Thu, 27 Apr 2017 23:00:00 CST</updated>
+    <updated>Sun, 07 May 2017 23:00:00 CST</updated>
+    
+    <item>
+      <title>C&#43;&#43;测试框架Catch</title>
+      <link>http://dasheyuan.com/post/cpp-test-framework-catch/</link>
+      <pubDate>Sun, 07 May 2017 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-test-framework-catch/</guid>
+      <description>&lt;h1 id=&#34;catch简介&#34;&gt;Catch简介&lt;/h1&gt;
+
+&lt;p&gt;Catch 一种是 C++ 测试框架。&lt;br /&gt;
+主要特点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置简单，下载&lt;code&gt;catch.hpp&lt;/code&gt;，然后&lt;code&gt;#include&lt;/code&gt;即可。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;无需额外库依赖。只要能编译 C++ 98 和包含 C++ 标准库。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;编写测试用例与编写函数一样。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Section&lt;/code&gt;中测试用例是独立运行的。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;兼容测试用例传统风格和BDD风格：&lt;code&gt;Given-When-Then&lt;/code&gt;。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;条件比较是只用一个核心的警告宏。使用了标准的C/C++ 运算符重载功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;测试工具Valgrind</title>
+      <link>http://dasheyuan.com/post/cpp-test-tool-valgrind/</link>
+      <pubDate>Sun, 07 May 2017 22:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-test-tool-valgrind/</guid>
+      <description>&lt;h1 id=&#34;引言&#34;&gt;引言&lt;/h1&gt;
+
+&lt;p&gt;测试C++程序时，我们通常会在意两件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;运行结果是否正确？&lt;/li&gt;
+&lt;li&gt;是否发生了内存泄漏？&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一件事所有编程语言都需要在意，通常是给程序各种输入，检验输出的正确性，Catch是一个轻巧的单元测试框架，学习起来非常容易；&lt;/p&gt;
+
+&lt;p&gt;第二件事应该是C/C++独有的，需要跟踪运行时动态分配的内存，虽然可以自行重载new/delete运算符做到这一点，但Valgrind可以为我们检测绝大多数内存相关问题（包括内存泄漏、数组越界、使用未初始化变量等）。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>5G发展分析(1)-5G标准制定</title>
@@ -303,48 +348,6 @@ sudo apt-get install -y nodejs
       <guid>http://dasheyuan.com/post/iot-mqtt-modbus-comparison/</guid>
       <description>&lt;p&gt;翻译到最后才发现这是一篇广告文。呵呵。&lt;br /&gt;
 译文地址：&lt;a href=&#34;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&#34;&gt;https://software.intel.com/en-us/articles/a-comparison-of-iot-gateway-protocols-mqtt-and-modbus&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GitHub上删不掉的issues</title>
-      <link>http://dasheyuan.com/post/github-issues/</link>
-      <pubDate>Thu, 14 Apr 2016 23:30:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/github-issues/</guid>
-      <description>&lt;p&gt;小结一下GitHub上的issues功能，很有意思。&lt;/p&gt;
-
-&lt;p&gt;今天发现&lt;a href=&#34;http://yikun.github.io&#34;&gt;Yikun&lt;/a&gt;的博客中的图床地址很特别：cloud.githubusercontent.com。探究了一番之后发现他是用GitHub的issues的功能来写的博客，图片可以直接拖拽到issues的编辑框中，然后自动上传github的服务器，生成图床地址的。&lt;/p&gt;
-
-&lt;p&gt;测试issues中上传图片的功能之后想删除测试的issue，但发现是删不掉的！！！如同版本提交commits，也是删不掉的。另外，对应issues的每一个操作都会记录下来。&lt;br /&gt;
-这样的设计应该是有原因的，现在想不明白，以后再探究吧。&lt;br /&gt;
-今天也大概了解了一下GitHub的API，也挺好玩的。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>hp 2570p准系统组装经历</title>
-      <link>http://dasheyuan.com/post/barebone-system/</link>
-      <pubDate>Tue, 12 Apr 2016 23:30:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/barebone-system/</guid>
-      <description>&lt;p&gt;第一次接触“准系统”这三个字还是上个月的事吧，因为考虑入手一台二手的笔记本以备不时之需。准系统不是什么高大上的东西，笔记本（台式机也一样）去掉CPU、内存、硬盘等后就可以叫“准系统”。笔记本出厂阶段都有一个准系统的阶段的。&lt;/p&gt;
-
-&lt;p&gt;准系统除了厂家生产出售的，还存在由外国淘汰掉的，俗称洋垃圾，流进国内的笔记本。为了提高倒卖价格，把笔记本拆分成准系统出售。也有可能是内存、硬盘毁掉（重要数据）了，笔记本再被回收流转的。&lt;/p&gt;
-
-&lt;p&gt;扯了一些概念，还是看看我组装好的笔记本配置及总共花费吧。&lt;/p&gt;
-
-&lt;p&gt;安装好Win10系统，开机在10秒内！&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;购买平台         配件类型           型号             价格 
-论坛/淘宝        准系统           hp 2570p          600
-淘宝             CPU             i5 3230m         458
-京东             内存x2           金士顿 4G         234
-京东             固态硬盘         闪迪 加强版240G    379
-                                             合计：1671
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从刚开始的入手台笔记本的想法到现在，墨迹了大半个月。一般是在数码之家上了解二手交易的信息，有时候也会在闲鱼上看一下，浏览一下有没有“笋野”。&lt;/p&gt;</description>
     </item>
     
   </channel>
