@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Threads on Chen Yuan&#39;s Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://dasheyuan.com/tags/threads/</link>
+    
+    
+    <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
+    <updated>Fri, 06 Oct 2017 23:00:00 CST</updated>
+    
+    <item>
+      <title>C&#43;&#43;11多线程编程(1)</title>
+      <link>http://dasheyuan.com/post/cpp-11-multithreading-1/</link>
+      <pubDate>Fri, 06 Oct 2017 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-11-multithreading-1/</guid>
+      <description>&lt;p&gt;前段时间，我在Google &lt;code&gt;std::thread&lt;/code&gt;时，读到了网站&lt;a href=&#34;http://thispointer.com/category/multithreading/&#34;&gt;thispointer.com&lt;/a&gt;的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。&lt;br /&gt;
+下面，我就按照这个教程，介绍C++11 Multithreading。&lt;/p&gt;
+
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;多线程创建和参数传递&lt;/li&gt;
+&lt;li&gt;多线程条件竞争及其解决方法&lt;/li&gt;
+&lt;li&gt;多线程事件处理、条件变量&lt;/li&gt;
+&lt;li&gt;拓展与回顾&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;C++11已经支持多线程，但编译时需要添加&lt;code&gt;-std=c++11&lt;/code&gt;和 &lt;code&gt;-pthread&lt;/code&gt;选项：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;g++ -std=c++11 sample.cpp -pthread
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果使用CMake编译：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//CMakeLists.txt 中添加
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} &amp;quot;-std=c++11 -pthread&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;头文件：&lt;code&gt;&amp;lt;thread&amp;gt;&lt;/code&gt;&lt;br /&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

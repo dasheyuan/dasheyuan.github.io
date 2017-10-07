@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>C&#43;&#43;11多线程编程(1) - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/cpp-11-multithreading-1/">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+	<link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+	<style type="text/css">
+	code:hover
+	{
+		min-width:97%;
+		overflow-x: visible;
+		width:fit-content;
+		width:-webkit-fit-content;
+		width:-moz-fit-content;	
+	}
+	</style>
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">C&#43;&#43;11多线程编程(1)</h1>
+		<span class="post-meta">2017年10月6日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/C&#43;&#43;">C&#43;&#43;</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/Threads">Threads</a>
+        
+      </p> 
+      <article class="post-content">
+      <p>前段时间，我在Google <code>std::thread</code>时，读到了网站<a href="http://thispointer.com/category/multithreading/">thispointer.com</a>的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。<br />
+下面，我就按照这个教程，介绍C++11 Multithreading。</p>
+
+<h2 id="简介">简介</h2>
+
+<ol>
+<li>多线程创建和参数传递</li>
+<li>多线程条件竞争及其解决方法</li>
+<li>多线程事件处理、条件变量</li>
+<li>拓展与回顾</li>
+</ol>
+
+<p>C++11已经支持多线程，但编译时需要添加<code>-std=c++11</code>和 <code>-pthread</code>选项：</p>
+
+<pre><code>g++ -std=c++11 sample.cpp -pthread
+</code></pre>
+
+<p>如果使用CMake编译：</p>
+
+<pre><code>//CMakeLists.txt 中添加
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} &quot;-std=c++11 -pthread&quot;)
+</code></pre>
+
+<p>头文件：<code>&lt;thread&gt;</code><br />
+</p>
+
+<h2 id="1-多线程创建及参数传递">1. 多线程创建及参数传递</h2>
+
+<h3 id="1-1-子线程的创建">1.1 子线程的创建</h3>
+
+<p>在C++11中，我们使用<code>std::thread</code>类创建子线程，一个<code>std::thread</code>对象管理一个新的进程。</p>
+
+<pre><code>std::thread thObj(&lt;CALLBACK&gt;);
+</code></pre>
+
+<p>新建<code>thObj</code>对象后，子线程将执行对象绑定的回调函数CALLBACK，父线程仍然继续执行。<br />
+回调函数可以写成以下3种形式：<br />
+(1)Function Pointer 函数指针<br />
+(2)Function Objects 函数对象<br />
+(3)Lambda functions 匿名函数</p>
+
+<h4 id="1-通过函数指针创建线程">(1)通过函数指针创建线程</h4>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+ 
+void thread_function()
+{
+    for(int i = 0; i &lt; 10000; i++);
+        std::cout&lt;&lt;&quot;thread function Executing&quot;&lt;&lt;std::endl;
+}
+ 
+int main()  
+{
+    std::thread threadObj(thread_function);
+    for(int i = 0; i &lt; 10000; i++);
+        std::cout&lt;&lt;&quot;Display From MainThread&quot;&lt;&lt;std::endl;
+    threadObj.join();    
+    std::cout&lt;&lt;&quot;Exit of Main function&quot;&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="2-通过函数对象创建线程">(2)通过函数对象创建线程</h4>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+class DisplayThread
+{
+public:
+    void operator()()     
+    {
+        for(int i = 0; i &lt; 10000; i++)
+            std::cout&lt;&lt;&quot;Display Thread Executing&quot;&lt;&lt;std::endl;
+    }
+};
+ 
+int main()  
+{
+    std::thread threadObj( (DisplayThread()) );
+    for(int i = 0; i &lt; 10000; i++)
+        std::cout&lt;&lt;&quot;Display From Main Thread &quot;&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Waiting For Thread to complete&quot;&lt;&lt;std::endl;
+    threadObj.join();
+    std::cout&lt;&lt;&quot;Exiting from Main Thread&quot;&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="3-通过匿名函数创建线程">(3)通过匿名函数创建线程</h4>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+int main()  
+{
+    int x = 9;
+    std::thread threadObj([]{
+            for(int i = 0; i &lt; 10000; i++)
+                std::cout&lt;&lt;&quot;Display Thread Executing&quot;&lt;&lt;std::endl;
+            });
+            
+    for(int i = 0; i &lt; 10000; i++)
+        std::cout&lt;&lt;&quot;Display From Main Thread&quot;&lt;&lt;std::endl;
+        
+    threadObj.join();
+    std::cout&lt;&lt;&quot;Exiting from Main Thread&quot;&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<h3 id="1-2-get-id-获取线程标识">1.2 get_id()获取线程标识</h3>
+
+<p><code>std::thread::get_id()</code>用于获取线程对象的标识，若线程对象没有绑定回调函数，返回<code>a non-executing thread</code>。 <code>std::this_thread::get_id()</code>用于获取当前线程标识。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+void thread_function()
+{
+    std::cout&lt;&lt;&quot;Inside Thread :: ID  = &quot;&lt;&lt;std::this_thread::get_id()&lt;&lt;std::endl;    
+}
+int main()  
+{
+    std::thread threadObj1(thread_function);
+    std::thread threadObj2(thread_function);
+ 
+    if(threadObj1.get_id() != threadObj2.get_id())
+        std::cout&lt;&lt;&quot;Both Threads have different IDs&quot;&lt;&lt;std::endl;
+ 
+        std::cout&lt;&lt;&quot;From Main Thread :: ID of Thread 1 = &quot;&lt;&lt;threadObj1.get_id()&lt;&lt;std::endl;    
+    std::cout&lt;&lt;&quot;From Main Thread :: ID of Thread 2 = &quot;&lt;&lt;threadObj2.get_id()&lt;&lt;std::endl;    
+ 
+    threadObj1.join();    
+    threadObj2.join();    
+    return 0;
+}
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Inside Thread :: ID  = 3083496256
+Both Threads have different IDs
+From Main Thread :: ID of Thread 1 = 3083496256
+From Main Thread :: ID of Thread 2 = 3075103552
+Inside Thread :: ID  = 3075103552
+</code></pre>
+
+<h3 id="1-3-join-线程结合">1.3 join()线程结合</h3>
+
+<p><code>join()</code>顾名思义指把<code>threadObj</code>线程加入到当前线程，这时原来两个交替执行的线程合并为顺序执行了。比如父线程A调用了子线程B的<code>join()</code>方法后，那么子线程B执行完毕后再执行父线程A。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;algorithm&gt;//std::for_each
+class WorkerThread
+{
+public:
+    void operator()()
+    {
+        std::cout&lt;&lt;&quot;Worker Thread &quot;&lt;&lt;std::this_thread::get_id()&lt;&lt;&quot; is Executing&quot;&lt;&lt;std::endl;
+    }
+};
+int main()
+{
+    std::vector&lt;std::thread&gt; threadList;
+    for(int i = 0; i &lt; 10; i++)
+    {
+        threadList.push_back( std::thread( WorkerThread() ) );
+    }
+    // Now wait for all the worker thread to finish i.e.
+    // Call join() function on each of the std::thread object
+    std::cout&lt;&lt;&quot;wait for all the worker thread to finish&quot;&lt;&lt;std::endl;
+    std::for_each(threadList.begin(),threadList.end(), std::mem_fn(&amp;std::thread::join));
+    std::cout&lt;&lt;&quot;Exiting from Main Thread&quot;&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<h3 id="1-4-detach-线程分离">1.4 detach()线程分离</h3>
+
+<p><code>detach()</code>方法使得父线程不再管理子线程。<code>detached</code> 线程也称为守护线程或后台线程。</p>
+
+<pre><code>std::thread th(funcPtr);
+th.detach();
+</code></pre>
+
+<p>需要仔细处理线程的<code>detach()</code>和<code>join()</code>方法，使用<code>joinable()</code>方法检查线程对象是否可以<code>join/detach</code>.<br />
+准则1：Never call join() or detach() on std::thread object with no associated executing thread.</p>
+
+<pre><code>std::thread threadObj( (WorkerThread()) );
+threadObj.join();
+threadObj.join(); // It will cause Program to Terminate
+
+std::thread threadObj( (WorkerThread()) );
+threadObj.detach();
+threadObj.detach(); // It will cause Program to Terminate
+</code></pre>
+
+<p>准则2： Never forget to call either join or detach on a std::thread object with associated executing thread.<br />
+<code>RESOURCE ACQUISITION IS INITIALIZATION (RAII)</code>可以有效帮助我们解决忘记<code>join/detach</code>的情况。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+class ThreadRAII
+{
+    std::thread &amp; m_thread;
+    public:
+        ThreadRAII(std::thread  &amp; threadObj) : m_thread(threadObj)
+        {
+            
+        }
+        ~ThreadRAII()
+        {
+            // Check if thread is joinable then detach the thread
+            if(m_thread.joinable())
+            {
+                m_thread.detach();
+            }
+        }
+};
+void thread_function()
+{
+    for(int i = 0; i &lt; 10000; i++);
+        std::cout&lt;&lt;&quot;thread_function Executing&quot;&lt;&lt;std::endl;
+}
+ 
+int main()  
+{
+    std::thread threadObj(thread_function);
+    
+    // If we comment this Line, then program will crash
+    ThreadRAII wrapperObj(threadObj);
+    return 0;
+}
+</code></pre>
+
+<h3 id="1-5-子线程参数的传递">1.5 子线程参数的传递</h3>
+
+<p>参数在std::thread的构造方法时以<strong>拷贝</strong>的方式进行传递。</p>
+
+<h4 id="1-5-1-引用作为参数传递">1.5.1 引用作为参数传递</h4>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+void threadCallback(int const &amp; x)
+{
+    int &amp; y = const_cast&lt;int &amp;&gt;(x);
+    y++;
+    std::cout&lt;&lt;&quot;Inside Thread x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+}
+int main()
+{
+    int x = 9;
+    std::cout&lt;&lt;&quot;In Main Thread : Before Thread Start x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+    std::thread threadObj(threadCallback, x);
+    threadObj.join();
+    std::cout&lt;&lt;&quot;In Main Thread : After Thread Joins x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>In Main Thread : Before Thread Start x = 9 
+Inside Thread x = 10 
+In Main Thread : After Thread Joins x = 9 
+</code></pre>
+
+<p>什么原因？Its because x in the thread function threadCallback is reference to the temporary value <strong>copied</strong>* at the new thread’s stack.
+可以用<code>std::ref()</code>来解决这一问题。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+void threadCallback(int const &amp; x)
+{
+    int &amp; y = const_cast&lt;int &amp;&gt;(x);
+    y++;
+    std::cout&lt;&lt;&quot;Inside Thread x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+}
+int main()
+{
+    int x = 9;
+    std::cout&lt;&lt;&quot;In Main Thread : Before Thread Start x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+    std::thread threadObj(threadCallback,std::ref(x));
+    threadObj.join();
+    std::cout&lt;&lt;&quot;In Main Thread : After Thread Joins x = &quot;&lt;&lt;x&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1-5-2-成员函数指针作为回调函数时的参数传递">1.5.2 成员函数指针作为回调函数时的参数传递</h4>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+class DummyClass {
+public:
+    DummyClass()
+    {}
+    DummyClass(const DummyClass &amp; obj)
+    {}
+    void sampleMemberFunction(int x)
+    {
+        std::cout&lt;&lt;&quot;Inside sampleMemberFunction &quot;&lt;&lt;x&lt;&lt;std::endl;
+    }
+};
+int main() {
+ 
+    DummyClass dummyObj;
+    int x = 10;
+    std::thread threadObj(&amp;DummyClass::sampleMemberFunction,&amp;dummyObj, x);
+    threadObj.join();
+    return 0;
+}
+</code></pre>
+
+<p>从第1部分的参数传递可以看出，线程间的数据共享方式很简单，但这种简单的方式容易导致很多问题，其中常见的一个就是：竞争条件。<br />
+第2部分将介绍竞争条件产生及如何解决竞争条件导致的异常。</p>
+
+<h2 id="2-多线程条件竞争及其解决方法">2. 多线程条件竞争及其解决方法</h2>
+
+<h3 id="2-1-竞争条件异常的产生">2.1 竞争条件异常的产生</h3>
+
+<p>下面将以钱包为例说明竞争条件导致异常的产生，假设testMultithreadedWallet产生5个线程同时调用addMoney()方法。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;vector&gt;
+class Wallet
+{
+    int mMoney;
+public:
+    Wallet() :mMoney(0){}
+    int getMoney() { return mMoney; }
+    void addMoney(int money)
+    {
+       for(int i = 0; i &lt; money; ++i)
+       {
+          mMoney++;
+       }
+    }
+};
+int testMultithreadedWallet()
+{
+   Wallet walletObject;
+   std::vector&lt;std::thread&gt; threads;
+   for(int i = 0; i &lt; 5; ++i){
+        threads.push_back(std::thread(&amp;Wallet::addMoney, &amp;walletObject, 1000));
+   }
+
+   for(int i = 0; i &lt; threads.size() ; i++)
+   {
+       threads.at(i).join();
+   }
+   return walletObject.getMoney();
+}
+
+int main()
+{
+
+  int val = 0;
+  for(int k = 0; k &lt; 1000; k++)
+  {
+     if((val = testMultithreadedWallet()) != 5000)
+     {
+       std::cout &lt;&lt; &quot;Error at count = &quot;&lt;&lt;k&lt;&lt;&quot; Money in Wallet = &quot;&lt;&lt;val &lt;&lt; std::endl;
+     }
+  }
+  return 0;
+}
+</code></pre>
+
+<p>Outputs:</p>
+
+<pre><code>...
+Error at count = 971  Money in Wallet = 4568
+Error at count = 972  Money in Wallet = 4260
+Error at count = 972  Money in Wallet = 4260
+Error at count = 973  Money in Wallet = 4976
+Error at count = 973  Money in Wallet = 4976
+...
+</code></pre>
+
+<p>这就是竞争条件产生异常的示例，当多个线程同时改变同一地址指向的变量时，异常将会出现。</p>
+
+<h4 id="异常产生的原因分析">异常产生的原因分析</h4>
+
+<p>每一个线程同时对<code>mMoney</code>变量递增，虽然<code>mMoney++</code>看起来是一条命令，但底层可以细分为3个命令：<br />
+(1)加载mMoney变量至寄存器；<br />
+(2)寄存器递增+1；<br />
+(3)更新寄存器值到mMenoy变量。</p>
+
+<p>假设线程1和线程2&rdquo;mMoney++&ldquo;操作的底层命令执行顺序如下：</p>
+
+<pre><code>    Thread 1             Thread 2
+加载mMoney变量至寄存器               
+                        加载mMoney变量至寄存器
+寄存器递增+1          
+                        寄存器递增+1
+更新寄存器值到mMenoy变量 
+                        更新寄存器值到mMenoy变量
+</code></pre>
+
+<p>如果这两个线程执行之前mMoney=46，那么经过线程1和线程2的递增，mMoney应该为48。但是由于出现上面的执行顺序，mMoney=46被加载至不同的寄存器后递增为mMoney=47，这是因为寄存器不同，最后更新mMenoy值时有一次递增被忽略了。</p>
+
+<h3 id="2-2-互斥锁解决竞争条件异常">2.2 互斥锁解决竞争条件异常</h3>
+
+<p>互斥锁可以有效解决竞争条件导致的异常，仍以上面的为例子。互斥锁的使用很简单，在需要加锁的代码之前调用<code>lock()</code>加锁，代码之后再调用<code>unlock()</code>解锁。<br />
+C++11的互斥锁<code>std::mutex</code>在头文件<code>&lt;mutex&gt;</code>文件中。</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;thread&gt;
+#include&lt;vector&gt;
+#include&lt;mutex&gt;
+
+class Wallet
+{
+    int mMoney;
+    std::mutex mutex;
+public:
+    Wallet() :mMoney(0){}
+    int getMoney()   {  return mMoney; }
+    void addMoney(int money)
+    {
+        mutex.lock();
+        for(int i = 0; i &lt; money; ++i)
+        {
+            mMoney++;
+        }
+        mutex.unlock();
+    }
+};
+</code></pre>
+
+<p>为了避免忘记调用unlock()方法导致的阻塞，可以使用<code>std::lock_guard</code>互斥锁。</p>
+
+<pre><code>class Wallet
+{
+    int mMoney;
+    std::mutex mutex;
+public:
+    Wallet() :mMoney(0){}
+    int getMoney()   {  return mMoney; }
+    void addMoney(int money)
+    {
+        std::lock_guard&lt;std::mutex&gt; lockGuard(mutex);
+        // In constructor it locks the mutex
+
+        for(int i = 0; i &lt; money; ++i)
+        {
+            // If some exception occurs at this
+            // poin then destructor of lockGuard
+            // will be called due to stack unwinding.
+            //
+            mMoney++;
+        }
+        // Once function exits, then destructor
+        // of lockGuard Object will be called.
+        // In destructor it unlocks the mutex.
+    }
+ };
+</code></pre>
+
+<h2 id="参考资料">参考资料</h2>
+
+<p>1.<a href="http://thispointer.com/category/multithreading/">thisPointer多线程</a></p>
+      </article>
+	  
+
+
+	<aside id=comments>
+	<div><h2> Comments </h2></div>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dasheyuan';
+    var disqus_identifier = 'http:\/\/dasheyuan.com\/post\/cpp-11-multithreading-1\/';
+    var disqus_title = 'C\x2b\x2b11多线程编程(1)';
+    var disqus_url = 'http:\/\/dasheyuan.com\/post\/cpp-11-multithreading-1\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</aside>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016-2017<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+
+
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

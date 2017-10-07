@@ -56,34 +56,37 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/php-composer-2/">
-		<p class="post-meta left">2016年6月2日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/ecs-setup-lamp/">
+		<p class="post-meta left">2016年6月22日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">PHP的依赖管理工具Composer(2) </h3>
-		<p class="post-summary"><p>之前介绍过如何安装Composer和简单使用，出门左拐能找到。<br />
-<a href="http://http://dasheyuan.com/post/php-composer-1/">PHP的依赖管理工具Composer(1)</a></p>
+		<h3 class="h2 post-title">ECS服务器安装LAMP环境 </h3>
+		<p class="post-summary"><p>使用Tasksel可以很方便地在ECS服务器上安装LAMP环境。</p>
 
-<p>现在更深入地学习Composer。在上一篇MyProject的<code>app.php</code>中</p>
+<pre><code># 1.更新库，否则可能会出现tasksel aptitude failed的错误
+$ sudo apt-get update
 
-<pre><code>&lt;?php
-require 'vendor/autoload.php';
-$log = new Monolog\Logger('name');
+# 2.如果已经安装了可以跳过此步
+$ sudo apt-get install tasksel
 
-...
-
+# 3.安装LAMP环境，根据提示完成安装
+$ sudo tasksel install lamp-server
 </code></pre>
 
-<p>上面的代码是为了 <code>new Monolog\Logger('name')</code> ，所以<code>require 'vendor/autoload.php'</code>，作用是为了找到Monolog\Logger类的实现代码，然后require。<br />
-这应该很好理解，因为假如不用<code>require 'vendor/autoload.php'</code>，那就必须require <code>Logger.php</code>源码。</p>
+<p>Tasksel提供了其他的软件包。</p>
 
-<p></p></p>
+<pre><code># 查看选择需要的软件包
+$ sudo tasksel
+</code></pre>
+
+<p>当然，Ubuntu/Debian系统都可以通过这种方式安装LAMP环境。<br />
+</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/php">php</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>
@@ -128,7 +131,7 @@ $log = new Monolog\Logger('name');
 			  
 			
           <small>
-            Copyright &#169; Chen Yuan 2016<br>
+            Copyright &#169; Chen Yuan 2016-2017<br>
 			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
             Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
 		  </small>

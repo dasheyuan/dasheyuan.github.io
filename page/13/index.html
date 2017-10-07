@@ -56,18 +56,35 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/visit-beijing-ericsson/">
-		<p class="post-meta left">2016年4月27日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/remote-login-without-password/">
+		<p class="post-meta left">2016年5月7日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">北京爱立信参观交流 </h3>
-		<p class="post-summary"><p>4月26日至29日，爱立信“技术创新周”在北京爱立信电信大厦举行，我们这边实验室也收到了邀请。今天有幸能跟随着老师到爱立信参观学习。“创新周活动以‘创新成就未来’为主题，全面呈现爱立信在5G、云和IP、物联网、网络社会等领域的技术创新和领先的解决方案”。上一句话来自网络，我引过来是为了把文章显得高(cou)大(zi)上(shu)的:)</p></p>
+		<h3 class="h2 post-title">SSH免密码登录远程主机 </h3>
+		<p class="post-summary"><p>操作Linux系统一般会使用SSH工具进行远程登录系统操作。</p>
+
+<p>使用SSH工具远程登录系统，一般会使用Linux系统的账号和密码。</p>
+
+<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
+
+<p>所谓&rdquo;公钥登录&rdquo;，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
+
+<p>另外，这个过程之前会有一个远程主机向用户发送远程主机公钥的过程，用户需要判断远程主机的公钥是否是真正的远程主机，不然就会带来安全问题（<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间者攻击</a>）。</p>
+
+<p>可以知道，上面的过程要用到<strong>两对</strong>密钥对。一对是用作远程主机向客户端安全通信的，一对用作是客户端向远程主机安全通信的。</p>
+
+<p>测试环境</p>
+
+<ul>
+<li>Ubuntu 14.04安装openssh-server作为远程服务器，用户：bwa  IP：192.168.27.128<br /></li>
+<li>Ubuntu 14.04终端作为客户端 IP：192.168.27.3，或者使用Xshell工具登录<br /></li>
+</ul></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/beijing">beijing</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>
@@ -112,7 +129,7 @@
 			  
 			
           <small>
-            Copyright &#169; Chen Yuan 2016<br>
+            Copyright &#169; Chen Yuan 2016-2017<br>
 			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
             Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
 		  </small>
