@@ -56,23 +56,26 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/programmer-how-to-write-a-good-article/">
-		<p class="post-meta left">2016年3月2日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/shell-redirect/">
+		<p class="post-meta left">2016年3月16日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">程序员怎样才能写出一篇好的博客或者技术文章(转) </h3>
-		<p class="post-summary"><p>转自：<a href="https://www.phodal.com/blog/programmer-how-to-write-a-good-article">https://www.phodal.com/blog/programmer-how-to-write-a-good-article</a></p>
+		<h3 class="h2 post-title">Shell重定向2&gt;&amp;1的理解 </h3>
+		<p class="post-summary"><h2 id="一-系统文件描述符">一、系统文件描述符</h2>
 
-<p>文章来源于 @justjavac在知乎上的邀请，要写在知乎上的回答。因为有原创，所以先首发，免得被伪原创。每天有大把的时间刷GitHub，写博客。从我大二的时候，大概六年前开始写技术博客，到现在已经有540+了，大概每年会写一百篇左右。</p>
+<p>标准输入   0<br />
+ 标准输出   1<br />
+ 标准错误输出 2</p>
 
-<p>这个答案由四部分组成：</p>
+<p>测试用例</p>
 
-<ol>
-<li>博客的流量来源</li>
-<li>不同文章类型的写作要点</li>
-<li>如何写博客</li>
-<li>如何收集写作的灵感</li>
-</ol>
+<pre><code>$ cat mytest.sh 
+echo &quot;my test&quot;
+mytest
+$ ./mytest.sh 
+my test  #标准输出
+./mytest.sh: line 2: mytest: command not found #标准错误输出
+</code></pre>
 
 <p></p></p>
 	</a>
@@ -80,7 +83,7 @@
 	<p class="post-meta">Tags:&nbsp;
 		
 		
-		<a href="http://dasheyuan.com/tags/blog">blog</a>
+		<a href="http://dasheyuan.com/tags/linux">linux</a>
 		
 	</p>
 </div>

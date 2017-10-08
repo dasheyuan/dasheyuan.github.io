@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>C&#43;&#43;11多线程编程(2) - Chen Yuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="http://dasheyuan.com/post/cpp-11-multithreading-part-2/">
+  <link rel="shortcut icon" href="http://dasheyuan.com/favicon.ico" type="image/x-icon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+	<link rel="stylesheet" type="text/css" href="http://dasheyuan.com/css/combined-min.css">
+	
+	<style type="text/css">
+	code:hover
+	{
+		min-width:97%;
+		overflow-x: visible;
+		width:fit-content;
+		width:-webkit-fit-content;
+		width:-moz-fit-content;	
+	}
+	</style>
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://dasheyuan.com" class="site-title">Chen Yuan&#39;s Blog</a>
+      <nav class="site-nav right">
+      <a href="http://dasheyuan.com/post">日志</a>
+<a href="http://dasheyuan.com/tags">标签</a>
+<a href="http://dasheyuan.com/about">关于</a>
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">C&#43;&#43;11多线程编程(2)</h1>
+		<span class="post-meta">2017年10月7日</span>
+        
+      </div>
+       <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="http://dasheyuan.com/tags/C&#43;&#43;">C&#43;&#43;</a>
+        
+            ,&nbsp;
+            <a href="http://dasheyuan.com/tags/Threads">Threads</a>
+        
+      </p> 
+      <article class="post-content">
+      <h2 id="目录">目录</h2>
+
+<ol>
+<li>多线程创建和参数传递</li>
+<li>多线程条件竞争及其解决方法</li>
+<li>多线程事件处理、条件变量</li>
+<li>多线程返回值</li>
+<li>线程池</li>
+</ol>
+
+<h3 id="3-1-多线程事件处理">3.1 多线程事件处理</h3>
+
+<p>在第1部分中对多线程的创建、参数传递的使用作了说明，另外对线程间数据共享导致竞争条件异常进行了分析，并给出互斥锁的解决方式。我继续参考thisPointer的教程，深入多线程的事件处理。<br />
+什么是多线程的事件处理？有时候，线程往往需要等待类似于条件为真或另一个线程任务完成的事件，这就是多线程的事件处理。先来看一个程序需求。</p>
+
+<h4 id="3-1-1-功能分析">3.1.1 功能分析</h4>
+
+<p>现在我们需要实现一个网络编程的客户端程序，这个程序的任务如下：</p>
+
+<ol>
+<li>连接服务器</li>
+<li>从XML文件加载数据</li>
+<li>发送加载的数据</li>
+</ol>
+
+<p>分析易知任务1与其他两个任务是独立的，但任务3依赖于任务2。任务1和任务2可以设计在两个平行执行的线程上实现，从而提升程序的性能。<br />
+下面我们将使用多线程的方式设计客户端程序。这个程序包含两个线程，线程1需要完成的任务是：</p>
+
+<ul>
+<li>连接服务器</li>
+<li>等待线程2加载XML文件的数据</li>
+<li>发送加载的数据</li>
+</ul>
+
+<p>线程2需要完成的任务是：</p>
+
+<ul>
+<li>从XML文件中加载数据</li>
+<li>通知其他等待该数据的线程</li>
+</ul>
+
+<p><img src="http://thispointer.com/wp-content/uploads/2015/06/first.png" alt="demo" />
+</p>
+
+<h4 id="3-1-2-方式1-共享变量">3.1.2 方式1：共享变量</h4>
+
+<p>定义一个默认值为false的全局布尔变量isDataLoaded，在Thread 2中设置为真，Thread 1中轮询该布尔变量是否为true，若为true则执行发送数据。显然，需要一个互斥锁来保证isDataLoaded的同步。</p>
+
+<pre><code>#include&lt;iostream&gt;
+#include&lt;thread&gt;
+#include&lt;mutex&gt;
+
+class Application
+{
+ std::mutex m_mutex;
+ bool m_bDataLoaded;
+public:
+ Application()
+ {
+ m_bDataLoaded = false;
+ }
+ void loadData()
+ {
+ // Make This Thread sleep for 1 Second
+ std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+ std::cout&lt;&lt;&quot;Loading Data from XML&quot;&lt;&lt;std::endl;
+
+ // Lock The Data structure
+ std::lock_guard&lt;std::mutex&gt; guard(m_mutex);
+
+ // Set the flag to true, means data is loaded
+ m_bDataLoaded = true;
+
+ }
+ void mainTask()
+ {
+ std::cout&lt;&lt;&quot;Do Some Handshaking&quot;&lt;&lt;std::endl;
+
+ // Acquire the Lock
+ m_mutex.lock();
+ // Check if flag is set to true or not
+ while(m_bDataLoaded != true)
+ {
+  // Release the lock
+  m_mutex.unlock();
+  //sleep for 100 milli seconds
+  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  // Acquire the lock
+  m_mutex.lock();
+  }
+  // Release the lock
+  m_mutex.unlock();
+  //Doc processing on loaded Data
+  std::cout&lt;&lt;&quot;Do Processing On loaded Data&quot;&lt;&lt;std::endl;
+ }
+};
+
+int main()
+{
+  Application app;
+
+  std::thread thread_1(&amp;Application::mainTask, &amp;app);
+  std::thread thread_2(&amp;Application::loadData, &amp;app);
+
+  thread_2.join();
+  thread_1.join();
+  return 0;
+}
+</code></pre>
+
+<p>方式1的实现存在一个很严重的问题就是Thread 1 在轮询isDataLoaded时需要占用CPU的资源。另外，程序功能越复杂时，需要共享的全局变量就可能越多，就越容易产生Bugs。最好的方式是Thread 2完成加载数据的任务后通知Thread 1，数据准备好了，可以发送了。那么这这么实现呢？</p>
+
+<h4 id="3-1-3-方式2-条件变量">3.1.3 方式2：条件变量</h4>
+
+<p>头文件<code>#include&lt;condition_variable&gt;</code>
+条件变量也是需要互斥变量来配合使用。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;functional&gt;
+#include &lt;mutex&gt;
+#include &lt;condition_variable&gt;
+//using namespace std::placeholders;
+class Application
+{
+    std::mutex m_mutex;
+    std::condition_variable m_condVar;
+    bool m_bDataLoaded;
+public:
+    Application()
+    {
+        m_bDataLoaded = false;
+    }
+    void loadData()
+    {
+        // Make This Thread sleep for 1 Second
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        std::cout&lt;&lt;&quot;Loading Data from XML&quot;&lt;&lt;std::endl;
+        // Lock The Data structure
+        std::lock_guard&lt;std::mutex&gt; guard(m_mutex);
+        // Set the flag to true, means data is loaded
+        m_bDataLoaded = true;
+        // Notify the condition variable
+        m_condVar.notify_one();
+    }
+    bool isDataLoaded()
+    {
+        return m_bDataLoaded;
+    }
+    void mainTask()
+    {
+        std::cout&lt;&lt;&quot;Do Some Handshaking&quot;&lt;&lt;std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+        // Acquire the lock
+        std::unique_lock&lt;std::mutex&gt; mlock(m_mutex);
+        // Start waiting for the Condition Variable to get signaled
+        // Wait() will internally release the lock and make the thread to block
+        // As soon as condition variable get signaled, resume the thread and
+        // again acquire the lock. Then check if condition is met or not
+        // If condition is met then continue else again go in wait.
+        m_condVar.wait(mlock, std::bind(&amp;Application::isDataLoaded, this));
+        std::cout&lt;&lt;&quot;Do Processing On loaded Data&quot;&lt;&lt;std::endl;
+    }
+};
+int main()
+{
+    Application app;
+    std::thread thread_1(&amp;Application::mainTask, &amp;app);
+    std::thread thread_2(&amp;Application::loadData, &amp;app);
+    thread_2.join();
+    thread_1.join();
+    return 0;
+}
+</code></pre>
+
+<h3 id="4-1-多线程返回值std-future">4.1 多线程返回值std::future</h3>
+
+<p>在许多场景下，我们想从线程的处理中返回需要的值。接下来还是通过一个假设的场景来说明std::future的使用方法。</p>
+
+<p>假设在我们的程序中，一个线程的任务是压缩指定文件夹，我们需要这个线程返回压缩后的文件名和文件大小。<br />
+我们先来看看按照前面教程的内容怎么来说实现它。</p>
+
+<h4 id="4-1-1-常规的方法-使用指针共享线程间数据">4.1.1 常规的方法：使用指针共享线程间数据</h4>
+
+<p>传递一个指针到任务线程，通过它来保存数据。主线程使用条件变量等待指针指向的值是否改变。当任务线程设置好数据好，主线程将会唤醒并从指针中获取到数据。这种常规的方法，我们需要使用的一个条件变量、一个互斥锁和一个指针变量。3个变量去一个获取线程返回值。若我们需要获取多个返回值呢？程序设计的复杂度越来越大了。有没有简单的方式？</p>
+
+<h4 id="4-1-2-c-11的方法-std-future和std-promise">4.1.2 C++11的方法：std::future和std::promise</h4>
+
+<p><code>std::future</code>是一个模版类，它的实例用于保存&rdquo;未来&rdquo;值。换句话说，<code>std::future</code>的实例保存的值会在未来设置。另外，<code>std::future</code>提供了一个获取这个&rdquo;未来&rdquo;值的成员方法get()。若这个&rdquo;未来&rdquo;值还没有被设置，线程调用get()去获取值时将会被阻塞，直到这个值被设置了。</p>
+
+<p><code>std::promise</code>也是一个模版类，它的实例用于许诺说未来一定会设置一个&rdquo;未来&rdquo;值，它是与<code>std::future</code>的实例结合使用的。也即是说<code>std::promise</code>实例与结合的<code>std::future</code>实例共享数据。</p>
+
+<p>下面一步一步来说明它们俩是如何结合使用的。</p>
+
+<p>首先，在Thread 1创建一个<code>std::promise</code>实例</p>
+
+<pre><code>std::promise&lt;int&gt; promiseObj;
+</code></pre>
+
+<p>现在<code>promiseObj</code>没有设置好值，但它许诺将来别人会设置某个值，一旦设置完成，我们就可以通过关联<code>std::future</code>实例来获取到。<br />
+假设Thread 1传递这个<code>promiseObj</code>给Thread 2，那么Thread 1怎么知道Thread 2 设置好值了呢？<br />
+很简单，通过关联的<code>std::future</code>实例。每一个<code>std::promise</code>实例都有一个相关联的<code>std::future</code>实例。 在<code>promiseObj</code>传递给Thread 2之前时，保存<code>std::future</code>实例。</p>
+
+<pre><code>std::future&lt;int&gt; futureObj = promiseObj.get_future();
+</code></pre>
+
+<p>然后Thread 1就可以使用<code>futureObj</code>来获取Thread 2返回的值了。</p>
+
+<pre><code>int val = futureObj.get();
+</code></pre>
+
+<p>Thread 1会一直阻塞，直到Thread 2 设置了<code>promiseObj</code>的值。</p>
+
+<pre><code>promiseObj.set_value(45);
+</code></pre>
+
+<p><img src="http://thispointer.com/wp-content/uploads/2015/06/promise.png" alt="promise" /></p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+void initiazer(std::promise&lt;int&gt; * promObj)
+{
+    std::cout&lt;&lt;&quot;Inside Thread&quot;&lt;&lt;std::endl;     promObj-&gt;set_value(35);
+}
+
+int main()
+{
+    std::promise&lt;int&gt; promiseObj;
+    std::future&lt;int&gt; futureObj = promiseObj.get_future();
+    std::thread th(initiazer, &amp;promiseObj);
+    std::cout&lt;&lt;futureObj.get()&lt;&lt;std::endl;
+    th.join();
+    return 0;
+}
+</code></pre>
+
+<p>有一种情况是&rdquo;promObj&rdquo;在没有设置值之前就已经被销毁了，那么调用get()这个方法会抛出异常。</p>
+
+<p>回到这一部分刚开始提出的问题，如果要从线程返回多个值怎么办。现在很简单就能解决了，你需要返回多少个值就传递多少个<code>std::promise</code>实例给其他线程。</p>
+
+<h2 id="参考资料">参考资料</h2>
+
+<p>1.<a href="http://thispointer.com/category/multithreading/">thisPointer多线程</a></p>
+      </article>
+	  
+
+
+	<aside id=comments>
+	<div><h2> Comments </h2></div>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dasheyuan';
+    var disqus_identifier = 'http:\/\/dasheyuan.com\/post\/cpp-11-multithreading-part-2\/';
+    var disqus_title = 'C\x2b\x2b11多线程编程(2)';
+    var disqus_url = 'http:\/\/dasheyuan.com\/post\/cpp-11-multithreading-part-2\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</aside>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+			<nav class="social-icons icons">
+<a class="fa fa-weibo weibo" href="http://weibo.com/dasheyuan"  target="_blank"></a>
+
+<a class="fa fa-github github" href="https://github.com/dasheyuan"  target="_blank"></a>
+
+</nav>
+
+			  
+			
+          <small>
+            Copyright &#169; Chen Yuan 2016-2017<br>
+			Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll.</a> 
+            Hosted by  <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+		  </small>
+        </div>
+      </div>
+    </footer>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+</script>
+
+
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	
+
+    
+    
+
+	
+	
+	
+</body>
+</html>
+

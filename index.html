@@ -56,35 +56,53 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/cpp-11-multithreading-1/">
-		<p class="post-meta left">2017年10月6日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/cpp-11-multithreading-part-2/">
+		<p class="post-meta left">2017年10月7日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">C&#43;&#43;11多线程编程(1) </h3>
-		<p class="post-summary"><p>前段时间，我在Google <code>std::thread</code>时，读到了网站<a href="http://thispointer.com/category/multithreading/">thispointer.com</a>的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。<br />
-下面，我就按照这个教程，介绍C++11 Multithreading。</p>
-
-<h2 id="简介">简介</h2>
+		<h3 class="h2 post-title">C&#43;&#43;11多线程编程(2) </h3>
+		<p class="post-summary"><h2 id="目录">目录</h2>
 
 <ol>
 <li>多线程创建和参数传递</li>
 <li>多线程条件竞争及其解决方法</li>
 <li>多线程事件处理、条件变量</li>
-<li>拓展与回顾</li>
+<li>多线程返回值</li>
+<li>线程池</li>
 </ol>
 
-<p>C++11已经支持多线程，但编译时需要添加<code>-std=c++11</code>和 <code>-pthread</code>选项：</p>
+<h3 id="3-1-多线程事件处理">3.1 多线程事件处理</h3>
 
-<pre><code>g++ -std=c++11 sample.cpp -pthread
-</code></pre>
+<p>在第1部分中对多线程的创建、参数传递的使用作了说明，另外对线程间数据共享导致竞争条件异常进行了分析，并给出互斥锁的解决方式。我继续参考thisPointer的教程，深入多线程的事件处理。<br />
+什么是多线程的事件处理？有时候，线程往往需要等待类似于条件为真或另一个线程任务完成的事件，这就是多线程的事件处理。先来看一个程序需求。</p>
 
-<p>如果使用CMake编译：</p>
+<h4 id="3-1-1-功能分析">3.1.1 功能分析</h4>
 
-<pre><code>//CMakeLists.txt 中添加
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} &quot;-std=c++11 -pthread&quot;)
-</code></pre>
+<p>现在我们需要实现一个网络编程的客户端程序，这个程序的任务如下：</p>
 
-<p>头文件：<code>&lt;thread&gt;</code><br />
+<ol>
+<li>连接服务器</li>
+<li>从XML文件加载数据</li>
+<li>发送加载的数据</li>
+</ol>
+
+<p>分析易知任务1与其他两个任务是独立的，但任务3依赖于任务2。任务1和任务2可以设计在两个平行执行的线程上实现，从而提升程序的性能。<br />
+下面我们将使用多线程的方式设计客户端程序。这个程序包含两个线程，线程1需要完成的任务是：</p>
+
+<ul>
+<li>连接服务器</li>
+<li>等待线程2加载XML文件的数据</li>
+<li>发送加载的数据</li>
+</ul>
+
+<p>线程2需要完成的任务是：</p>
+
+<ul>
+<li>从XML文件中加载数据</li>
+<li>通知其他等待该数据的线程</li>
+</ul>
+
+<p><img src="http://thispointer.com/wp-content/uploads/2015/06/first.png" alt="demo" />
 </p></p>
 	</a>
 	

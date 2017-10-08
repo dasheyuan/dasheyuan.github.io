@@ -56,15 +56,27 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/php-composer-1/">
-		<p class="post-meta left">2016年5月21日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/php-closure/">
+		<p class="post-meta left">2016年5月28日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">PHP的依赖管理工具Composer(1) </h3>
-		<p class="post-summary"><p><img src="http://image.phpcomposer.com/d/1e/768684492400b1470aa7882b29d5c.png" alt="" /><br />
-无论是在系统中，还是在高级编程语言中，依赖管理工具都扮演着重要的角色，因为它极大地提高了我们的开发效率。</p>
+		<h3 class="h2 post-title">学习PHP闭包(Closure) </h3>
+		<p class="post-summary"><p>在学习Laravel框架的时候遇到了“闭包”的概念，查PHP的手册及网上的解释，分析对比一下，试着去理解。</p>
 
-<p>Ubuntu有apt-get，Python有pip，Node.js有npm，PHP呢？</p></p>
+<p>可能目前理解的还不妥，先记录下来吧。</p>
+
+<h2 id="一-闭包函数的基本用法">一、闭包函数的基本用法</h2>
+
+<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。<br />
+Example #1 匿名函数示例，用作回调函数参数的值。</p>
+
+<pre><code>&lt;?php
+echo preg_replace_callback('~-([a-z])~', function ($match) {
+    return strtoupper($match[1]);
+}, 'hello-world');
+// 输出 helloWorld
+?&gt;
+</code></pre></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;

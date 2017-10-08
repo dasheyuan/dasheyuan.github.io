@@ -56,32 +56,46 @@
                         
                         
                             <div class="post">
-	<a class="post-link" href="http://dasheyuan.com/post/cpp-test-framework-catch/">
-		<p class="post-meta left">2017年5月7日</p>
+	<a class="post-link" href="http://dasheyuan.com/post/cpp-11-multithreading-part-1/">
+		<p class="post-meta left">2017年10月6日</p>
 		
 		<div class="clearfix"></div>
-		<h3 class="h2 post-title">C&#43;&#43;测试框架Catch </h3>
-		<p class="post-summary"><h1 id="catch简介">Catch简介</h1>
+		<h3 class="h2 post-title">C&#43;&#43;11多线程编程(1) </h3>
+		<p class="post-summary"><p>前段时间，我在Google <code>std::thread</code>时，读到了网站<a href="http://thispointer.com/category/multithreading/">thispointer.com</a>的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。<br />
+下面，我就按照这个教程，介绍C++11 Multithreading。</p>
 
-<p>Catch 一种是 C++ 测试框架。<br />
-主要特点：</p>
+<h2 id="目录">目录</h2>
 
-<ul>
-<li>配置简单，下载<code>catch.hpp</code>，然后<code>#include</code>即可。<br /></li>
-<li>无需额外库依赖。只要能编译 C++ 98 和包含 C++ 标准库。<br /></li>
-<li>编写测试用例与编写函数一样。<br /></li>
-<li><code>Section</code>中测试用例是独立运行的。<br /></li>
-<li>兼容测试用例传统风格和BDD风格：<code>Given-When-Then</code>。<br /></li>
-<li>条件比较是只用一个核心的警告宏。使用了标准的C/C++ 运算符重载功能。</li>
-</ul>
+<ol>
+<li>多线程创建和参数传递</li>
+<li>多线程条件竞争及其解决方法</li>
+<li>多线程事件处理、条件变量</li>
+<li>多线程返回值</li>
+<li>线程池</li>
+</ol>
 
-<p></p></p>
+<p>C++11已经支持多线程，但编译时需要添加<code>-std=c++11</code>和 <code>-pthread</code>选项：</p>
+
+<pre><code>g++ -std=c++11 sample.cpp -pthread
+</code></pre>
+
+<p>如果使用CMake编译：</p>
+
+<pre><code>//CMakeLists.txt 中添加
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} &quot;-std=c++11 -pthread&quot;)
+</code></pre>
+
+<p>头文件：<code>&lt;thread&gt;</code><br />
+</p></p>
 	</a>
 	
 	<p class="post-meta">Tags:&nbsp;
 		
 		
 		<a href="http://dasheyuan.com/tags/C&#43;&#43;">C&#43;&#43;</a>
+		
+		,&nbsp;
+		<a href="http://dasheyuan.com/tags/Threads">Threads</a>
 		
 	</p>
 </div>

@@ -7,24 +7,76 @@
     
     
     <copyright>Copyright (c) 2017,Chen Yuan; all rights reserved.</copyright>
-    <updated>Fri, 06 Oct 2017 23:00:00 CST</updated>
+    <updated>Sat, 07 Oct 2017 23:00:00 CST</updated>
     
     <item>
-      <title>C&#43;&#43;11多线程编程(1)</title>
-      <link>http://dasheyuan.com/post/cpp-11-multithreading-1/</link>
-      <pubDate>Fri, 06 Oct 2017 23:00:00 CST</pubDate>
+      <title>C&#43;&#43;11多线程编程(2)</title>
+      <link>http://dasheyuan.com/post/cpp-11-multithreading-part-2/</link>
+      <pubDate>Sat, 07 Oct 2017 23:00:00 CST</pubDate>
       
-      <guid>http://dasheyuan.com/post/cpp-11-multithreading-1/</guid>
-      <description>&lt;p&gt;前段时间，我在Google &lt;code&gt;std::thread&lt;/code&gt;时，读到了网站&lt;a href=&#34;http://thispointer.com/category/multithreading/&#34;&gt;thispointer.com&lt;/a&gt;的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。&lt;br /&gt;
-下面，我就按照这个教程，介绍C++11 Multithreading。&lt;/p&gt;
-
-&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+      <guid>http://dasheyuan.com/post/cpp-11-multithreading-part-2/</guid>
+      <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;多线程创建和参数传递&lt;/li&gt;
 &lt;li&gt;多线程条件竞争及其解决方法&lt;/li&gt;
 &lt;li&gt;多线程事件处理、条件变量&lt;/li&gt;
-&lt;li&gt;拓展与回顾&lt;/li&gt;
+&lt;li&gt;多线程返回值&lt;/li&gt;
+&lt;li&gt;线程池&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;3-1-多线程事件处理&#34;&gt;3.1 多线程事件处理&lt;/h3&gt;
+
+&lt;p&gt;在第1部分中对多线程的创建、参数传递的使用作了说明，另外对线程间数据共享导致竞争条件异常进行了分析，并给出互斥锁的解决方式。我继续参考thisPointer的教程，深入多线程的事件处理。&lt;br /&gt;
+什么是多线程的事件处理？有时候，线程往往需要等待类似于条件为真或另一个线程任务完成的事件，这就是多线程的事件处理。先来看一个程序需求。&lt;/p&gt;
+
+&lt;h4 id=&#34;3-1-1-功能分析&#34;&gt;3.1.1 功能分析&lt;/h4&gt;
+
+&lt;p&gt;现在我们需要实现一个网络编程的客户端程序，这个程序的任务如下：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;连接服务器&lt;/li&gt;
+&lt;li&gt;从XML文件加载数据&lt;/li&gt;
+&lt;li&gt;发送加载的数据&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;分析易知任务1与其他两个任务是独立的，但任务3依赖于任务2。任务1和任务2可以设计在两个平行执行的线程上实现，从而提升程序的性能。&lt;br /&gt;
+下面我们将使用多线程的方式设计客户端程序。这个程序包含两个线程，线程1需要完成的任务是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;连接服务器&lt;/li&gt;
+&lt;li&gt;等待线程2加载XML文件的数据&lt;/li&gt;
+&lt;li&gt;发送加载的数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;线程2需要完成的任务是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;从XML文件中加载数据&lt;/li&gt;
+&lt;li&gt;通知其他等待该数据的线程&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://thispointer.com/wp-content/uploads/2015/06/first.png&#34; alt=&#34;demo&#34; /&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;11多线程编程(1)</title>
+      <link>http://dasheyuan.com/post/cpp-11-multithreading-part-1/</link>
+      <pubDate>Fri, 06 Oct 2017 23:00:00 CST</pubDate>
+      
+      <guid>http://dasheyuan.com/post/cpp-11-multithreading-part-1/</guid>
+      <description>&lt;p&gt;前段时间，我在Google &lt;code&gt;std::thread&lt;/code&gt;时，读到了网站&lt;a href=&#34;http://thispointer.com/category/multithreading/&#34;&gt;thispointer.com&lt;/a&gt;的多线程入门教程，该教程通俗易懂，但又不缺乏深度，其示例代码结合了许多C++11的新的特性，比如匿名函数等(第4部分进行拓展说明)。&lt;br /&gt;
+下面，我就按照这个教程，介绍C++11 Multithreading。&lt;/p&gt;
+
+&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;多线程创建和参数传递&lt;/li&gt;
+&lt;li&gt;多线程条件竞争及其解决方法&lt;/li&gt;
+&lt;li&gt;多线程事件处理、条件变量&lt;/li&gt;
+&lt;li&gt;多线程返回值&lt;/li&gt;
+&lt;li&gt;线程池&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;C++11已经支持多线程，但编译时需要添加&lt;code&gt;-std=c++11&lt;/code&gt;和 &lt;code&gt;-pthread&lt;/code&gt;选项：&lt;/p&gt;
@@ -343,34 +395,6 @@ sudo apt-get install -y nodejs
       
       <guid>http://dasheyuan.com/post/visit-beijing-ericsson/</guid>
       <description>&lt;p&gt;4月26日至29日，爱立信“技术创新周”在北京爱立信电信大厦举行，我们这边实验室也收到了邀请。今天有幸能跟随着老师到爱立信参观学习。“创新周活动以‘创新成就未来’为主题，全面呈现爱立信在5G、云和IP、物联网、网络社会等领域的技术创新和领先的解决方案”。上一句话来自网络，我引过来是为了把文章显得高(cou)大(zi)上(shu)的:)&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Eclipse IoT 2016 物联网开发者调查统计</title>
-      <link>http://dasheyuan.com/post/iot-developer-survey-2016/</link>
-      <pubDate>Wed, 20 Apr 2016 21:00:28 CST</pubDate>
-      
-      <guid>http://dasheyuan.com/post/iot-developer-survey-2016/</guid>
-      <description>&lt;p&gt;2016年4月14日，Eclipse IoT工作组发布了年度的物联网开发者调查结果，这次调查联合了IEEE IoT和AGILE-IoT组织，扩大了参与者的范围和回应，今年调查参与者从去年392人增加到528人。调查数据统计的结果更有参考价值了。&lt;/p&gt;
-
-&lt;p&gt;从2016年调查的结果分析，有以下几点关键趋势：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;目前，大部分参与者的公司正在或将研发IoT解决方案。&lt;/li&gt;
-&lt;li&gt;安全问题成为了一个关键的研究问题。&lt;/li&gt;
-&lt;li&gt;IoT开发编程语言排行：Java， C， Java Script, Python。&lt;/li&gt;
-&lt;li&gt;MQTT和HTTP在消息协议占主要地位。（CoAP紧跟其后）&lt;/li&gt;
-&lt;li&gt;IoT操作系统Linux占主要地位。&lt;/li&gt;
-&lt;li&gt;AWS主导者IoT云服务。（私有云紧跟其后）&lt;/li&gt;
-&lt;li&gt;IoT开源代码无处不在。
-
-在这份调查统计结果中，我比较关心的是通信协议使用的情况。&lt;br /&gt;
-&lt;img src=&#34;http://dasheyuan.com/images/iot survey.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-(上图摘自参考资料2，IoT解决方案中使用的通信协议)
-在无线接入技术中，WiFi使用的比例是最高的，我想原因很简单，现在WiFi接入的成本越来越低，而且很方便。&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;另外，我也还注意到还有LPWAN中的LTE-M。&lt;/p&gt;</description>
     </item>
     
   </channel>
